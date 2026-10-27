@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Animated stat counters ---------- */
   const runCounter = (el) => {
     const target = parseInt(el.dataset.count, 10) || 0;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = target; return; }
     const start = performance.now();
     const step = (now) => {
       const p = Math.min((now - start) / 1400, 1);
@@ -77,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(step);
   };
   const counters = $$('.counter');
+  // The real numbers are in the HTML; start from 0 only when the count-up animation will run
+  if (io && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) counters.forEach((c) => { c.textContent = '0'; });
   if (io) {
     const co = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -258,7 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#pmId').textContent = idEl ? idEl.textContent : 'FEATURED';
     $('#pmCat').textContent = catEl ? catEl.textContent : '';
     $('#pmTitle').textContent = $('h3', article).textContent;
-    $('#pmType').textContent = (typeEl ? typeEl.textContent : '') + ' · Skytech Solutions (Codezzi)';
+    const where = (details && details.dataset.where) || 'Skytech Solutions (Codezzi)';
+    $('#pmType').textContent = (typeEl ? typeEl.textContent : '') + ' · ' + where;
     $('#pmOverview').textContent = details ? $('.d-overview', details).textContent : '';
     fillChips($('#pmTesting'), details ? listText(details, '.d-testing') : []);
     const tools = details ? listText(details, '.d-tools') : [];
@@ -269,12 +273,13 @@ document.addEventListener('DOMContentLoaded', () => {
     (details ? listText(details, '.d-points') : []).forEach((t) => { const li = document.createElement('li'); li.textContent = t; pts.appendChild(li); });
     const link = details && $('.d-link', details);
     $('#pmLink').hidden = !link;
-    if (link) $('#pmLink').href = link.getAttribute('href');
+    if (link) { $('#pmLink').href = link.getAttribute('href'); $('#pmLink').textContent = link.textContent.trim() + ' →'; }
 
     const box = $('.shots', article);
     pmShots = (box && shotMap.get(box)) || [];
     pmShot = Math.min(shotIndex, Math.max(pmShots.length - 1, 0));
     $('.pmodal__body', pm).classList.toggle('no-media', pmShots.length === 0);
+    pm.classList.toggle('is-portrait', !!(box && box.classList.contains('shots--portrait')));
     $('#pmMedia').hidden = pmShots.length === 0;
     const thumbs = $('#pmThumbs');
     thumbs.innerHTML = '';
@@ -404,6 +409,212 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowLeft') stepLightbox(-1);
     }
   });
+
+  /* ---------- QA in action: animated test run ----------
+     One step about every second, 15 steps per loop. Pauses when off screen,
+     has a Pause/Play button and shows the finished state for reduced motion. */
+  const qa = $('#qaDemo');
+  if (qa) {
+    const rowsEl = $$('.qa-row', qa);
+    const linesEl = $('#qaLines');
+    const ticket = $('#qaTicket');
+    const toggleBtn = $('#demoToggle');
+    const ROWS = [
+      { pass: 2, testing: [1] },
+      { pass: 3, testing: [2] },
+      { pass: 4, testing: [3] },
+      { pass: 8, testing: [4, 7], fail: [5, 6] },
+      { pass: 9, testing: [8] }
+    ];
+    const LINES = [
+      { at: 0, a: '$ pytest tests/ --html=report.html', b: '', k: 'cmd' },
+      { at: 1, a: 'collected 5 items', b: '', k: 'info' },
+      { at: 2, a: 'test_login_valid_user', b: 'PASSED', k: 'pass' },
+      { at: 3, a: 'test_missing_token_returns_401', b: 'PASSED', k: 'pass' },
+      { at: 4, a: 'test_invoice_required_fields', b: 'PASSED', k: 'pass' },
+      { at: 5, a: 'test_vat_total_calculation', b: 'FAILED', k: 'fail' },
+      { at: 6, a: '→ BUG-001 logged with steps + screenshot', b: '', k: 'note' },
+      { at: 7, a: '→ fix deployed · re-running failed test', b: '', k: 'note' },
+      { at: 8, a: 'test_vat_total_calculation', b: 'PASSED', k: 'pass' },
+      { at: 9, a: 'test_list_pagination', b: 'PASSED', k: 'pass' },
+      { at: 10, a: '5 passed · report.html saved', b: '✓', k: 'sum' }
+    ];
+    const STEPS = 15;
+    let step = 0;
+    let timer = null;
+    let userPaused = false;
+    let onScreen = false;
+
+    const render = () => {
+      let passed = 0;
+      ROWS.forEach((r, i) => {
+        const el = rowsEl[i];
+        const isPass = step >= r.pass;
+        const isFail = !isPass && (r.fail || []).includes(step);
+        const isTesting = !isPass && !isFail && r.testing.includes(step);
+        if (isPass) passed++;
+        el.classList.toggle('is-pass', isPass);
+        el.classList.toggle('is-fail', isFail);
+        el.classList.toggle('is-testing', isTesting);
+        $('.qa-row__status', el).textContent = isPass ? 'PASSED' : isFail ? 'FAILED' : isTesting ? 'TESTING' : 'QUEUED';
+      });
+
+      // Terminal: rebuild only when the number of visible lines changes
+      const visible = LINES.filter((l) => step >= l.at);
+      if (linesEl.children.length !== visible.length) {
+        linesEl.innerHTML = '';
+        visible.forEach((l) => {
+          const row = document.createElement('div');
+          row.className = `qa-line qa-line--${l.k}`;
+          const a = document.createElement('span'); a.textContent = l.a;
+          const b = document.createElement('span'); b.textContent = l.b;
+          row.append(a, b);
+          linesEl.appendChild(row);
+        });
+      }
+
+      // Bug ticket
+      const showTicket = step >= 6 && step <= 9;
+      ticket.hidden = !showTicket;
+      ticket.classList.toggle('is-fixed', step === 7);
+      ticket.classList.toggle('is-verified', step >= 8);
+      $('#qaTicketStatus').textContent = step >= 8 ? 'VERIFIED' : step === 7 ? 'FIXED' : 'OPEN';
+
+      // Stage + progress
+      const stage = $('#qaStage');
+      const bug = step >= 5 && step < 8;
+      const ready = step >= 10;
+      stage.classList.toggle('is-bug', bug);
+      stage.classList.toggle('is-retest', step >= 8 && step < 10);
+      stage.classList.toggle('is-ready', ready);
+      $('#qaStageText').textContent = ready ? 'Release ready' : step >= 8 ? 'Retest passed' : bug ? '1 bug found' : 'Running tests';
+      const bar = $('#qaBar');
+      bar.style.width = `${(passed / ROWS.length) * 100}%`;
+      bar.classList.toggle('is-bug', bug);
+      bar.classList.toggle('is-ready', ready);
+      $('#qaPass').textContent = `${passed} / ${ROWS.length} passed`;
+    };
+
+    const tick = () => { step = (step + 1) % STEPS; render(); };
+    const start = () => { if (!timer && !userPaused && onScreen) timer = setInterval(tick, 950); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const setBtn = () => {
+      toggleBtn.classList.toggle('is-paused', userPaused);
+      $('span', toggleBtn).textContent = userPaused ? 'Play' : 'Pause';
+      toggleBtn.setAttribute('aria-label', userPaused ? 'Play animation' : 'Pause animation');
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      userPaused = !userPaused;
+      setBtn();
+      if (userPaused) stop(); else start();
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      step = 10; userPaused = true; setBtn();
+    }
+    render();
+
+    if (io) {
+      new IntersectionObserver((entries) => {
+        onScreen = entries[0].isIntersecting;
+        if (onScreen) start(); else stop();
+      }, { threshold: 0.2 }).observe(qa);
+    } else {
+      onScreen = true; start();
+    }
+  }
+
+  /* ---------- Bug stack: drag the cards aside ----------
+     Drag (mouse or touch) a card far enough and it flies off. "Fix the next bug"
+     does the same with one click or keyboard press; "Reset" brings them back. */
+  const stack = $('#bugStack');
+  if (stack) {
+    const cards = $$('.bug-card', stack);          // last in markup = top of the pile
+    const truth = $('.bug-truth');
+    const countEl = $('#bugCount');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const layout = () => {
+      const open = cards.filter((c) => !c.classList.contains('is-gone'));
+      open.forEach((c, i) => {
+        const depth = open.length - 1 - i;           // 0 = top card
+        c.style.setProperty('--r', `${[0, -4, 3, -6, 5][depth] || 0}deg`);
+        c.style.setProperty('--y', `${depth * 8}px`);
+        c.style.zIndex = String(10 + i);
+        c.style.transform = '';
+      });
+      const n = open.length;
+      countEl.textContent = n ? `${n} open bug${n === 1 ? '' : 's'}` : '0 open bugs · release ready';
+      truth.classList.toggle('is-revealed', n === 0);
+    };
+    const throwCard = (card, dx = 1, dy = 0) => {
+      const len = Math.hypot(dx, dy) || 1;
+      card.style.transform = `translate(calc(-50% + ${(dx / len) * 640}px), calc(-50% + ${(dy / len) * 240}px)) rotate(${dx > 0 ? 24 : -24}deg)`;
+      card.classList.add('is-gone');
+      setTimeout(layout, reduce ? 0 : 60);
+    };
+    const topCard = () => [...cards].reverse().find((c) => !c.classList.contains('is-gone'));
+
+    cards.forEach((card) => {
+      let sx = 0, sy = 0, dragging = false;
+      card.addEventListener('pointerdown', (e) => {
+        if (card !== topCard()) return;
+        dragging = true; sx = e.clientX; sy = e.clientY;
+        card.classList.add('is-dragging');
+        card.setPointerCapture(e.pointerId);
+      });
+      card.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - sx, dy = e.clientY - sy;
+        card.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) rotate(${dx / 14}deg)`;
+      });
+      const end = (e) => {
+        if (!dragging) return;
+        dragging = false;
+        card.classList.remove('is-dragging');
+        const dx = e.clientX - sx, dy = e.clientY - sy;
+        if (Math.hypot(dx, dy) > 110) throwCard(card, dx, dy);
+        else layout();
+      };
+      card.addEventListener('pointerup', end);
+      card.addEventListener('pointercancel', end);
+    });
+    $('#bugNext').addEventListener('click', () => { const c = topCard(); if (c) throwCard(c, 1, -0.2); });
+    $('#bugReset').addEventListener('click', () => { cards.forEach((c) => c.classList.remove('is-gone')); layout(); });
+    layout();
+  }
+
+  /* ---------- Testing lifecycle: click a stage ---------- */
+  const phases = $$('.phase');
+  if (phases.length) {
+    const data = $$('.phase-data').map((t) => t.content);
+    const panel = $('#ph-panel');
+    const select = (k, focus) => {
+      const d = data[k];
+      phases.forEach((b, i) => {
+        b.setAttribute('aria-selected', String(i === k));
+        b.tabIndex = i === k ? 0 : -1;
+        b.classList.toggle('is-done', i < k);
+      });
+      $('#phNum').textContent = $('.pd-num', d).textContent;
+      $('#phTitle').textContent = $('.pd-title', d).textContent;
+      $('#phWhen').textContent = $('.pd-when', d).textContent;
+      $('#phWhat').textContent = $('.pd-what', d).textContent;
+      const arts = $('#phArtifacts'); arts.innerHTML = '';
+      $$('.pd-artifacts li', d).forEach((li) => { const sp = document.createElement('span'); sp.textContent = li.textContent; arts.appendChild(sp); });
+      $('#phaseLine').style.width = `${(k / (phases.length - 1)) * 100}%`;
+      panel.classList.remove('is-switching'); void panel.offsetWidth; panel.classList.add('is-switching');
+      if (focus) phases[k].focus();
+    };
+    phases.forEach((b, i) => {
+      b.addEventListener('click', () => select(i));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); select((i + 1) % phases.length, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); select((i - 1 + phases.length) % phases.length, true); }
+      });
+    });
+    select(0);
+  }
 
   /* ---------- Current year ---------- */
   const year = $('#year');

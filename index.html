@@ -8,7 +8,10 @@
   <meta name="theme-color" content="#0F766E">
   <meta property="og:title" content="Md Jaker Ullah Chowdhury Nahin — SQA Engineer">
   <meta property="og:description" content="I find the bugs before your users do.">
-  <meta property="og:image" content="assets/images/profile.jpg">
+  <meta property="og:image" content="https://mdjakerullahchowdhurynahin.vercel.app/assets/images/profile.jpg">
+  <link rel="canonical" href="https://mdjakerullahchowdhurynahin.vercel.app/">
+  <meta property="og:url" content="https://mdjakerullahchowdhurynahin.vercel.app/">
+  <meta property="og:type" content="website">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +20,9 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- SQA motion background (drawn by js/bg.js). Delete this line to turn it off. -->
+  <canvas id="qaBg" class="qa-bg" aria-hidden="true"></canvas>
 
   <!-- ================= INTRO SPLASH (delete this block to remove it) ================= -->
   <div class="intro" id="intro" aria-hidden="true">
@@ -42,7 +48,7 @@
         <a href="#skills" class="nav__link">Skills</a>
         <a href="#experience" class="nav__link">Experience</a>
         <a href="#work" class="nav__link">Projects</a>
-        <a href="#education" class="nav__link">Education</a>
+        <a href="#services" class="nav__link">Services</a>
         <a href="#contact" class="nav__link nav__link--cta">Hire me</a>
       </nav>
     </div>
@@ -59,7 +65,7 @@
           <span class="pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Dhaka, Bangladesh</span>
         </div>
         <span class="eyebrow">SOFTWARE QUALITY ASSURANCE ENGINEER</span>
-        <h1 class="hero__title">I find the bugs<br>before your <span class="accent-text">users do.</span></h1>
+        <h1 class="hero__title kinetic" aria-label="I find the bugs before your users do."><span class="w" aria-hidden="true">I</span> <span class="w" aria-hidden="true">find</span> <span class="w" aria-hidden="true">the</span> <span class="w" aria-hidden="true">bugs</span><br><span class="w" aria-hidden="true">before</span> <span class="w" aria-hidden="true">your</span> <span class="w accent-text" aria-hidden="true">users</span> <span class="w accent-text" aria-hidden="true">do.</span></h1>
         <p class="hero__text">I'm <strong>Md Jaker Ullah Chowdhury Nahin</strong>, an Associate QA Engineer at Skytech Solutions (Codezzi). I test web products, client websites, CMS panels and the REST APIs behind them — and automate the checks worth repeating.</p>
         <div class="hero__actions">
           <a href="assets/cv/Nahin-CV.pdf" class="btn btn--primary" download>
@@ -71,11 +77,22 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
           </a>
         </div>
+        <!-- Tool badges (hover or focus to see the name) -->
+        <ul class="badges" aria-label="Tools I use">
+          <li class="badge-orb" tabindex="0" data-name="Postman" style="--d:0s">Pm</li>
+          <li class="badge-orb" tabindex="0" data-name="Swagger" style="--d:.4s">Sw</li>
+          <li class="badge-orb" tabindex="0" data-name="Python" style="--d:.8s">Py</li>
+          <li class="badge-orb" tabindex="0" data-name="Pytest" style="--d:1.2s">Pt</li>
+          <li class="badge-orb" tabindex="0" data-name="JMeter" style="--d:1.6s">JM</li>
+          <li class="badge-orb" tabindex="0" data-name="k6" style="--d:2s">k6</li>
+          <li class="badge-orb" tabindex="0" data-name="SQL" style="--d:2.4s">SQL</li>
+          <li class="badge-orb" tabindex="0" data-name="Git &amp; GitHub" style="--d:2.8s">Git</li>
+        </ul>
         <!-- The counters animate up to data-count -->
         <div class="stats">
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="9">0</span>+</span><span class="stat__label">Products &amp; websites tested</span></div>
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="169">0</span></span><span class="stat__label">API endpoints in my Pytest suite</span></div>
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="46">0</span></span><span class="stat__label">API modules mapped</span></div>
+          <div class="stat"><span class="stat__num"><span class="counter" data-count="11">11</span>+</span><span class="stat__label">Products &amp; websites tested</span></div>
+          <div class="stat"><span class="stat__num"><span class="counter" data-count="169">169</span></span><span class="stat__label">API endpoints in my Pytest suite</span></div>
+          <div class="stat"><span class="stat__num"><span class="counter" data-count="46">46</span></span><span class="stat__label">API modules mapped</span></div>
         </div>
       </div>
 
@@ -99,12 +116,98 @@
       </div>
     </div>
 
+    <!-- ================= BUG STACK (drag the cards aside) ================= -->
+    <section id="bugs" class="section container bugwall">
+      <div class="bugwall__text reveal">
+        <div class="section__head">
+          <span class="eyebrow">THE TESTER'S VIEW</span>
+          <h2 class="section__title">Releases break when bugs <span class="accent-text">stay hidden.</span></h2>
+          <p class="section__lead">Every one of these could reach a real user. Drag the bug reports aside — the release truth is underneath.</p>
+        </div>
+        <div class="bugwall__actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="bugNext">Fix the next bug</button>
+          <button type="button" class="btn btn--ghost btn--sm" id="bugReset">Reset</button>
+          <span class="mono-label" id="bugCount" aria-live="polite">5 open bugs</span>
+        </div>
+        <p class="qa-note">Illustrative bug reports — the kind of issues I catch and document.</p>
+      </div>
+      <div class="bugwall__stage reveal">
+        <div class="bug-truth" aria-hidden="true">
+          <span class="bug-truth__icon">✓</span>
+          <strong>0 open critical bugs</strong>
+          <span>All issues fixed, retested and verified.</span>
+          <span class="status">RELEASE READY</span>
+        </div>
+        <div class="bug-stack" id="bugStack">
+          <article class="bug-card" data-sev="minor"><div class="bug-card__top"><span class="mono-label">BUG-061</span><span class="sev sev--minor">Minor</span></div><h3>Pagination skips the last page on a slow network</h3><dl><div><dt>Expected</dt><dd>Page 12 of 12 loads</dd></div><div><dt>Actual</dt><dd>Jumps back to page 11</dd></div></dl><span class="bug-card__hint">Drag me aside →</span></article>
+          <article class="bug-card" data-sev="minor"><div class="bug-card__top"><span class="mono-label">BUG-073</span><span class="sev sev--minor">Minor</span></div><h3>Date picker shows the wrong month in the Bangla locale</h3><dl><div><dt>Expected</dt><dd>অক্টোবর ২০২৬</dd></div><div><dt>Actual</dt><dd>সেপ্টেম্বর ২০২৬</dd></div></dl><span class="bug-card__hint">Drag me aside →</span></article>
+          <article class="bug-card" data-sev="major"><div class="bug-card__top"><span class="mono-label">BUG-088</span><span class="sev sev--major">Major</span></div><h3>Bulk CSV import accepts duplicate rows</h3><dl><div><dt>Expected</dt><dd>Duplicates rejected with a report</dd></div><div><dt>Actual</dt><dd>214 duplicate records saved</dd></div></dl><span class="bug-card__hint">Drag me aside →</span></article>
+          <article class="bug-card" data-sev="major"><div class="bug-card__top"><span class="mono-label">BUG-097</span><span class="sev sev--major">Major</span></div><h3>Session token still works after logout</h3><dl><div><dt>Expected</dt><dd>401 Unauthorized</dd></div><div><dt>Actual</dt><dd>200 OK with user data</dd></div></dl><span class="bug-card__hint">Drag me aside →</span></article>
+          <article class="bug-card" data-sev="critical"><div class="bug-card__top"><span class="mono-label">BUG-104</span><span class="sev sev--critical">Critical</span></div><h3>Checkout total ignores VAT on discounted items</h3><dl><div><dt>Expected</dt><dd>Total 1,150.00</dd></div><div><dt>Actual</dt><dd>Total 1,000.00</dd></div></dl><span class="bug-card__hint">Drag me aside →</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= QA IN ACTION (animated test run) ================= -->
+    <section id="demo" class="section container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <span class="eyebrow">QA IN ACTION</span>
+          <h2 class="section__title">From failing test to <span class="accent-text">release ready.</span></h2>
+          <p class="section__lead">An animated look at how I work: run the suite, catch the failure, log a clear bug, retest the fix, then sign off the release.</p>
+        </div>
+        <button type="button" class="btn btn--ghost btn--sm" id="demoToggle" aria-label="Pause animation">
+          <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>
+          <span>Pause</span>
+        </button>
+      </div>
+
+      <!-- Want your own video instead? Put it at assets/video/qa-demo.mp4 and replace the
+           <div class="qa-demo"> block below with:
+           <video class="qa-video" src="assets/video/qa-demo.mp4" poster="assets/images/profile.jpg"
+                  controls muted playsinline preload="metadata"></video> -->
+      <div class="qa-demo reveal" id="qaDemo" aria-label="Animated illustration of a test run: tests run, one fails, a bug is logged, the fix is retested and the release is marked ready">
+        <div class="qa-demo__panels">
+          <div class="qa-app">
+            <div class="qa-app__bar">
+              <span class="qa-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="qa-app__url">app-under-test / invoices</span>
+            </div>
+            <div class="qa-app__body">
+              <span class="mono-label">APP UNDER TEST</span>
+              <div class="qa-row" data-row="0"><span class="qa-row__icon"></span><span class="qa-row__text"><span>Login form</span><i style="width:72%"></i></span><span class="qa-row__status">QUEUED</span></div>
+              <div class="qa-row" data-row="1"><span class="qa-row__icon"></span><span class="qa-row__text"><span>Auth token (401 check)</span><i style="width:58%"></i></span><span class="qa-row__status">QUEUED</span></div>
+              <div class="qa-row" data-row="2"><span class="qa-row__icon"></span><span class="qa-row__text"><span>Invoice required fields</span><i style="width:84%"></i></span><span class="qa-row__status">QUEUED</span></div>
+              <div class="qa-row" data-row="3"><span class="qa-row__icon"></span><span class="qa-row__text"><span>VAT total calculation</span><i style="width:64%"></i></span><span class="qa-row__status">QUEUED</span></div>
+              <div class="qa-row" data-row="4"><span class="qa-row__icon"></span><span class="qa-row__text"><span>List pagination</span><i style="width:48%"></i></span><span class="qa-row__status">QUEUED</span></div>
+            </div>
+            <div class="qa-ticket" id="qaTicket" hidden>
+              <div class="qa-ticket__top"><span>BUG-001</span><span class="qa-ticket__status" id="qaTicketStatus">OPEN</span></div>
+              <strong>VAT total rounding mismatch</strong>
+              <p>Severity: Major · Expected 1,150.00 · Actual 1,149.99 · Steps + screenshot attached</p>
+            </div>
+          </div>
+          <div class="qa-term" aria-hidden="true">
+            <div class="qa-term__head"><span>test-runner</span><span>pytest</span></div>
+            <div class="qa-term__lines" id="qaLines"></div>
+            <span class="qa-term__cursor">▍</span>
+          </div>
+        </div>
+        <div class="qa-demo__foot">
+          <span class="qa-stage" id="qaStage"><span class="qa-stage__dot"></span><span id="qaStageText">Running tests</span></span>
+          <div class="qa-progress"><div class="qa-progress__track"><div class="qa-progress__bar" id="qaBar"></div></div><span id="qaPass">0 / 5 passed</span></div>
+          <span class="qa-note">Animated illustration</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= ABOUT ================= -->
     <section id="about" class="section container">
       <div class="about">
         <div class="about__text reveal">
           <div class="section__head">
-            <span class="eyebrow">01 — ABOUT ME</span>
+            <span class="eyebrow">ABOUT ME</span>
             <h2 class="section__title">Quality is a habit, <span class="accent-text">not a phase.</span></h2>
           </div>
           <p>I'm a QA engineer with a background in Computer Science, currently working as an Associate QA Engineer at Skytech Solutions (Codezzi). I test the company's web products, client websites and their CMS panels — functional, regression and smoke testing in the browser, and REST API testing in Postman against the Swagger docs.</p>
@@ -140,27 +243,45 @@
       </div>
     </section>
 
-    <!-- ================= QA PROCESS ================= -->
-    <section id="process" class="section container">
+    <!-- ================= TESTING LIFECYCLE (click a phase) ================= -->
+    <section id="process" class="section container lifecycle">
+      <div class="lifecycle__glow" aria-hidden="true"></div>
       <div class="section__head reveal">
-        <span class="eyebrow">02 — QA PROCESS</span>
-        <h2 class="section__title">How I test a <span class="accent-text">release</span></h2>
-        <p class="section__lead">The same steps I follow for every product, from first read of the requirement to the daily QA update.</p>
+        <span class="eyebrow">WORKING STAGES</span>
+        <h2 class="section__title">My testing <span class="accent-text">lifecycle</span></h2>
+        <p class="section__lead">Six stages I follow for every release. Select a stage to see what I do and what I deliver.</p>
       </div>
-      <ol class="process reveal">
-        <li class="process__step"><span class="process__num">01</span><h3>Understand</h3><p>Read the requirement, flows and Swagger docs.</p></li>
-        <li class="process__step"><span class="process__num">02</span><h3>Design tests</h3><p>Write test cases, including negative cases.</p></li>
-        <li class="process__step"><span class="process__num">03</span><h3>Execute</h3><p>Functional, smoke, sanity and regression runs.</p></li>
-        <li class="process__step"><span class="process__num">04</span><h3>Test the APIs</h3><p>Postman checks against Swagger, plus Pytest.</p></li>
-        <li class="process__step"><span class="process__num">05</span><h3>Report &amp; retest</h3><p>Clear bug reports, then a retest of each fix.</p></li>
-        <li class="process__step"><span class="process__num">06</span><h3>QA status</h3><p>A daily QA update to the team.</p></li>
-      </ol>
+      <div class="lifecycle__track reveal">
+        <div class="lifecycle__line" aria-hidden="true"><span id="phaseLine"></span></div>
+        <div class="lifecycle__tabs" role="tablist" aria-label="Testing lifecycle stages">
+          <button type="button" class="phase" role="tab" id="ph-tab-0" aria-controls="ph-panel" aria-selected="true" data-phase="0"><span class="phase__num">01</span><span class="phase__name">Requirement analysis</span></button>
+          <button type="button" class="phase" role="tab" id="ph-tab-1" aria-controls="ph-panel" aria-selected="false" data-phase="1"><span class="phase__num">02</span><span class="phase__name">Test planning</span></button>
+          <button type="button" class="phase" role="tab" id="ph-tab-2" aria-controls="ph-panel" aria-selected="false" data-phase="2"><span class="phase__num">03</span><span class="phase__name">Test case design</span></button>
+          <button type="button" class="phase" role="tab" id="ph-tab-3" aria-controls="ph-panel" aria-selected="false" data-phase="3"><span class="phase__num">04</span><span class="phase__name">Test execution</span></button>
+          <button type="button" class="phase" role="tab" id="ph-tab-4" aria-controls="ph-panel" aria-selected="false" data-phase="4"><span class="phase__num">05</span><span class="phase__name">Defect reporting & retest</span></button>
+          <button type="button" class="phase" role="tab" id="ph-tab-5" aria-controls="ph-panel" aria-selected="false" data-phase="5"><span class="phase__num">06</span><span class="phase__name">QA status & sign-off</span></button>
+        </div>
+      </div>
+      <div class="phase-panel reveal" id="ph-panel" role="tabpanel" aria-live="polite">
+        <div class="phase-panel__head"><span class="phase-panel__num" id="phNum">01</span><div><h3 id="phTitle">Requirement analysis</h3><span class="mono-label" id="phWhen">Start of every feature</span></div></div>
+        <div class="phase-panel__body">
+          <div><span class="eyebrow eyebrow--plain">WHAT I DO</span><p id="phWhat">Read the requirement, user flows and Swagger docs; ask questions early and note the risky areas.</p></div>
+          <div><span class="eyebrow eyebrow--plain">KEY ARTIFACTS</span><div class="chips" id="phArtifacts"><span>Questions list</span><span>Risk notes</span><span>Test scope</span></div></div>
+        </div>
+      </div>
+      <!-- Edit the stages here: one template per stage, same order as the buttons above -->
+        <template class="phase-data"><span class="pd-num">01</span><span class="pd-title">Requirement analysis</span><span class="pd-when">Start of every feature</span><p class="pd-what">Read the requirement, user flows and Swagger docs; ask questions early and note the risky areas.</p><ul class="pd-artifacts"><li>Questions list</li><li>Risk notes</li><li>Test scope</li></ul></template>
+        <template class="phase-data"><span class="pd-num">02</span><span class="pd-title">Test planning</span><span class="pd-when">Before the sprint build</span><p class="pd-what">Decide what to test for the release — functional, regression, API and performance — and what data and environments are needed.</p><ul class="pd-artifacts"><li>Test checklist</li><li>Test data needs</li><li>Environment notes</li></ul></template>
+        <template class="phase-data"><span class="pd-num">03</span><span class="pd-title">Test case design</span><span class="pd-when">While features are built</span><p class="pd-what">Write clear test cases, including negative and edge cases, and prepare bulk CSV/Excel test data with Pandas.</p><ul class="pd-artifacts"><li>Test cases</li><li>Edge & negative cases</li><li>Bulk test data</li></ul></template>
+        <template class="phase-data"><span class="pd-num">04</span><span class="pd-title">Test execution</span><span class="pd-when">Every release build</span><p class="pd-what">Run functional, smoke, sanity and regression tests; check APIs in Postman; run Pytest suites and JMeter/k6 load checks.</p><ul class="pd-artifacts"><li>Execution results</li><li>Postman collections</li><li>pytest-html report</li></ul></template>
+        <template class="phase-data"><span class="pd-num">05</span><span class="pd-title">Defect reporting & retest</span><span class="pd-when">As soon as an issue appears</span><p class="pd-what">Log bugs with steps, expected vs actual results and screenshots, then retest every fix.</p><ul class="pd-artifacts"><li>Bug reports</li><li>Screenshots</li><li>Retest results</li></ul></template>
+        <template class="phase-data"><span class="pd-num">06</span><span class="pd-title">QA status & sign-off</span><span class="pd-when">Daily and at release</span><p class="pd-what">Send the daily QA status to the team and confirm when a release is ready to ship.</p><ul class="pd-artifacts"><li>Daily QA report</li><li>Release sign-off</li></ul></template>
     </section>
 
     <!-- ================= SKILLS ================= -->
     <section id="skills" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">03 — CORE SKILLS</span>
+        <span class="eyebrow">CORE SKILLS</span>
         <h2 class="section__title">The testing <span class="accent-text">toolkit</span></h2>
       </div>
       <div class="grid grid--4">
@@ -174,7 +295,7 @@
     <!-- ================= EXPERIENCE ================= -->
     <section id="experience" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">04 — EXPERIENCE</span>
+        <span class="eyebrow">EXPERIENCE</span>
         <h2 class="section__title">Where I've <span class="accent-text">worked</span></h2>
       </div>
       <ol class="timeline">
@@ -214,9 +335,9 @@
     <!-- ================= PROJECTS ================= -->
     <section id="work" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">05 — PROJECTS</span>
+        <span class="eyebrow">PROJECTS</span>
         <h2 class="section__title">Systems I've <span class="accent-text">validated</span></h2>
-        <p class="section__lead">Products and websites I test at Skytech Solutions (Codezzi), plus my API automation project.</p>
+        <p class="section__lead">Products, platforms and websites I've tested, plus my API automation project.</p>
       </div>
 
       <!-- Each button's data-filter must match a project's data-category -->
@@ -224,6 +345,7 @@
         <button type="button" class="filter is-active" role="tab" aria-selected="true" data-filter="all">All projects</button>
         <button type="button" class="filter" role="tab" aria-selected="false" data-filter="biz">Business software</button>
         <button type="button" class="filter" role="tab" aria-selected="false" data-filter="web">Websites &amp; CMS</button>
+        <button type="button" class="filter" role="tab" aria-selected="false" data-filter="mobile">Mobile apps</button>
         <button type="button" class="filter" role="tab" aria-selected="false" data-filter="auto">Automation</button>
       </div>
 
@@ -482,6 +604,107 @@
             </ul>
           </div>
         </article>
+        <!-- Public service platform -->
+        <article class="project" data-category="biz">
+          <div class="shots" data-shots="jonosheba" data-title="Jonosheba"></div>
+          <div class="project__top"><span class="mono-label">PRJ-10</span><span class="badge badge--gov">Public service platform</span></div>
+          <div class="project__title"><h3>Jonosheba (জনসেবা)</h3><p>Citizen service &amp; complaint management platform</p></div>
+          <ul class="checks checks--sm">
+            <li>Citizen registration, login and complaint submission with category, location and photo/video evidence</li>
+            <li>Complaint workflow: review, investigation assignment, findings, decision, resolution and citizen feedback</li>
+            <li>Role and jurisdiction-based access from District to Village level</li>
+          </ul>
+          <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+          <!-- Pop-up details: edit the text below. data-where replaces the company name in the pop-up. -->
+          <div class="project__details" data-where="Muradnagar Upazila · jonosheba.net" hidden>
+            <p class="d-overview">A digital public service platform that connects citizens with their local government authorities. Citizens report problems with photo or video evidence and track progress, while representatives, investigation officers and administrators review, investigate and resolve complaints.</p>
+            <ul class="d-testing"><li>Functional</li><li>End-to-end workflow</li><li>Role &amp; jurisdiction access</li><li>File &amp; evidence upload</li><li>Mobile app (Android)</li></ul>
+            <ul class="d-tools"></ul>
+            <ul class="d-points">
+              <li>Citizen registration, login and profile management</li>
+              <li>Complaint submission with category, location and photo/video/document evidence</li>
+              <li>Complaint workflow: review, investigation assignment, findings, authority decision, resolution and citizen feedback</li>
+              <li>Role and jurisdiction-based access for citizens, ward and union representatives, Upazila chairman, investigation officers, administrators and higher authorities</li>
+              <li>District → Upazila → Union → Ward → Village hierarchy for filtering, assignment and area-wise reports</li>
+              <li>Notifications, dashboards (total, pending, under investigation, resolved) and audit history</li>
+              <li>Flutter WebView Android app, including camera and video evidence upload</li>
+            </ul>
+            <a class="d-link" href="https://jonosheba.net">Visit jonosheba.net</a>
+          </div>
+        </article>
+        <!-- Mobile app (phone screenshots are shown tall, side by side) -->
+        <article class="project" data-category="mobile">
+          <div class="shots shots--portrait" data-shots="donor-connect" data-title="Donor Connect"></div>
+          <div class="project__top"><span class="mono-label">PRJ-11</span><span class="badge badge--mobile">Mobile app</span></div>
+          <div class="project__title"><h3>Donor Connect</h3><p>Blood donation &amp; emergency support app · Flutter</p></div>
+          <ul class="checks checks--sm">
+            <li>Registration, profiles, blood group, donor availability and donation history</li>
+            <li>Emergency blood requests, nearby donor discovery and push notifications</li>
+            <li>Messaging, photo/video sharing, and audio and video calls</li>
+          </ul>
+          <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+          <!-- Pop-up details: edit the text below -->
+          <div class="project__details" hidden>
+            <p class="d-overview">A Flutter mobile app that connects blood donors with people who urgently need blood. Users create emergency requests, find donors nearby, get push alerts and coordinate through chat, audio and video calls.</p>
+            <ul class="d-testing"><li>Functional</li><li>Mobile app (Flutter)</li><li>Push notifications</li><li>Location-based features</li><li>Real-time communication</li></ul>
+            <ul class="d-tools"></ul>
+            <ul class="d-points">
+              <li>Account registration, login and profile management</li>
+              <li>Donor profile: blood group, availability, donation history and health information</li>
+              <li>Creating and sharing emergency blood requests</li>
+              <li>Nearby donor discovery based on location</li>
+              <li>Push notifications for urgent blood requests</li>
+              <li>In-app messaging with photo and video sharing</li>
+              <li>Audio and video calls between donors and recipients</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= HOW I CAN HELP ================= -->
+    <section id="services" class="section container">
+      <div class="section__head reveal">
+        <span class="eyebrow">ENGAGEMENT</span>
+        <h2 class="section__title">How I can <span class="accent-text">help</span></h2>
+        <p class="section__lead">Pick the kind of testing your team needs right now.</p>
+      </div>
+      <div class="help-grid">
+        <article class="card help reveal">
+          <span class="help__num">01</span>
+          <h3>Manual & functional testing</h3>
+          <p class="muted">Hands-on testing of every flow, form and screen before it ships.</p>
+          <div class="help__best"><span class="mono-label">BEST FOR</span><ul class="checks checks--sm"><li>New features before release</li><li>Website and CMS launches</li><li>UAT support</li></ul></div>
+          <a href="#contact" class="help__link">Discuss this →</a>
+        </article>
+        <article class="card help reveal">
+          <span class="help__num">02</span>
+          <h3>API testing</h3>
+          <p class="muted">REST APIs checked against their Swagger docs, including the cases that should fail.</p>
+          <div class="help__best"><span class="mono-label">BEST FOR</span><ul class="checks checks--sm"><li>APIs with Swagger/OpenAPI docs</li><li>Auth and token checks</li><li>Negative and edge cases</li></ul></div>
+          <a href="#contact" class="help__link">Discuss this →</a>
+        </article>
+        <article class="card help reveal">
+          <span class="help__num">03</span>
+          <h3>Test automation</h3>
+          <p class="muted">Repeated checks turned into Python and Pytest suites with HTML reports.</p>
+          <div class="help__best"><span class="mono-label">BEST FOR</span><ul class="checks checks--sm"><li>Regression you run every release</li><li>API smoke suites</li><li>Readable pytest-html reports</li></ul></div>
+          <a href="#contact" class="help__link">Discuss this →</a>
+        </article>
+        <article class="card help reveal">
+          <span class="help__num">04</span>
+          <h3>Performance testing</h3>
+          <p class="muted">Load and stress checks to find slow endpoints before your users do.</p>
+          <div class="help__best"><span class="mono-label">BEST FOR</span><ul class="checks checks--sm"><li>Pre-launch load checks</li><li>JMeter and k6 scripts</li><li>Finding slow endpoints</li></ul></div>
+          <a href="#contact" class="help__link">Discuss this →</a>
+        </article>
+        <article class="card help reveal">
+          <span class="help__num">05</span>
+          <h3>Release QA</h3>
+          <p class="muted">A steady QA rhythm across the sprint, ending in a clear go/no-go.</p>
+          <div class="help__best"><span class="mono-label">BEST FOR</span><ul class="checks checks--sm"><li>Sprint releases</li><li>Daily QA status updates</li><li>Smoke and sanity sign-off</li></ul></div>
+          <a href="#contact" class="help__link">Discuss this →</a>
+        </article>
       </div>
     </section>
 
@@ -489,7 +712,7 @@
     <section id="education" class="section container split">
       <div class="split__main reveal">
         <div class="section__head">
-          <span class="eyebrow">06 — EDUCATION</span>
+          <span class="eyebrow">EDUCATION</span>
           <h2 class="section__title">Academic <span class="accent-text">foundation</span></h2>
         </div>
         <div class="list-card">
@@ -509,7 +732,7 @@
       </div>
       <div class="split__side reveal">
         <div class="section__head">
-          <span class="eyebrow">07 — CERTIFICATIONS</span>
+          <span class="eyebrow">CERTIFICATIONS</span>
           <h2 class="section__title">Always <span class="accent-text">learning</span></h2>
         </div>
         <div class="list-card cert-list">
@@ -526,7 +749,7 @@
     <section id="gallery" class="section container">
       <div class="section__head section__head--row reveal">
         <div>
-          <span class="eyebrow">08 — GALLERY</span>
+          <span class="eyebrow">GALLERY</span>
           <h2 class="section__title">Moments &amp; <span class="accent-text">milestones</span></h2>
         </div>
         <button type="button" class="btn btn--ghost btn--sm" id="viewToggle" aria-pressed="false">
@@ -563,7 +786,7 @@
       <div class="contact reveal">
         <div class="contact__text">
           <span class="eyebrow">GET IN TOUCH</span>
-          <h2>Need a QA engineer who cares about the details?</h2>
+          <h2>Work with a QA engineer who shows his work.</h2>
           <p>Email me about QA roles or testing work, or browse my code on GitHub.</p>
         </div>
         <div class="contact__links">
@@ -586,11 +809,12 @@
 
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
+    <div class="container footer__tagline" aria-hidden="true"><span>I FIND THE BUGS.</span></div>
     <div class="container footer__inner">
       <span class="muted">© <span id="year">2026</span> Md Jaker Ullah Chowdhury Nahin · SQA Engineer</span>
       <nav class="footer__nav" aria-label="Footer">
         <a href="#about">About</a><a href="#work">Projects</a><a href="#contact">Contact</a>
-        <a href="https://github.com/nahincodezzi" target="_blank" rel="noopener">GitHub</a><a href="assets/cv/Nahin-CV%20(6).pdf" download>Download CV</a>
+        <a href="https://github.com/nahincodezzi" target="_blank" rel="noopener">GitHub</a><a href="assets/cv/Nahin-CV.pdf" download>Download CV</a>
       </nav>
     </div>
   </footer>
@@ -645,5 +869,6 @@
   <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
 
   <script src="js/script.js"></script>
+  <script src="js/bg.js"></script>
 </body>
 </html>
