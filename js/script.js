@@ -616,6 +616,18 @@ document.addEventListener('DOMContentLoaded', () => {
     select(0);
   }
 
+  /* ---------- Live labels: start typing when a label scrolls into view ---------- */
+  const liveLabels = document.querySelectorAll('.eyebrow--live');
+  if (liveLabels.length && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('live-ready');
+    const liveIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-on'); liveIO.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    liveLabels.forEach((l) => { if (!l.classList.contains('is-on')) liveIO.observe(l); });
+  } else {
+    liveLabels.forEach((l) => l.classList.add('is-on'));
+  }
+
   /* ---------- Current year ---------- */
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
