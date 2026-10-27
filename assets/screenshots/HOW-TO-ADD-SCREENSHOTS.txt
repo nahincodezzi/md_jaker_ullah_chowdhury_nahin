@@ -1,0 +1,33 @@
+HOW TO ADD PROJECT SCREENSHOTS
+==============================
+
+Put your screenshots in THIS folder and name them like this:
+
+  <project-name>-1.png   (first screenshot, shown largest)
+  <project-name>-2.png
+  <project-name>-3.png   ... up to 12 per project
+
+.png, .jpg, .jpeg and .webp all work. Numbers must start at 1 with no gaps.
+
+Project names to use:
+
+  api-automation          SkyVAT API Automation (featured card)
+  skyvat                  SkyVAT
+  skycrm                  SkyCRM
+  skysms                  SkySMS
+  skydatamanager          SkyDataManager
+  hiring-desk             Codezzi Hiring Desk
+  google-ads-manager      AI-Powered Google Ads Manager
+  prime-bank-foundation   Prime Bank Foundation
+  baf                     Bangladesh Athletics Federation
+  codezzi-website         Codezzi Corporate Website
+
+Example: skyvat-1.png, skyvat-2.png, skyvat-3.jpg
+
+The card shows the first 3 screenshots (with "+N" if there are more).
+Clicking a screenshot opens the project details pop-up, where every
+screenshot can be browsed and opened full size.
+A project with no screenshots simply shows no image area.
+
+Tip: a 16:10 size like 1280x800 looks best. Blur or crop any client or
+personal data before publishing.
