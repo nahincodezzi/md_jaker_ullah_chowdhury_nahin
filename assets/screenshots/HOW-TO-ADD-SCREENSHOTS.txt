@@ -21,6 +21,8 @@ Project names to use:
   prime-bank-foundation   Prime Bank Foundation
   baf                     Bangladesh Athletics Federation
   codezzi-website         Codezzi Corporate Website
+  jonosheba               Jonosheba (জনসেবা)
+  donor-connect           Donor Connect (mobile app — use phone screenshots)
 
 Example: skyvat-1.png, skyvat-2.png, skyvat-3.jpg
 

@@ -1,1 +1,314 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#0F766E"/><path d="M18 33l9 9 19-20" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- ===== surface ===== -->
+    <radialGradient id="surf" cx=".35" cy=".3" r=".9">
+      <stop offset="0" stop-color="#1A9A8E"/>
+      <stop offset=".6" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0A524C"/>
+    </radialGradient>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 .1  0 0 0 0 .1  0 0 0 .08 0"/>
+    </filter>
+    <filter id="paperBig" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".45" numOctaves="3" seed="4"/>
+      <feColorMatrix values="0 0 0 0 .45  0 0 0 0 .47  0 0 0 0 .5  0 0 0 .1 0"/>
+    </filter>
+
+    <!-- ===== shadows / blurs ===== -->
+    <filter id="b4" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="b8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="b14" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="b28" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>
+    <filter id="b12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="b40" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="b2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2"/></filter>
+
+    <!-- ===== glossy dome lighting (bug shell) ===== -->
+    <filter id="dome" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="34" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="22" specularConstant="1.25" specularExponent="34" lighting-color="#FFFFFF" result="spec">
+        <fePointLight x="-260" y="-420" z="520"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feDiffuseLighting in="bump" surfaceScale="22" diffuseConstant="1" lighting-color="#FFFFFF" result="diff">
+        <feDistantLight azimuth="235" elevation="55"/>
+      </feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="lit"/>
+      <feComposite in="lit" in2="specIn" operator="arithmetic" k1="0" k2="1" k3=".85" k4="0"/>
+    </filter>
+    <filter id="domeSmall" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="10" specularConstant="1.1" specularExponent="30" lighting-color="#FFFFFF" result="spec">
+        <fePointLight x="-260" y="-420" z="420"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feComposite in="SourceGraphic" in2="specIn" operator="arithmetic" k1="0" k2="1" k3=".75" k4="0"/>
+    </filter>
+    <filter id="leg" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="4" specularConstant="1" specularExponent="22" lighting-color="#FFFFFF" result="spec">
+        <fePointLight x="-260" y="-420" z="300"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feComposite in="SourceGraphic" in2="specIn" operator="arithmetic" k1="0" k2="1" k3=".55" k4="0"/>
+    </filter>
+
+    <!-- ===== chrome tube lighting (rim, collar) ===== -->
+    <filter id="chrome" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="11" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="9" specularConstant="1.3" specularExponent="40" lighting-color="#FFFFFF" result="spec">
+        <fePointLight x="80" y="-60" z="560"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feDiffuseLighting in="bump" surfaceScale="9" diffuseConstant="1.05" lighting-color="#FFFFFF" result="diff">
+        <feDistantLight azimuth="225" elevation="48"/>
+      </feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="lit"/>
+      <feComposite in="lit" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    <filter id="tube" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="12" specularConstant="1.4" specularExponent="26" lighting-color="#FFFFFF" result="spec">
+        <feDistantLight azimuth="262" elevation="38"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feComposite in="SourceGraphic" in2="specIn" operator="arithmetic" k1="0" k2="1" k3=".9" k4="0"/>
+    </filter>
+
+    <!-- ===== gradients ===== -->
+    <linearGradient id="chromeBase" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F6F8"/>
+      <stop offset=".18" stop-color="#B9C1CA"/>
+      <stop offset=".34" stop-color="#5D6772"/>
+      <stop offset=".48" stop-color="#E9EDF1"/>
+      <stop offset=".6" stop-color="#9AA4AF"/>
+      <stop offset=".78" stop-color="#3E4650"/>
+      <stop offset=".9" stop-color="#C9D0D7"/>
+      <stop offset="1" stop-color="#7B8590"/>
+    </linearGradient>
+    <linearGradient id="collarBase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4A525C"/>
+      <stop offset=".22" stop-color="#F2F4F6"/>
+      <stop offset=".4" stop-color="#A3ACB6"/>
+      <stop offset=".7" stop-color="#5A636D"/>
+      <stop offset="1" stop-color="#2A3038"/>
+    </linearGradient>
+    <linearGradient id="gripBase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset=".25" stop-color="#2B2E33"/>
+      <stop offset=".45" stop-color="#121417"/>
+      <stop offset=".85" stop-color="#08090A"/>
+      <stop offset="1" stop-color="#1C1F23"/>
+    </linearGradient>
+    <radialGradient id="shellBase" cx=".38" cy=".3" r=".78">
+      <stop offset="0" stop-color="#F0533F"/>
+      <stop offset=".45" stop-color="#D3231A"/>
+      <stop offset=".8" stop-color="#9B110C"/>
+      <stop offset="1" stop-color="#4D0503"/>
+    </radialGradient>
+    <radialGradient id="blackGloss" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#3A3A3E"/>
+      <stop offset=".5" stop-color="#121214"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="glassInside" cx=".42" cy=".4" r=".62">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".35"/>
+      <stop offset=".75" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glassEdge" cx=".5" cy=".5" r=".5">
+      <stop offset=".8" stop-color="#0E6B5F" stop-opacity="0"/>
+      <stop offset=".93" stop-color="#0E6B5F" stop-opacity=".22"/>
+      <stop offset=".985" stop-color="#06352F" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#E8FFF9" stop-opacity=".9"/>
+    </radialGradient>
+    <linearGradient id="glareGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset=".6" stop-color="#FFFFFF" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="hot" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".35" stop-color="#FFFFFF" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lensFloor" cx=".45" cy=".42" r=".62">
+      <stop offset="0" stop-color="#F2FBF9"/>
+      <stop offset=".55" stop-color="#D4F0EB"/>
+      <stop offset="1" stop-color="#8ACFC5"/>
+    </radialGradient>
+    <clipPath id="tile"><rect width="1024" height="1024" rx="307"/></clipPath>
+    <clipPath id="lens"><circle cx="440" cy="430" r="270"/></clipPath>
+    <clipPath id="shellClip"><ellipse cx="0" cy="20" rx="125" ry="140"/></clipPath>
+
+    <!-- bug legs (shared shape, local coords) -->
+    <g id="legsL">
+      <path d="M-55,-100 L-118,-120" stroke-width="20"/>
+      <path d="M-118,-120 L-148,-172" stroke-width="13"/>
+      <path d="M-148,-172 L-152,-190 M-152,-190 L-157,-204 M-157,-204 L-163,-218" stroke-width="8"/>
+      <path d="M-82,-10 L-162,-22" stroke-width="21"/>
+      <path d="M-162,-22 L-202,30" stroke-width="13"/>
+      <path d="M-202,30 L-214,40 M-214,40 L-226,48 M-226,48 L-240,56" stroke-width="8"/>
+      <path d="M-70,68 L-140,108" stroke-width="22"/>
+      <path d="M-140,108 L-160,172" stroke-width="14"/>
+      <path d="M-160,172 L-164,188 M-164,188 L-168,202 M-168,202 L-172,218" stroke-width="8"/>
+    </g>
+  </defs>
+
+  <g clip-path="url(#tile)">
+    <!-- surface -->
+    <rect width="1024" height="1024" fill="url(#surf)"/>
+    <rect width="1024" height="1024" filter="url(#paper)"/>
+
+    <!-- ===== magnifier cast shadow (light from top-left, magnifier floating above paper) ===== -->
+    <!-- wide ambient shadow -->
+    <g transform="translate(84 110)" opacity=".34" filter="url(#b40)">
+      <circle cx="440" cy="430" r="298" fill="none" stroke="#01231F" stroke-width="96"/>
+      <g transform="rotate(45 440 430)"><rect x="752" y="368" width="360" height="124" rx="62" fill="#01231F"/></g>
+    </g>
+    <!-- key shadow (penumbra) -->
+    <g transform="translate(68 90)" opacity=".62" filter="url(#b12)">
+      <circle cx="440" cy="430" r="298" fill="none" stroke="#01231F" stroke-width="58"/>
+      <g transform="rotate(45 440 430)" fill="#01231F">
+        <rect x="755" y="404" width="62" height="52"/>
+        <rect x="800" y="384" width="66" height="92" rx="12"/>
+        <rect x="856" y="374" width="250" height="112" rx="56"/>
+      </g>
+    </g>
+    <!-- darker core under handle (closer to the paper) -->
+    <g transform="translate(40 54)" opacity=".35" filter="url(#b8)">
+      <g transform="rotate(45 440 430)"><rect x="900" y="392" width="196" height="76" rx="38" fill="#001714"/></g>
+    </g>
+    <!-- light passing through the glass: tinted shadow + focused caustic -->
+    <g transform="translate(68 90)">
+      <circle cx="440" cy="430" r="268" fill="#0E6B5F" opacity=".12" filter="url(#b12)"/>
+      <ellipse cx="470" cy="455" rx="120" ry="104" fill="#FFFFFF" opacity=".7" filter="url(#b28)"/>
+      <ellipse cx="480" cy="462" rx="44" ry="36" fill="#FFFFFF" opacity=".9" filter="url(#b14)"/>
+    </g>
+    <!-- ===== handle ===== -->
+    <g transform="rotate(45 440 430)">
+      <!-- neck -->
+      <rect x="755" y="404" width="62" height="52" fill="url(#collarBase)" filter="url(#tube)"/>
+      <!-- collar -->
+      <rect x="800" y="384" width="66" height="92" rx="12" fill="url(#collarBase)" filter="url(#tube)"/>
+      <g stroke="#1D232A" stroke-opacity=".45" stroke-width="3">
+        <line x1="818" y1="386" x2="818" y2="474"/><line x1="832" y1="386" x2="832" y2="474"/><line x1="846" y1="386" x2="846" y2="474"/>
+      </g>
+      <!-- grip -->
+      <rect x="856" y="374" width="250" height="112" rx="56" fill="url(#gripBase)" filter="url(#tube)"/>
+      <g stroke="#000" stroke-opacity=".55" stroke-width="4">
+        <line x1="878" y1="380" x2="878" y2="480"/><line x1="896" y1="377" x2="896" y2="483"/>
+      </g>
+      <rect x="912" y="392" width="170" height="10" rx="5" fill="#FFFFFF" opacity=".28" filter="url(#b2)"/>
+    </g>
+
+    <!-- ===== view through the glass ===== -->
+    <g clip-path="url(#lens)">
+      <!-- magnified surface -->
+      <circle cx="440" cy="430" r="270" fill="url(#lensFloor)"/>
+      <rect x="160" y="150" width="560" height="560" filter="url(#paperBig)"/>
+
+      <g transform="translate(452 452) rotate(-14)">
+        <!-- bug shadows -->
+        <ellipse cx="38" cy="58" rx="150" ry="168" fill="#1A1010" opacity=".42" filter="url(#b28)"/>
+        <use href="#legsL" transform="translate(14 20)" stroke="#1A1010" stroke-opacity=".45" fill="none" stroke-linecap="round" filter="url(#b8)"/>
+        <use href="#legsL" transform="translate(14 20) scale(-1 1)" stroke="#1A1010" stroke-opacity=".45" fill="none" stroke-linecap="round" filter="url(#b8)"/>
+        <ellipse cx="6" cy="28" rx="122" ry="138" fill="#000" opacity=".45" filter="url(#b8)"/>
+
+        <!-- legs -->
+        <g filter="url(#leg)">
+          <use href="#legsL" stroke="#0B0B0C" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <use href="#legsL" transform="scale(-1 1)" stroke="#0B0B0C" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <!-- tiny leg hairs -->
+        <g stroke="#2A2A2E" stroke-width="2" stroke-linecap="round">
+          <path d="M-130,-140 l-8,-4 M-138,-152 l-8,-4 M-176,0 l-6,6 M-186,12 l-6,6 M-146,128 l-8,2 M-152,146 l-8,2"/>
+          <path d="M130,-140 l8,-4 M138,-152 l8,-4 M176,0 l6,6 M186,12 l6,6 M146,128 l8,2 M152,146 l8,2"/>
+        </g>
+
+        <!-- antennae -->
+        <g stroke="#1A1412" stroke-width="5" fill="none" stroke-linecap="round">
+          <path d="M-30,-176 Q-50,-198 -74,-206"/>
+          <path d="M30,-176 Q50,-198 74,-206"/>
+        </g>
+        <ellipse cx="-78" cy="-207" rx="9" ry="6" fill="#1A1412" transform="rotate(-20 -78 -207)"/>
+        <ellipse cx="78" cy="-207" rx="9" ry="6" fill="#1A1412" transform="rotate(20 78 -207)"/>
+
+        <!-- underbody -->
+        <ellipse cx="0" cy="20" rx="118" ry="132" fill="#050505"/>
+
+        <!-- head -->
+        <g filter="url(#domeSmall)">
+          <ellipse cx="0" cy="-152" rx="58" ry="36" fill="url(#blackGloss)"/>
+          <ellipse cx="-44" cy="-158" rx="13" ry="17" fill="#000"/>
+          <ellipse cx="44" cy="-158" rx="13" ry="17" fill="#000"/>
+          <ellipse cx="-19" cy="-170" rx="10" ry="6" fill="#EFE8D8"/>
+          <ellipse cx="19" cy="-170" rx="10" ry="6" fill="#EFE8D8"/>
+          <ellipse cx="0" cy="-184" rx="16" ry="7" fill="#3A2A1F"/>
+        </g>
+        <circle cx="-47" cy="-163" r="3.5" fill="#FFFFFF" opacity=".85"/>
+        <circle cx="41" cy="-163" r="3.5" fill="#FFFFFF" opacity=".85"/>
+
+        <!-- pronotum -->
+        <g filter="url(#domeSmall)">
+          <path d="M-104,-100 C-104,-138 -62,-150 0,-150 C62,-150 104,-138 104,-100 C104,-84 62,-78 0,-78 C-62,-78 -104,-84 -104,-100 Z" fill="url(#blackGloss)"/>
+          <path d="M-100,-104 C-98,-128 -82,-138 -62,-140 C-50,-126 -52,-104 -66,-92 C-84,-90 -100,-94 -100,-104 Z" fill="#EFE8D8"/>
+          <path d="M100,-104 C98,-128 82,-138 62,-140 C50,-126 52,-104 66,-92 C84,-90 100,-94 100,-104 Z" fill="#EFE8D8"/>
+        </g>
+
+        <!-- shell (elytra) with spots -->
+        <g>
+          <ellipse cx="0" cy="20" rx="125" ry="140" fill="url(#shellBase)"/>
+          <g clip-path="url(#shellClip)" fill="#0D0605">
+            <path d="M-30,-82 Q0,-92 30,-82 Q34,-58 0,-50 Q-34,-58 -30,-82 Z"/>
+            <ellipse cx="-62" cy="-22" rx="27" ry="29" transform="rotate(-12 -62 -22)"/>
+            <ellipse cx="62" cy="-22" rx="27" ry="29" transform="rotate(12 62 -22)"/>
+            <ellipse cx="-92" cy="52" rx="18" ry="27" transform="rotate(-8 -92 52)"/>
+            <ellipse cx="92" cy="52" rx="18" ry="27" transform="rotate(8 92 52)"/>
+            <ellipse cx="-42" cy="96" rx="23" ry="21"/>
+            <ellipse cx="42" cy="96" rx="23" ry="21"/>
+          </g>
+          <path d="M0,-84 L0,160" stroke="#2A0302" stroke-width="5"/>
+        </g>
+        <path d="M3,-80 L3,150" stroke="#FF8A70" stroke-opacity=".28" stroke-width="2"/>
+        <ellipse cx="0" cy="20" rx="125" ry="140" fill="none" stroke="#3A0402" stroke-opacity=".6" stroke-width="3"/>
+        <!-- window reflection on the shell -->
+        <g clip-path="url(#shellClip)" opacity=".75" filter="url(#b2)">
+          <rect x="-82" y="-62" width="26" height="36" rx="7" fill="#FFFFFF" transform="rotate(-22 -69 -44)" opacity=".85"/>
+          <rect x="-50" y="-70" width="24" height="34" rx="7" fill="#FFFFFF" transform="rotate(-22 -38 -53)" opacity=".7"/>
+        </g>
+        <g clip-path="url(#shellClip)">
+          <ellipse cx="-48" cy="-28" rx="62" ry="46" transform="rotate(-30 -48 -28)" fill="url(#hot)" opacity=".5" filter="url(#b14)"/>
+          <ellipse cx="-58" cy="-38" rx="18" ry="11" transform="rotate(-35 -58 -38)" fill="#FFFFFF" opacity=".9" filter="url(#b4)"/>
+          <ellipse cx="0" cy="20" rx="125" ry="140" fill="none" stroke="#FF7A5C" stroke-opacity=".35" stroke-width="10" stroke-dasharray="0 420 170 400" filter="url(#b8)"/>
+        </g>
+        <ellipse cx="70" cy="110" rx="18" ry="8" transform="rotate(-45 70 110)" fill="#FFB4A0" opacity=".35" filter="url(#b4)"/>
+      </g>
+
+      <!-- glass optics -->
+      <circle cx="440" cy="430" r="270" fill="url(#glassInside)"/>
+      <circle cx="440" cy="430" r="270" fill="url(#glassEdge)"/>
+      <circle cx="440" cy="430" r="262" fill="none" stroke="#FF3D7F" stroke-opacity=".12" stroke-width="4" transform="translate(-2 -2)"/>
+      <circle cx="440" cy="430" r="262" fill="none" stroke="#2EC5FF" stroke-opacity=".14" stroke-width="4" transform="translate(2 2)"/>
+      <!-- main curved glare -->
+      <path d="M210,380 A235,235 0 0 1 430,196 A262,262 0 0 0 232,430 Z" fill="url(#glareGrad)" filter="url(#b4)"/>
+      <!-- reflected window -->
+      <g opacity=".42" filter="url(#b8)" transform="rotate(-38 330 320)">
+        <rect x="282" y="262" width="44" height="66" rx="10" fill="#FFFFFF"/>
+        <rect x="334" y="262" width="44" height="66" rx="10" fill="#FFFFFF"/>
+      </g>
+      <ellipse cx="262" cy="300" rx="26" ry="16" transform="rotate(-42 262 300)" fill="url(#hot)"/>
+      <!-- light exiting lower-right -->
+      <path d="M640,560 A250,250 0 0 1 560,650" fill="none" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" filter="url(#b4)"/>
+    </g>
+
+    <!-- ===== chrome rim ===== -->
+    <circle cx="440" cy="430" r="298" fill="none" stroke="url(#chromeBase)" stroke-width="58" filter="url(#chrome)"/>
+    <circle cx="440" cy="430" r="270.5" fill="none" stroke="#1E252D" stroke-opacity=".55" stroke-width="3"/>
+    <circle cx="440" cy="430" r="327" fill="none" stroke="#2B333C" stroke-opacity=".5" stroke-width="2.5"/>
+    <path d="M190,300 A290,290 0 0 1 318,170" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" opacity=".9" filter="url(#b2)"/>
+    <path d="M690,560 A288,288 0 0 1 600,672" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".55" filter="url(#b2)"/>
+  </g>
+  <rect width="1024" height="1024" rx="307" fill="none" stroke="#FFFFFF" stroke-opacity=".14" stroke-width="6"/>
+</svg>
