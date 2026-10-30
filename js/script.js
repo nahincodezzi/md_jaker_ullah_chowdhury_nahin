@@ -540,60 +540,60 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================= */
   const galleryBox = $('#galleryRoot');
   if (galleryBox) {
-    const mainImg = $('#galleryMain');
+    const mainDark = $('#galleryMainDark');
+    const mainLight = $('#galleryMainLight');
     const counter = $('#galleryCounter');
-    const thumbImgs = $$('.gallery-thumb-item img', galleryBox);
+    const thumbItems = $$('.gallery-thumb-item', galleryBox);
     const viewToggle = $('#viewToggle');
     const prevBtn = $('#galleryPrev');
     const nextBtn = $('#galleryNext');
 
-    const isCurrentLight = () => document.documentElement.getAttribute('data-theme') === 'light';
-
-    const getTargetSrc = (img, lightMode = isCurrentLight()) => {
-      return lightMode ? (img.dataset.light || img.getAttribute('src')) : (img.dataset.dark || img.getAttribute('src'));
-    };
-
-    const items = thumbImgs.map((img) => ({
-      darkSrc: img.dataset.dark || img.getAttribute('src'),
-      lightSrc: img.dataset.light || img.getAttribute('src'),
-      src: getTargetSrc(img),
-      alt: img.getAttribute('alt') || 'QA Architecture Artifact'
-    }));
+    const items = [
+      { darkSrc: 'assets/gallery/photo-1.svg', lightSrc: 'assets/gallery/photo-1-light.svg', alt: 'Automated Pytest API Test Execution Matrix (169 Endpoints)' },
+      { darkSrc: 'assets/gallery/photo-7.svg', lightSrc: 'assets/gallery/photo-7-light.svg', alt: 'Codezzi Hiring Desk Selenium 4 E2E Architecture & 93 Tests Pipeline' },
+      { darkSrc: 'assets/gallery/photo-2.svg', lightSrc: 'assets/gallery/photo-2-light.svg', alt: 'Postman & Swagger API Verification Architecture' },
+      { darkSrc: 'assets/gallery/photo-3.svg', lightSrc: 'assets/gallery/photo-3-light.svg', alt: 'Bug Life Cycle & Defect Management Protocol' },
+      { darkSrc: 'assets/gallery/photo-4.svg', lightSrc: 'assets/gallery/photo-4-light.svg', alt: 'JMeter & k6 Concurrency Load Curve (500 VUs)' },
+      { darkSrc: 'assets/gallery/photo-5.svg', lightSrc: 'assets/gallery/photo-5-light.svg', alt: 'SkyVAT Business Logic & Tax Compliance Matrix' },
+      { darkSrc: 'assets/gallery/photo-6.svg', lightSrc: 'assets/gallery/photo-6-light.svg', alt: 'STLC Release Certification Pipeline' }
+    ];
 
     let activeIndex = 0;
     let autoSlideTimer = null;
 
+    const isCurrentLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+
     syncGalleryTheme = (theme) => {
-      const light = theme === 'light';
-      items.forEach((item) => {
-        item.src = light ? item.lightSrc : item.darkSrc;
-      });
-      thumbImgs.forEach((img) => {
-        img.src = getTargetSrc(img, light);
-      });
-      if (mainImg) {
-        mainImg.src = items[activeIndex].src;
-      }
-      if (lightbox && !lightbox.hidden && lbImg) {
-        lbImg.src = items[lbIndex].src;
+      if (lightbox && !lightbox.hidden && lbImg && lbItems.length) {
+        const isLight = theme === 'light';
+        lbItems = items.map(item => ({
+          src: isLight ? item.lightSrc : item.darkSrc,
+          alt: item.alt
+        }));
+        renderLightbox();
       }
     };
 
-    // Apply current theme to gallery immediately
-    syncGalleryTheme(document.documentElement.getAttribute('data-theme') || 'dark');
-
     const showArtifact = (index) => {
       activeIndex = (index + items.length) % items.length;
-      mainImg.classList.add('is-fading');
+      if (mainDark) mainDark.classList.add('is-fading');
+      if (mainLight) mainLight.classList.add('is-fading');
 
       setTimeout(() => {
-        mainImg.src = items[activeIndex].src;
-        mainImg.alt = items[activeIndex].alt;
-        mainImg.classList.remove('is-fading');
+        if (mainDark) {
+          mainDark.src = items[activeIndex].darkSrc;
+          mainDark.alt = items[activeIndex].alt;
+          mainDark.classList.remove('is-fading');
+        }
+        if (mainLight) {
+          mainLight.src = items[activeIndex].lightSrc;
+          mainLight.alt = items[activeIndex].alt;
+          mainLight.classList.remove('is-fading');
+        }
       }, 150);
 
       if (counter) counter.textContent = `${pad(activeIndex + 1)} / ${pad(items.length)}`;
-      $$('.gallery-thumb-item', galleryBox).forEach((item, k) => {
+      thumbItems.forEach((item, k) => {
         item.classList.toggle('is-active', k === activeIndex);
       });
     };
@@ -610,11 +610,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn) prevBtn.addEventListener('click', () => { showArtifact(activeIndex - 1); startAutoSlide(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { showArtifact(activeIndex + 1); startAutoSlide(); });
 
-    mainImg?.addEventListener('click', () => openLightbox(items, activeIndex));
+    const openArtifactLightbox = (index) => {
+      const activeItems = items.map(item => ({
+        src: isCurrentLight() ? item.lightSrc : item.darkSrc,
+        alt: item.alt
+      }));
+      openLightbox(activeItems, index);
+    };
 
-    $$('.gallery-thumb-item', galleryBox).forEach((thumb, k) => {
+    mainDark?.addEventListener('click', () => openArtifactLightbox(activeIndex));
+    mainLight?.addEventListener('click', () => openArtifactLightbox(activeIndex));
+
+    thumbItems.forEach((thumb, k) => {
       thumb.addEventListener('click', () => {
-        if (isGrid()) openLightbox(items, k);
+        if (isGrid()) openArtifactLightbox(k);
         else {
           showArtifact(k);
           startAutoSlide();

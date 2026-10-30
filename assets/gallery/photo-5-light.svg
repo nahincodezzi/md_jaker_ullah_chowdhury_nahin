@@ -1,90 +1,104 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad5L" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bgP5_light" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFFFFF"/>
       <stop offset="1" stop-color="#F1F5F9"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad5L)" stroke="#CBD5E1" stroke-width="2"/>
-  
-  <!-- Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">SkyVAT Business Logic &amp; Mushak NBR Tax Compliance Validation Matrix</text>
-  <rect x="990" y="42" width="160" height="26" rx="6" fill="#DCFCE7"/>
-  <text x="1070" y="59" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">NBR COMPLIANT</text>
 
-  <!-- Flow Steps -->
-  <!-- 1. Purchase & Bill of Entry -->
-  <rect x="50" y="115" width="240" height="260" rx="14" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
-  <rect x="70" y="135" width="110" height="26" rx="6" fill="#DBEAFE"/>
-  <text x="125" y="152" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PURCHASE</text>
-  <text x="70" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Procurement &amp; Inward</text>
-  <text x="70" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Local &amp; Import Purchase</text>
-  <text x="70" y="250" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Raw Material Batch Logs</text>
-  <text x="70" y="275" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Mushak 6.1 Purchase Register</text>
-  <rect x="70" y="305" width="200" height="45" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="85" y="332" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Automated in Pytest ✓</text>
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP5_light)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#CBD5E1" stroke-width="1.5"/>
 
-  <!-- Connector 1 -->
-  <path d="M290 245 L320 245" stroke="#64748B" stroke-width="2"/>
-  <polygon points="325,245 318,241 318,249" fill="#64748B"/>
+  <!-- Top Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#F8FAFC"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#CBD5E1" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">SkyVAT Business Logic &amp; Mushak NBR Tax Compliance Validation Matrix</text>
+  <rect x="1035" y="14" width="140" height="24" rx="12" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+  <text x="1105" y="30" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">NBR 6.3 COMPLIANT</text>
 
-  <!-- 2. BOM & Production -->
-  <rect x="330" y="115" width="240" height="260" rx="14" fill="#FFFFFF" stroke="#6366F1" stroke-opacity="0.4"/>
-  <rect x="350" y="135" width="110" height="26" rx="6" fill="#EEF2FF"/>
-  <text x="405" y="152" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PRODUCTION</text>
-  <text x="350" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Recipe / BOM Matrix</text>
-  <text x="350" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Material Loss &amp; Wastage</text>
-  <text x="350" y="250" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Cost per Unit Calculation</text>
-  <text x="350" y="275" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Finished Goods Inventory</text>
-  <rect x="350" y="305" width="200" height="45" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="365" y="332" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Data Precision 4 Decimals</text>
+  <!-- 4 Flow Steps (Cleanly spaced 260px cards, no overflow) -->
+  <rect x="40" y="75" width="260" height="220" rx="14" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
+  <circle cx="75" cy="110" r="16" fill="#0284C7"/>
+  <text x="75" y="115" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">01</text>
+  <text x="105" y="114" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INPUT VAT</text>
+  <text x="60" y="150" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Procurement / Input</text>
+  <text x="60" y="180" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Input VAT credit audit</text>
+  <text x="60" y="205" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Mushak 6.1 purchase ledger</text>
+  <text x="60" y="230" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Vendor TIN/BIN format checks</text>
+  <rect x="60" y="255" width="220" height="28" rx="6" fill="#F1F5F9"/>
+  <text x="75" y="274" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">Rebate Claim Verification</text>
 
-  <!-- Connector 2 -->
-  <path d="M570 245 L600 245" stroke="#64748B" stroke-width="2"/>
-  <polygon points="605,245 598,241 598,249" fill="#64748B"/>
+  <rect x="325" y="75" width="260" height="220" rx="14" fill="#FFFFFF" stroke="#D97706" stroke-opacity="0.4"/>
+  <circle cx="360" cy="110" r="16" fill="#D97706"/>
+  <text x="360" y="115" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">02</text>
+  <text x="390" y="114" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">VDS DEDUCTION</text>
+  <text x="345" y="150" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Ledger / VDS Matrix</text>
+  <text x="345" y="180" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Automated VDS deductions</text>
+  <text x="345" y="205" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Treasury challan matching</text>
+  <text x="345" y="230" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Stock ledger balance checks</text>
+  <rect x="345" y="255" width="220" height="28" rx="6" fill="#F1F5F9"/>
+  <text x="360" y="274" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">Zero Ledger Imbalance</text>
 
-  <!-- 3. Sales & Outward -->
-  <rect x="610" y="115" width="240" height="260" rx="14" fill="#FFFFFF" stroke="#F59E0B" stroke-opacity="0.4"/>
-  <rect x="630" y="135" width="110" height="26" rx="6" fill="#FEF3C7"/>
-  <text x="685" y="152" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">SALES / POS</text>
-  <text x="630" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Commercial Outward</text>
-  <text x="630" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Mushak 6.3 Tax Invoices</text>
-  <text x="630" y="250" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Credit Notes &amp; Returns</text>
-  <text x="630" y="275" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Mushak 6.2 Sales Register</text>
-  <rect x="630" y="305" width="200" height="45" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="645" y="332" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Multi-branch Isolation</text>
+  <rect x="610" y="75" width="260" height="220" rx="14" fill="#FFFFFF" stroke="#4F46E5" stroke-opacity="0.4"/>
+  <circle cx="645" cy="110" r="16" fill="#4F46E5"/>
+  <text x="645" y="115" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">03</text>
+  <text x="675" y="114" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">TARIFF SCHEDULE</text>
+  <text x="630" y="150" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Economic Generic</text>
+  <text x="630" y="180" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Multi-tier tariff schedules</text>
+  <text x="630" y="205" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Supplementary Duty (SD) math</text>
+  <text x="630" y="230" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Rebate eligibility assertions</text>
+  <rect x="630" y="255" width="220" height="28" rx="6" fill="#F1F5F9"/>
+  <text x="645" y="274" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">Dynamic Tariff Rules</text>
 
-  <!-- Connector 3 -->
-  <path d="M850 245 L880 245" stroke="#64748B" stroke-width="2"/>
-  <polygon points="885,245 878,241 878,249" fill="#64748B"/>
+  <rect x="895" y="75" width="265" height="220" rx="14" fill="#FFFFFF" stroke="#059669" stroke-opacity="0.4"/>
+  <circle cx="930" cy="110" r="16" fill="#059669"/>
+  <text x="930" y="115" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">04</text>
+  <text x="960" y="114" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NBR OUTPUT</text>
+  <text x="915" y="150" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Mushak 6.3 Invoice</text>
+  <text x="915" y="180" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• 4-decimal precision float</text>
+  <text x="915" y="205" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Real-time NBR QR generation</text>
+  <text x="915" y="230" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Multi-company RBAC lock</text>
+  <rect x="915" y="255" width="225" height="28" rx="6" fill="#F1F5F9"/>
+  <text x="930" y="274" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">Regulatory Tax Certified</text>
 
-  <!-- 4. Tax Return Reconcile -->
-  <rect x="890" y="115" width="260" height="260" rx="14" fill="#FFFFFF" stroke="#10B981" stroke-opacity="0.4"/>
-  <rect x="910" y="135" width="120" height="26" rx="6" fill="#DCFCE7"/>
-  <text x="970" y="152" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">NBR RETURN</text>
-  <text x="910" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Mushak 9.1 Submission</text>
-  <text x="910" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Input VAT Rebate Check</text>
-  <text x="910" y="250" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Output VAT Tax Liability</text>
-  <text x="910" y="275" fill="#475569" font-family="system-ui, sans-serif" font-size="12">✓ Zero Mathematical Discrepancy</text>
-  <rect x="910" y="305" width="220" height="45" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="925" y="332" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">100% Audit Verified ✓</text>
+  <!-- Lower Section (Two 545px wide panels, zero line overflow) -->
+  <rect x="40" y="315" width="545" height="320" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="65" y="348" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">SQA Test Matrix: Tax Equation &amp; Ledger Verification</text>
+  <line x1="65" y1="363" x2="560" y2="363" stroke="#E2E8F0"/>
 
-  <!-- Test Assertions Details Area -->
-  <rect x="50" y="405" width="1100" height="305" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <text x="80" y="445" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Automated Financial &amp; Business Rules Verification</text>
+  <text x="65" y="393" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">1. Floating-Point Rounding Accuracy</text>
+  <text x="65" y="415" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Tests boundary values where 3rd/4th decimal places round up/down per NBR rules.</text>
 
-  <rect x="80" y="470" width="1040" height="80" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="105" y="500" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">Standard 15% VAT Assertion:</text>
-  <text x="105" y="525" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="12">assert item.vat_amount == round(item.taxable_value * Decimal('0.15'), 2)</text>
-  <text x="750" y="515" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ Tested over 2,400 orders</text>
+  <text x="65" y="450" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">2. Multi-Tenant RBAC Security Gate</text>
+  <text x="65" y="472" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Ensures branch accounts cannot view or modify parent holding tax returns.</text>
 
-  <rect x="80" y="565" width="1040" height="125" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="105" y="595" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">Multi-tenant Data Isolation Rule:</text>
-  <text x="105" y="620" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="12">SELECT * FROM invoices WHERE company_id = 10 AND branch_id = 2;</text>
-  <text x="105" y="645" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Enforces zero cross-branch data bleeding. Confirmed via Pytest and SQL queries that user from Branch A cannot view or edit Branch B records.</text>
-  <text x="105" y="670" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ Verified across 5 branch instances in production staging</text>
+  <text x="65" y="507" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">3. VDS Deduction &amp; Challan Matching</text>
+  <text x="65" y="529" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Validates automatic withholding tax deductions against supplier bank challans.</text>
+
+  <text x="65" y="564" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">4. High-Volume Transaction Stress</text>
+  <text x="65" y="586" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Validates 10,000+ line item month-end reconciliations with zero memory leaks.</text>
+
+  <!-- Right Panel: Synthetic Test Pipeline Code -->
+  <rect x="615" y="315" width="545" height="320" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="640" y="348" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Synthetic Data Pipeline (Pandas &amp; Python)</text>
+  <line x1="640" y1="363" x2="1135" y2="363" stroke="#E2E8F0"/>
+
+  <rect x="640" y="380" width="495" height="230" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="660" y="408" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11">import pandas as pd</text>
+  <text x="660" y="430" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11">import pytest</text>
+  <text x="660" y="460" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">def test_mushak_bulk_ledger_reconciliation():</text>
+  <text x="680" y="485" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">  df = generate_synthetic_invoices(n=10000)</text>
+  <text x="680" y="510" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">  calculated_vat = (df['subtotal'] * 0.15).round(2)</text>
+  <text x="680" y="535" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11">  assert (df['vat_amount'] == calculated_vat).all()</text>
+  <text x="680" y="560" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11">  assert df['vds_deducted'].sum() == expected_vds</text>
+  <text x="660" y="585" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">  # 10,000 invoices reconciled in 0.42 seconds</text>
+
+  <!-- Bottom Quote Bar (Wrapped on 2 lines) -->
+  <rect x="40" y="650" width="1120" height="65" rx="10" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="65" y="678" fill="#0F172A" font-family="system-ui, sans-serif" font-size="12" font-style="italic">&quot;Testing financial software requires absolute zero tolerance for floating-point inaccuracies or race conditions in transaction ledgers.&quot;</text>
+  <text x="65" y="700" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">— Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer</text>
 </svg>

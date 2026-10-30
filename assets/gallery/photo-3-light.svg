@@ -1,88 +1,100 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad3L" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bgP3_light" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFFFFF"/>
       <stop offset="1" stop-color="#F1F5F9"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad3L)" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP3_light)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Top Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#F8FAFC"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#CBD5E1" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">Bug Life Cycle &amp; Defect Resolution Protocol — SQA Standards</text>
+  <rect x="1035" y="14" width="140" height="24" rx="12" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+  <text x="1105" y="30" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">ZERO SEV-1 BUGS</text>
+
+  <!-- 4 Triage Stages -->
+  <!-- Stage 1 -->
+  <rect x="40" y="70" width="260" height="245" rx="14" fill="#FFFFFF" stroke="#E11D48" stroke-opacity="0.4"/>
+  <rect x="60" y="90" width="85" height="26" rx="6" fill="#FFE4E6"/>
+  <text x="102" y="107" fill="#E11D48" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STAGE 01</text>
+  <text x="60" y="145" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Discovery &amp; Log</text>
+  <text x="60" y="175" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Exact reproduction steps</text>
+  <text x="60" y="200" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Browser, OS &amp; DB context</text>
+  <text x="60" y="225" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Network HAR &amp; server logs</text>
+  <rect x="60" y="260" width="220" height="34" rx="8" fill="#F1F5F9"/>
+  <text x="75" y="282" fill="#E11D48" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Priority: Blocker / Major</text>
+
+  <!-- Stage 2 -->
+  <rect x="325" y="70" width="260" height="245" rx="14" fill="#FFFFFF" stroke="#D97706" stroke-opacity="0.4"/>
+  <rect x="345" y="90" width="85" height="26" rx="6" fill="#FEF3C7"/>
+  <text x="387" y="107" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STAGE 02</text>
+  <text x="345" y="145" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Triage &amp; Assign</text>
+  <text x="345" y="175" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Root cause hypothesis</text>
+  <text x="345" y="200" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Module classification</text>
+  <text x="345" y="225" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Dev branch assignment</text>
+  <rect x="345" y="260" width="220" height="34" rx="8" fill="#F1F5F9"/>
+  <text x="360" y="282" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Status: In Progress</text>
+
+  <!-- Stage 3 -->
+  <rect x="610" y="70" width="260" height="245" rx="14" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
+  <rect x="630" y="90" width="85" height="26" rx="6" fill="#E0F2FE"/>
+  <text x="672" y="107" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STAGE 03</text>
+  <text x="630" y="145" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Verification Run</text>
+  <text x="630" y="175" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Staging deployment retest</text>
+  <text x="630" y="200" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Boundary &amp; edge checks</text>
+  <text x="630" y="225" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Side-effect regression test</text>
+  <rect x="630" y="260" width="220" height="34" rx="8" fill="#F1F5F9"/>
+  <text x="645" y="282" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Automated + Manual</text>
+
+  <!-- Stage 4 -->
+  <rect x="895" y="70" width="265" height="245" rx="14" fill="#FFFFFF" stroke="#059669" stroke-opacity="0.4"/>
+  <rect x="915" y="90" width="85" height="26" rx="6" fill="#DCFCE7"/>
+  <text x="957" y="107" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STAGE 04</text>
+  <text x="915" y="145" fill="#0F172A" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Closed &amp; Certified</text>
+  <text x="915" y="175" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Pytest regression added</text>
+  <text x="915" y="200" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• 100% test suite verified</text>
+  <text x="915" y="225" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Release notes certified</text>
+  <rect x="915" y="260" width="225" height="34" rx="8" fill="#F1F5F9"/>
+  <text x="930" y="282" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Status: VERIFIED CLOSED</text>
+
+  <!-- Lower Section: Real-World QA Bug Report Template (Width 1120, Cleanly wrapped lines) -->
+  <rect x="40" y="335" width="1120" height="385" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <rect x="40" y="335" width="1120" height="42" rx="14" fill="#F1F5F9"/>
+  <text x="65" y="361" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">REAL-WORLD BUG REPORT ARCHITECTURE (CODEZZI PRODUCTION SAMPLE)</text>
+
+  <!-- Title Line -->
+  <text x="65" y="405" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">DEFECT: [SkyVAT] [Mushak 6.3] Rounding discrepancy on fractional line item quantities</text>
   
-  <!-- Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">Bug Life Cycle &amp; Defect Resolution Protocol — SQA Standards</text>
+  <!-- Environment Context Bar -->
+  <rect x="65" y="420" width="1070" height="32" rx="6" fill="#F1F5F9"/>
+  <text x="80" y="441" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">Staging Build v2.8.4  |  Chrome 129 / Firefox 131  |  Database: PostgreSQL 15  |  Module: VAT Register</text>
 
-  <!-- Flowchart Stages -->
-  <!-- Stage 1: Discovery -->
-  <rect x="50" y="120" width="230" height="240" rx="16" fill="#FFFFFF" stroke="#EF4444" stroke-opacity="0.4"/>
-  <rect x="70" y="140" width="80" height="26" rx="6" fill="#FEE2E2"/>
-  <text x="110" y="157" fill="#DC2626" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STEP 01</text>
-  <text x="70" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Discovery &amp; Log</text>
-  <text x="70" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Detailed Steps to Reproduce</text>
-  <text x="70" y="245" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Expected vs Actual Result</text>
-  <text x="70" y="265" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Network Logs &amp; Screenshots</text>
-  <rect x="70" y="295" width="190" height="40" rx="8" fill="#FEE2E2"/>
-  <text x="85" y="320" fill="#DC2626" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Priority: High / Blocker</text>
+  <!-- Steps to Reproduce -->
+  <text x="65" y="480" fill="#0F172A" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Steps to Reproduce:</text>
+  <text x="65" y="505" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12">1. Open Sales Invoice &gt; New Order &gt; Add Raw Materials with quantity 12.375 units</text>
+  <text x="65" y="528" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12">2. Apply 15% standard Mushak VAT rate and click 'Generate Tax Invoice'</text>
+  <text x="65" y="551" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12">3. Compare PDF invoice tax value against Database sales_ledger table record</text>
 
-  <!-- Arrow 1 -> 2 -->
-  <path d="M290 240 L330 240" stroke="#64748B" stroke-width="2"/>
-  <polygon points="330,240 322,235 322,245" fill="#64748B"/>
+  <!-- Actual Result Box (Rose Tinted, Wrapped) -->
+  <rect x="65" y="575" width="1070" height="48" rx="8" fill="#FFE4E6" stroke="#E11D48" stroke-opacity="0.3"/>
+  <text x="80" y="595" fill="#E11D48" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">ACTUAL RESULT:</text>
+  <text x="195" y="595" fill="#0F172A" font-family="system-ui, sans-serif" font-size="12">UI display truncates decimal to 2 places before multiplication causing a 0.04 BDT tax ledger variance.</text>
+  <text x="80" y="612" fill="#64748B" font-family="system-ui, sans-serif" font-size="11">Root Cause: Frontend JS parseFloat().toFixed(2) called prematurely before passing to backend.</text>
 
-  <!-- Stage 2: Triage -->
-  <rect x="340" y="120" width="230" height="240" rx="16" fill="#FFFFFF" stroke="#F59E0B" stroke-opacity="0.4"/>
-  <rect x="360" y="140" width="80" height="26" rx="6" fill="#FEF3C7"/>
-  <text x="400" y="157" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STEP 02</text>
-  <text x="360" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Triage &amp; Assign</text>
-  <text x="360" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Root Cause Hypothesis</text>
-  <text x="360" y="245" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Module Classification</text>
-  <text x="360" y="265" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Developer Allocation</text>
-  <rect x="360" y="295" width="190" height="40" rx="8" fill="#FEF3C7"/>
-  <text x="375" y="320" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Status: In Progress</text>
+  <!-- Expected Result Box (Emerald Tinted, Wrapped) -->
+  <rect x="65" y="632" width="1070" height="48" rx="8" fill="#DCFCE7" stroke="#059669" stroke-opacity="0.3"/>
+  <text x="80" y="652" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">EXPECTED RESULT:</text>
+  <text x="205" y="652" fill="#0F172A" font-family="system-ui, sans-serif" font-size="12">System must preserve 4 decimal float precision until final total round-off per NBR regulatory guidelines.</text>
+  <text x="80" y="669" fill="#64748B" font-family="system-ui, sans-serif" font-size="11">Resolution: Backend handles exact arithmetic; automated pytest regression suite test_mushak_rounding added.</text>
 
-  <!-- Arrow 2 -> 3 -->
-  <path d="M580 240 L620 240" stroke="#64748B" stroke-width="2"/>
-  <polygon points="620,240 612,235 612,245" fill="#64748B"/>
-
-  <!-- Stage 3: Retest -->
-  <rect x="630" y="120" width="230" height="240" rx="16" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
-  <rect x="650" y="140" width="80" height="26" rx="6" fill="#DBEAFE"/>
-  <text x="690" y="157" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STEP 03</text>
-  <text x="650" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Verification Run</text>
-  <text x="650" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Build Deployed to QA</text>
-  <text x="650" y="245" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Re-execute Exact Steps</text>
-  <text x="650" y="265" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Check Side-effect Areas</text>
-  <rect x="650" y="295" width="190" height="40" rx="8" fill="#DBEAFE"/>
-  <text x="665" y="320" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Automated + Manual</text>
-
-  <!-- Arrow 3 -> 4 -->
-  <path d="M870 240 L910 240" stroke="#64748B" stroke-width="2"/>
-  <polygon points="910,240 902,235 902,245" fill="#64748B"/>
-
-  <!-- Stage 4: Close -->
-  <rect x="920" y="120" width="230" height="240" rx="16" fill="#FFFFFF" stroke="#10B981" stroke-opacity="0.4"/>
-  <rect x="940" y="140" width="80" height="26" rx="6" fill="#DCFCE7"/>
-  <text x="980" y="157" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">STEP 04</text>
-  <text x="940" y="195" fill="#0F172A" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Closure &amp; Certified</text>
-  <text x="940" y="225" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Bug Marked Verified / Closed</text>
-  <text x="940" y="245" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Regression Suite Updated</text>
-  <text x="940" y="265" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Ready for Release Branch</text>
-  <rect x="940" y="295" width="190" height="40" rx="8" fill="#DCFCE7"/>
-  <text x="955" y="320" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">100% Retest Passed</text>
-
-  <!-- Defect Triage Rules Table -->
-  <rect x="50" y="390" width="1100" height="320" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <rect x="50" y="390" width="1100" height="45" rx="16" fill="#F1F5F9" stroke="#CBD5E1"/>
-  <text x="75" y="418" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">REAL BUG REPORT TEMPLATE (STANDARDIZED QA SCHEMA)</text>
-  <text x="980" y="418" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">SEV: S1/BLOCKER</text>
-
-  <rect x="70" y="455" width="1060" height="235" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="95" y="485" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">Title: [SkyVAT] [Mushak 6.3] Real-time VAT calculation rounding off error on item level quantities</text>
-  <text x="95" y="515" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Environment: Staging Server v2.4.1 | Database: PostgreSQL 15 | Browser: Chrome 124.0 (x64)</text>
-  <text x="95" y="545" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="12">Preconditions: User logged in as &quot;Branch Admin&quot;, Company VAT registration number configured.</text>
-  <text x="95" y="575" fill="#0F172A" font-family="system-ui, sans-serif" font-size="12">Steps to Reproduce: 1. Navigate to Sales -&gt; New Invoice. 2. Add product with fractional quantity (e.g. 2.75 units). 3. Apply 15% Standard VAT.</text>
-  <text x="95" y="605" fill="#DC2626" font-family="system-ui, sans-serif" font-size="12">Actual Result: Total VAT computes to 41.24 BDT instead of mathematically reconciled 41.25 BDT due to float truncating.</text>
-  <text x="95" y="635" fill="#15803D" font-family="system-ui, sans-serif" font-size="12">Expected Result: Decimal precision should follow NBR guidelines with 2-digit half-up rounding (41.25 BDT).</text>
-  <text x="95" y="665" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="12">Evidence: Attached network HAR log, response payload JSON, and screenshot of Mushak register mismatch.</text>
+  <!-- Footer Tag -->
+  <text x="65" y="705" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">Logged by Md Jaker Ullah Chowdhury Nahin · Retested &amp; Certified in Sprint 18 Release</text>
 </svg>

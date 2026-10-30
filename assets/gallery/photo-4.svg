@@ -1,94 +1,112 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad4" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0B111E"/>
-      <stop offset="1" stop-color="#162035"/>
+    <linearGradient id="bgP4_dark" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#080D1A"/>
+      <stop offset="1" stop-color="#050811"/>
     </linearGradient>
-    <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#10B981" stop-opacity="0.4"/>
-      <stop offset="1" stop-color="#10B981" stop-opacity="0.0"/>
+    <linearGradient id="curveGrad_dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad4)"/>
-  
-  <!-- Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#162035" stroke="#253550"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">JMeter &amp; k6 Performance Benchmark — SkySMS &amp; SkyVAT APIs</text>
-  <rect x="1000" y="42" width="150" height="26" rx="6" fill="#38BDF8" fill-opacity="0.15"/>
-  <text x="1075" y="59" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">500 VIRTUAL USERS</text>
 
-  <!-- Metric Badges -->
-  <rect x="40" y="105" width="260" height="90" rx="14" fill="#111A2E" stroke="#10B981" stroke-opacity="0.3"/>
-  <text x="65" y="135" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">AVG RESPONSE TIME</text>
-  <text x="65" y="175" fill="#10B981" font-family="system-ui, sans-serif" font-size="32" font-weight="800">142 ms</text>
-  <text x="175" y="172" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12">(SLA &lt; 300ms)</text>
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP4_dark)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#1E2D4A" stroke-width="1.5"/>
 
-  <rect x="325" y="105" width="260" height="90" rx="14" fill="#111A2E" stroke="#38BDF8" stroke-opacity="0.3"/>
-  <text x="350" y="135" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">PEAK THROUGHPUT</text>
-  <text x="350" y="175" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="32" font-weight="800">1,840</text>
-  <text x="460" y="172" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12">req / sec</text>
+  <!-- Top Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#0B1220"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#1E2D4A" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">JMeter &amp; k6 Performance Benchmark — SkySMS &amp; SkyVAT APIs</text>
+  <rect x="1035" y="14" width="140" height="24" rx="12" fill="rgba(56,189,248,0.15)" stroke="#38BDF8" stroke-width="1"/>
+  <text x="1105" y="30" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">500 VIRTUAL USERS</text>
 
-  <rect x="610" y="105" width="260" height="90" rx="14" fill="#111A2E" stroke="#6366F1" stroke-opacity="0.3"/>
-  <text x="635" y="135" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">P95 LATENCY</text>
-  <text x="635" y="175" fill="#818CF8" font-family="system-ui, sans-serif" font-size="32" font-weight="800">210 ms</text>
-  <text x="735" y="172" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12">Stable Under Peak</text>
+  <!-- 4 Stat Summary Cards (Distinct Y for label, value, subtext - ZERO horizontal overlap) -->
+  <rect x="40" y="65" width="260" height="92" rx="12" fill="#0E1726" stroke="#10B981" stroke-opacity="0.4"/>
+  <text x="60" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">AVG RESPONSE TIME</text>
+  <text x="60" y="122" fill="#34D399" font-family="system-ui, sans-serif" font-size="28" font-weight="800">142 ms</text>
+  <text x="60" y="143" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">SLA Target: &lt; 300 ms</text>
 
-  <rect x="895" y="105" width="265" height="90" rx="14" fill="#111A2E" stroke="#10B981" stroke-opacity="0.3"/>
-  <text x="920" y="135" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">HTTP ERROR RATE</text>
-  <text x="920" y="175" fill="#34D399" font-family="system-ui, sans-serif" font-size="32" font-weight="800">0.00 %</text>
-  <text x="1035" y="172" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="12">0 Dropped Req</text>
+  <rect x="325" y="65" width="260" height="92" rx="12" fill="#0E1726" stroke="#38BDF8" stroke-opacity="0.4"/>
+  <text x="345" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">PEAK THROUGHPUT</text>
+  <text x="345" y="122" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="28" font-weight="800">1,840</text>
+  <text x="345" y="143" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">Requests / Second</text>
 
-  <!-- Load Curve Graph Section -->
-  <rect x="40" y="215" width="760" height="495" rx="16" fill="#0D1424" stroke="#1F2C45"/>
-  <text x="65" y="250" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Real-Time Concurrency vs Response Time</text>
-  <text x="65" y="272" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Ramp-up: 0 to 500 VUs in 60s, sustained 5m soak test</text>
+  <!-- Stat Card 3: P95 Latency - Stable Under Peak on its OWN clean line -->
+  <rect x="610" y="65" width="260" height="92" rx="12" fill="#0E1726" stroke="#818CF8" stroke-opacity="0.4"/>
+  <text x="630" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">P95 LATENCY</text>
+  <text x="630" y="122" fill="#818CF8" font-family="system-ui, sans-serif" font-size="28" font-weight="800">210 ms</text>
+  <text x="630" y="143" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11">Stable Under Peak Stress</text>
+
+  <rect x="895" y="65" width="265" height="92" rx="12" fill="#0E1726" stroke="#10B981" stroke-opacity="0.4"/>
+  <text x="915" y="90" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">HTTP ERROR RATE</text>
+  <text x="915" y="122" fill="#34D399" font-family="system-ui, sans-serif" font-size="28" font-weight="800">0.00 %</text>
+  <text x="915" y="143" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">0 Dropped Requests</text>
+
+  <!-- Main Load Curve Graph Section (Left: 760px wide) -->
+  <rect x="40" y="175" width="760" height="545" rx="14" fill="#0E1726" stroke="#1E2D4A"/>
+  <text x="65" y="210" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Real-Time Concurrency vs Response Time</text>
+  <text x="65" y="232" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Ramp-up: 0 to 500 VUs in 60s · Sustained 5m soak test</text>
 
   <!-- Grid lines -->
-  <line x1="100" y1="310" x2="760" y2="310" stroke="#1F2C45" stroke-dasharray="4 4"/>
-  <text x="70" y="315" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">400ms</text>
-  <line x1="100" y1="400" x2="760" y2="400" stroke="#1F2C45" stroke-dasharray="4 4"/>
-  <text x="70" y="405" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">200ms</text>
-  <line x1="100" y1="490" x2="760" y2="490" stroke="#1F2C45" stroke-dasharray="4 4"/>
-  <text x="70" y="495" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">100ms</text>
-  <line x1="100" y1="580" x2="760" y2="580" stroke="#1F2C45"/>
-  <text x="70" y="585" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">0ms</text>
+  <line x1="90" y1="280" x2="760" y2="280" stroke="#172338" stroke-dasharray="4 4"/>
+  <text x="60" y="284" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">400ms</text>
 
-  <!-- Graph Curve (Filled Area) -->
-  <path d="M100 560 C 200 550, 300 480, 420 460 C 520 450, 600 440, 750 435 L 750 580 L 100 580 Z" fill="url(#curveGrad)"/>
-  <path d="M100 560 C 200 550, 300 480, 420 460 C 520 450, 600 440, 750 435" stroke="#10B981" stroke-width="3" fill="none"/>
+  <line x1="90" y1="360" x2="760" y2="360" stroke="#172338" stroke-dasharray="4 4"/>
+  <text x="60" y="364" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">300ms</text>
+
+  <line x1="90" y1="440" x2="760" y2="440" stroke="#172338" stroke-dasharray="4 4"/>
+  <text x="60" y="444" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">200ms</text>
+
+  <line x1="90" y1="520" x2="760" y2="520" stroke="#172338" stroke-dasharray="4 4"/>
+  <text x="60" y="524" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">100ms</text>
+
+  <line x1="90" y1="600" x2="760" y2="600" stroke="#1E2D4A"/>
+  <text x="60" y="604" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">0ms</text>
+
+  <!-- Latency Area Curve -->
+  <path d="M100 585 C 220 575, 320 510, 440 490 C 540 480, 620 472, 750 468 L 750 600 L 100 600 Z" fill="url(#curveGrad_dark)"/>
+  <path d="M100 585 C 220 575, 320 510, 440 490 C 540 480, 620 472, 750 468" stroke="#10B981" stroke-width="3" fill="none"/>
 
   <!-- Concurrency Blue Line -->
-  <path d="M100 575 L 300 370 L 650 370 L 750 575" stroke="#38BDF8" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
+  <path d="M100 595 L 300 370 L 660 370 L 750 595" stroke="#38BDF8" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
 
   <!-- Legend -->
-  <circle cx="200" cy="650" r="5" fill="#10B981"/>
-  <text x="215" y="654" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12">API Latency (ms)</text>
-  <circle cx="400" cy="650" r="5" fill="#38BDF8"/>
-  <text x="415" y="654" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12">Virtual Users (VUs ramp)</text>
+  <circle cx="230" cy="670" r="5" fill="#10B981"/>
+  <text x="245" y="674" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12">API Latency (ms)</text>
 
-  <!-- Right Side: k6 Script & Insights -->
-  <rect x="820" y="215" width="340" height="495" rx="16" fill="#0D1424" stroke="#1F2C45"/>
-  <text x="845" y="250" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="700">k6 Test Execution Config</text>
+  <line x1="430" y1="670" x2="455" y2="670" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="465" y="674" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12">Virtual Users (VUs ramp)</text>
 
-  <rect x="840" y="275" width="300" height="230" rx="10" fill="#060A12" stroke="#1E293B"/>
-  <text x="855" y="305" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="11">import http from 'k6/http';</text>
-  <text x="855" y="328" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="11">import { check, sleep } from 'k6';</text>
-  <text x="855" y="360" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">export const options = {</text>
-  <text x="870" y="382" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">  vus: 500,</text>
-  <text x="870" y="404" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">  duration: '5m',</text>
-  <text x="870" y="426" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">  thresholds: {</text>
-  <text x="885" y="448" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11">    http_req_duration: ['p(95)&lt;250'],</text>
-  <text x="885" y="470" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11">    http_req_failed: ['rate==0'],</text>
-  <text x="870" y="492" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">  }</text>
-  <text x="855" y="514" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="11">};</text>
+  <!-- Right Column (335px wide) -->
+  <rect x="825" y="175" width="335" height="545" rx="14" fill="#0E1726" stroke="#1E2D4A"/>
+  <text x="845" y="210" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Test Execution Details</text>
 
-  <rect x="840" y="525" width="300" height="165" rx="10" fill="#152035"/>
-  <text x="860" y="555" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Validated Key Scenarios:</text>
-  <text x="860" y="582" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">• Bulk SMS OTP burst dispatch queues</text>
-  <text x="860" y="607" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">• High concurrency ERP POS sales checks</text>
-  <text x="860" y="632" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">• Multi-tenant DB connection pool limits</text>
-  <text x="860" y="660" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ Certified Zero Degradation</text>
+  <!-- k6 Code Box -->
+  <rect x="845" y="230" width="295" height="150" rx="10" fill="#060A12" stroke="#1E2D4A"/>
+  <text x="860" y="255" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11">// k6 Load Script</text>
+  <text x="860" y="275" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">import http from 'k6/http';</text>
+  <text x="860" y="295" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">export const options = {</text>
+  <text x="875" y="315" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">  vus: 500, duration: '5m',</text>
+  <text x="875" y="335" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11">  thresholds: { p95: ['&lt;250'] }</text>
+  <text x="860" y="355" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">};</text>
+
+  <!-- Critical Endpoints List -->
+  <rect x="845" y="395" width="295" height="155" rx="10" fill="#16233B"/>
+  <text x="860" y="420" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Critical Endpoints Tested</text>
+  <text x="860" y="445" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">• POST /api/v1/sms/send</text>
+  <text x="860" y="470" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">• POST /api/v1/auth/login</text>
+  <text x="860" y="495" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">• GET /api/v1/mushak-6-3</text>
+  <text x="860" y="520" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="11">• POST /api/v1/inventory/sync</text>
+
+  <!-- Production Certification Box (Comfortably wrapped on 3 lines, ZERO clipping) -->
+  <rect x="845" y="565" width="295" height="135" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10B981" stroke-opacity="0.4"/>
+  <text x="860" y="592" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ Production Certification</text>
+  <text x="860" y="618" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11">Server handles 1,840 req/sec peak load.</text>
+  <text x="860" y="638" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11">Zero memory leaks · Zero 500 errors.</text>
+  <text x="860" y="658" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="11">Average p95 latency: 210ms (SLA &lt; 300ms).</text>
+  <text x="860" y="682" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">CERTIFIED PRODUCTION READY</text>
 </svg>

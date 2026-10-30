@@ -1,129 +1,165 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad1L" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bgP1_light" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFFFFF"/>
       <stop offset="1" stop-color="#F1F5F9"/>
     </linearGradient>
-    <linearGradient id="cardGradL" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#F8FAFC"/>
-    </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad1L)" stroke="#CBD5E1" stroke-width="2"/>
-  
-  <!-- Window Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">SkyVAT API Test Automation Report — Pytest Suite execution (169 Endpoints)</text>
-  <rect x="1025" y="42" width="130" height="26" rx="6" fill="#10B981" fill-opacity="0.15"/>
-  <text x="1090" y="59" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">STATUS: PASSED</text>
 
-  <!-- Metric Summary Cards -->
-  <rect x="30" y="100" width="260" height="100" rx="14" fill="url(#cardGradL)" stroke="#0284C7" stroke-opacity="0.4"/>
-  <text x="55" y="135" fill="#475569" font-family="system-ui, sans-serif" font-size="13" font-weight="600">TOTAL ENDPOINTS</text>
-  <text x="55" y="178" fill="#0F172A" font-family="system-ui, sans-serif" font-size="34" font-weight="800">169</text>
-  <text x="125" y="176" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="13">/ 46 Modules</text>
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP1_light)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#CBD5E1" stroke-width="1.5"/>
 
-  <rect x="320" y="100" width="260" height="100" rx="14" fill="url(#cardGradL)" stroke="#10B981" stroke-opacity="0.4"/>
-  <text x="345" y="135" fill="#475569" font-family="system-ui, sans-serif" font-size="13" font-weight="600">TEST SCENARIOS PASSED</text>
-  <text x="345" y="178" fill="#059669" font-family="system-ui, sans-serif" font-size="34" font-weight="800">169</text>
-  <text x="415" y="176" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13">(100% Rate)</text>
+  <!-- Top Window Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#F8FAFC"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#CBD5E1" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">SkyVAT REST API Test Automation Matrix — Pytest Execution Report</text>
+  <rect x="1040" y="14" width="135" height="24" rx="12" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+  <text x="1107" y="30" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">169 / 169 PASS</text>
 
-  <rect x="610" y="100" width="260" height="100" rx="14" fill="url(#cardGradL)" stroke="#6366F1" stroke-opacity="0.4"/>
-  <text x="635" y="135" fill="#475569" font-family="system-ui, sans-serif" font-size="13" font-weight="600">FAILED / ERRORS</text>
-  <text x="635" y="178" fill="#0F172A" font-family="system-ui, sans-serif" font-size="34" font-weight="800">0</text>
-  <text x="670" y="176" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13">Zero Regressions</text>
+  <!-- 4 Stat Summary Cards (No text overlap: distinct Y coordinates) -->
+  <rect x="40" y="65" width="260" height="92" rx="12" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="60" y="90" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">TOTAL ENDPOINTS TESTED</text>
+  <text x="60" y="122" fill="#0284C7" font-family="system-ui, sans-serif" font-size="28" font-weight="800">169</text>
+  <text x="60" y="143" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">46 ERP Business Modules</text>
 
-  <rect x="900" y="100" width="270" height="100" rx="14" fill="url(#cardGradL)" stroke="#F59E0B" stroke-opacity="0.4"/>
-  <text x="925" y="135" fill="#475569" font-family="system-ui, sans-serif" font-size="13" font-weight="600">EXECUTION TIME</text>
-  <text x="925" y="178" fill="#D97706" font-family="system-ui, sans-serif" font-size="34" font-weight="800">1.48s</text>
-  <text x="1035" y="176" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">Shared Client</text>
+  <rect x="325" y="65" width="260" height="92" rx="12" fill="#FFFFFF" stroke="#059669" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="345" y="90" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">SUITE PASS RATE</text>
+  <text x="345" y="122" fill="#15803D" font-family="system-ui, sans-serif" font-size="28" font-weight="800">100.00%</text>
+  <text x="345" y="143" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">0 Failures · 0 Flaky Tests</text>
 
-  <!-- Live Test Suite Terminal Table -->
-  <rect x="30" y="225" width="1140" height="495" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
-  
+  <rect x="610" y="65" width="260" height="92" rx="12" fill="#FFFFFF" stroke="#D97706" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="630" y="90" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">REGRESSION RUNTIME</text>
+  <text x="630" y="122" fill="#D97706" font-family="system-ui, sans-serif" font-size="28" font-weight="800">1.48s</text>
+  <text x="630" y="143" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">Single-Session Auth</text>
+
+  <rect x="895" y="65" width="265" height="92" rx="12" fill="#FFFFFF" stroke="#4F46E5" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="915" y="90" fill="#64748B" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">COVERAGE INTEGRITY</text>
+  <text x="915" y="122" fill="#4F46E5" font-family="system-ui, sans-serif" font-size="28" font-weight="800">94.6%</text>
+  <text x="915" y="143" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11">Swagger-to-CSV Parser</text>
+
+  <!-- Execution Table Container -->
+  <rect x="40" y="175" width="1120" height="470" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+
   <!-- Table Header -->
-  <rect x="30" y="225" width="1140" height="42" rx="14" fill="#F1F5F9" stroke="#CBD5E1"/>
-  <text x="60" y="251" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">MODULE / ENDPOINT TEST CASE</text>
-  <text x="600" y="251" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">METHOD</text>
-  <text x="730" y="251" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">STATUS CODE</text>
-  <text x="900" y="251" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">DURATION</text>
-  <text x="1050" y="251" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">RESULT</text>
+  <rect x="40" y="175" width="1120" height="38" rx="12" fill="#F1F5F9"/>
+  <line x1="40" y1="213" x2="1160" y2="213" stroke="#CBD5E1"/>
+  <text x="65" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">TEST IDENTIFIER</text>
+  <text x="360" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">ERP MODULE</text>
+  <text x="560" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">METHOD</text>
+  <text x="660" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">RESPONSE</text>
+  <text x="770" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">ASSERTION CRITERIA</text>
+  <text x="1010" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">STATUS</text>
+  <text x="1100" y="198" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">TIME</text>
 
   <!-- Row 1 -->
-  <text x="60" y="295" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_auth_login_with_valid_credentials</text>
-  <rect x="600" y="280" width="55" height="22" rx="4" fill="#DBEAFE"/>
-  <text x="627" y="296" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">POST</text>
-  <text x="730" y="296" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">200 OK</text>
-  <text x="900" y="296" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">18ms</text>
-  <rect x="1040" y="280" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="296" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="315" x2="1150" y2="315" stroke="#E2E8F0"/>
+  <rect x="41" y="214" width="1118" height="50" fill="#FFFFFF"/>
+  <line x1="40" y1="264" x2="1160" y2="264" stroke="#E2E8F0"/>
+  <text x="65" y="244" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_auth_jwt_single_session</text>
+  <text x="360" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Auth Gateway</text>
+  <rect x="560" y="230" width="46" height="20" rx="4" fill="#E0F2FE"/>
+  <text x="583" y="244" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">POST</text>
+  <text x="660" y="244" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">200 OK</text>
+  <text x="770" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Bearer Token schema, expiration claims</text>
+  <rect x="1010" y="230" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="244" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="244" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">18ms</text>
 
   <!-- Row 2 -->
-  <text x="60" y="345" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_auth_reject_invalid_jwt_token</text>
-  <rect x="600" y="330" width="55" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="627" y="346" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">GET</text>
-  <text x="730" y="346" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">401 UNAUTHORIZED</text>
-  <text x="900" y="346" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">11ms</text>
-  <rect x="1040" y="330" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="346" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="365" x2="1150" y2="365" stroke="#E2E8F0"/>
+  <rect x="41" y="265" width="1118" height="50" fill="#F8FAFC"/>
+  <line x1="40" y1="315" x2="1160" y2="315" stroke="#E2E8F0"/>
+  <text x="65" y="295" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_auth_expired_jwt_gate</text>
+  <text x="360" y="295" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Security Guard</text>
+  <rect x="560" y="281" width="46" height="20" rx="4" fill="#E0F2FE"/>
+  <text x="583" y="295" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">POST</text>
+  <text x="660" y="295" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">401 Unauth</text>
+  <text x="770" y="295" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Negative auth assertion, header rejection</text>
+  <rect x="1010" y="281" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="295" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="295" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">12ms</text>
 
   <!-- Row 3 -->
-  <text x="60" y="395" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_vat_mushak_6_3_calculation_and_registers</text>
-  <rect x="600" y="380" width="55" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="627" y="396" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">GET</text>
-  <text x="730" y="396" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">200 OK</text>
-  <text x="900" y="396" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">22ms</text>
-  <rect x="1040" y="380" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="396" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="415" x2="1150" y2="415" stroke="#E2E8F0"/>
+  <rect x="41" y="316" width="1118" height="50" fill="#FFFFFF"/>
+  <line x1="40" y1="366" x2="1160" y2="366" stroke="#E2E8F0"/>
+  <text x="65" y="346" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_mushak_6_3_tax_calculation</text>
+  <text x="360" y="346" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Mushak Engine</text>
+  <rect x="560" y="332" width="46" height="20" rx="4" fill="#E0F2FE"/>
+  <text x="583" y="346" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">POST</text>
+  <text x="660" y="346" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">200 OK</text>
+  <text x="770" y="346" fill="#334155" font-family="system-ui, sans-serif" font-size="12">4-decimal float precision per NBR rules</text>
+  <rect x="1010" y="332" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="346" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="346" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">24ms</text>
 
   <!-- Row 4 -->
-  <text x="60" y="445" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_inventory_stock_transfer_isolation</text>
-  <rect x="600" y="430" width="55" height="22" rx="4" fill="#DBEAFE"/>
-  <text x="627" y="446" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">POST</text>
-  <text x="730" y="446" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">201 CREATED</text>
-  <text x="900" y="446" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">31ms</text>
-  <rect x="1040" y="430" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="446" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="465" x2="1150" y2="465" stroke="#E2E8F0"/>
+  <rect x="41" y="367" width="1118" height="50" fill="#F8FAFC"/>
+  <line x1="40" y1="417" x2="1160" y2="417" stroke="#E2E8F0"/>
+  <text x="65" y="397" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_sales_invoice_bulk_synthetic</text>
+  <text x="360" y="397" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Sales Ledger</text>
+  <rect x="560" y="383" width="46" height="20" rx="4" fill="#E0F2FE"/>
+  <text x="583" y="397" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">POST</text>
+  <text x="660" y="397" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">201 Created</text>
+  <text x="770" y="397" fill="#334155" font-family="system-ui, sans-serif" font-size="12">100 line items bulk payload validation</text>
+  <rect x="1010" y="383" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="397" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="397" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">45ms</text>
 
   <!-- Row 5 -->
-  <text x="60" y="495" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_bulk_data_excel_upload_and_validation</text>
-  <rect x="600" y="480" width="55" height="22" rx="4" fill="#DBEAFE"/>
-  <text x="627" y="496" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">POST</text>
-  <text x="730" y="496" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">200 OK</text>
-  <text x="900" y="496" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">45ms</text>
-  <rect x="1040" y="480" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="496" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="515" x2="1150" y2="515" stroke="#E2E8F0"/>
+  <rect x="41" y="418" width="1118" height="50" fill="#FFFFFF"/>
+  <line x1="40" y1="468" x2="1160" y2="468" stroke="#E2E8F0"/>
+  <text x="65" y="448" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_vds_supplier_challan_deduct</text>
+  <text x="360" y="448" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Treasury / VDS</text>
+  <rect x="560" y="434" width="46" height="20" rx="4" fill="#EEF2FF"/>
+  <text x="583" y="448" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">GET</text>
+  <text x="660" y="448" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">200 OK</text>
+  <text x="770" y="448" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Zero ledger imbalance assertion</text>
+  <rect x="1010" y="434" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="448" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="448" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">19ms</text>
 
   <!-- Row 6 -->
-  <text x="60" y="545" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_user_role_branch_data_isolation_enforcement</text>
-  <rect x="600" y="530" width="55" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="627" y="546" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">GET</text>
-  <text x="730" y="546" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">403 FORBIDDEN</text>
-  <text x="900" y="546" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">9ms</text>
-  <rect x="1040" y="530" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="546" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="565" x2="1150" y2="565" stroke="#E2E8F0"/>
+  <rect x="41" y="469" width="1118" height="50" fill="#F8FAFC"/>
+  <line x1="40" y1="519" x2="1160" y2="519" stroke="#E2E8F0"/>
+  <text x="65" y="499" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_inventory_batch_stock_sync</text>
+  <text x="360" y="499" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Inventory POS</text>
+  <rect x="560" y="485" width="46" height="20" rx="4" fill="#FEF3C7"/>
+  <text x="583" y="499" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PUT</text>
+  <text x="660" y="499" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">200 OK</text>
+  <text x="770" y="499" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Atomic stock subtraction across warehouses</text>
+  <rect x="1010" y="485" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="499" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="499" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">31ms</text>
 
   <!-- Row 7 -->
-  <text x="60" y="595" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13">test_sms_gateway_bulk_delivery_and_otp_queue</text>
-  <rect x="600" y="580" width="55" height="22" rx="4" fill="#DBEAFE"/>
-  <text x="627" y="596" fill="#1D4ED8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">POST</text>
-  <text x="730" y="596" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">200 OK</text>
-  <text x="900" y="596" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="13">28ms</text>
-  <rect x="1040" y="580" width="75" height="22" rx="4" fill="#DCFCE7"/>
-  <text x="1077" y="596" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">PASSED</text>
-  <line x1="50" y1="615" x2="1150" y2="615" stroke="#E2E8F0"/>
+  <rect x="41" y="520" width="1118" height="50" fill="#FFFFFF"/>
+  <line x1="40" y1="570" x2="1160" y2="570" stroke="#E2E8F0"/>
+  <text x="65" y="550" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_rbac_multi_company_boundary</text>
+  <text x="360" y="550" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Tenancy Engine</text>
+  <rect x="560" y="536" width="46" height="20" rx="4" fill="#EEF2FF"/>
+  <text x="583" y="550" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">GET</text>
+  <text x="660" y="550" fill="#E11D48" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">403 Forbidden</text>
+  <text x="770" y="550" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Cross-tenant data isolation security lock</text>
+  <rect x="1010" y="536" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="550" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="550" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">14ms</text>
 
-  <!-- Footer Banner -->
-  <rect x="50" y="640" width="1100" height="60" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="80" y="675" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">pytest --html=report.html --self-contained-html</text>
-  <text x="740" y="675" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">✓ 169 passed, 0 failed in 1.48s (100% test coverage)</text>
+  <!-- Row 8 -->
+  <rect x="41" y="571" width="1118" height="50" rx="12" fill="#F8FAFC"/>
+  <text x="65" y="601" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">test_customer_ledger_pagination</text>
+  <text x="360" y="601" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Reporting API</text>
+  <rect x="560" y="587" width="46" height="20" rx="4" fill="#EEF2FF"/>
+  <text x="583" y="601" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">GET</text>
+  <text x="660" y="601" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">200 OK</text>
+  <text x="770" y="601" fill="#334155" font-family="system-ui, sans-serif" font-size="12">Offset limit boundaries, array keys assert</text>
+  <rect x="1010" y="587" width="54" height="20" rx="4" fill="#DCFCE7"/>
+  <text x="1037" y="601" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PASS</text>
+  <text x="1100" y="601" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="11">16ms</text>
+
+  <!-- Bottom Terminal Execution Footer -->
+  <rect x="40" y="665" width="1120" height="55" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="65" y="698" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">$ pytest --html=report.html --self-contained-html</text>
+  <text x="1135" y="698" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="end">✓ 169 passed, 0 failed in 1.48s (100% test coverage)</text>
 </svg>

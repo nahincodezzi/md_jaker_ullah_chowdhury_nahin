@@ -1,98 +1,137 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad6L" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bgP6_light" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFFFFF"/>
       <stop offset="1" stop-color="#F1F5F9"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad6L)" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP6_light)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Top Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#F8FAFC"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#CBD5E1" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">STLC End-to-End Release Certification Pipeline — Skytech Solutions</text>
+  <rect x="1035" y="14" width="140" height="24" rx="12" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+  <text x="1105" y="30" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">RELEASE CERTIFIED</text>
+
+  <!-- 6 STLC Stages: 170px width each, 20px gap.
+       Text strictly wrapped to 2-3 short bullet lines of max 20 chars so NO text runs out! -->
   
-  <!-- Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">STLC End-to-End Release Certification Pipeline — Codezzi / Skytech Solutions</text>
-  <rect x="990" y="42" width="160" height="26" rx="6" fill="#DCFCE7"/>
-  <text x="1070" y="59" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">RELEASE CERTIFIED</text>
+  <!-- Node 1: Requirement Analysis -->
+  <rect x="40" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
+  <circle cx="125" cy="102" r="16" fill="#0284C7"/>
+  <text x="125" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">01</text>
+  <text x="125" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Requirement</text>
+  <text x="125" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Analysis</text>
+  <line x1="60" y1="172" x2="190" y2="172" stroke="#E2E8F0"/>
+  <text x="55" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Swagger API specs</text>
+  <text x="55" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Business logic rules</text>
+  <text x="55" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Acceptance gates</text>
+  <rect x="52" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="125" y="282" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">SPEC LOCKED</text>
 
-  <!-- 6 Pipeline Nodes -->
-  <!-- Node 1 -->
-  <rect x="40" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#0284C7" stroke-opacity="0.4"/>
-  <circle cx="70" cy="145" r="16" fill="#0284C7"/>
-  <text x="70" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">01</text>
-  <text x="55" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Requirement</text>
-  <text x="55" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Analysis</text>
-  <text x="55" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Deconstruct specs, Swagger schemas &amp; edge business rules.</text>
+  <!-- Node 2: Test Design -->
+  <rect x="230" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#4F46E5" stroke-opacity="0.4"/>
+  <circle cx="315" cy="102" r="16" fill="#4F46E5"/>
+  <text x="315" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">02</text>
+  <text x="315" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Test Design</text>
+  <text x="315" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">&amp; Scenarios</text>
+  <line x1="250" y1="172" x2="380" y2="172" stroke="#E2E8F0"/>
+  <text x="245" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Equivalence classes</text>
+  <text x="245" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Boundary value anal.</text>
+  <text x="245" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Negative matrices</text>
+  <rect x="242" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="315" y="282" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">TEST PLAN READY</text>
 
-  <!-- Node 2 -->
-  <rect x="230" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#6366F1" stroke-opacity="0.4"/>
-  <circle cx="260" cy="145" r="16" fill="#4F46E5"/>
-  <text x="260" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">02</text>
-  <text x="245" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Test Design</text>
-  <text x="245" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Scenarios</text>
-  <text x="245" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">BVA, equivalence classes, negative matrix &amp; test data.</text>
+  <!-- Node 3: API Testing & Automation -->
+  <rect x="420" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#D97706" stroke-opacity="0.4"/>
+  <circle cx="505" cy="102" r="16" fill="#D97706"/>
+  <text x="505" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">03</text>
+  <text x="505" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">API Testing</text>
+  <text x="505" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">&amp; Automation</text>
+  <line x1="440" y1="172" x2="570" y2="172" stroke="#E2E8F0"/>
+  <text x="435" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Postman runs</text>
+  <text x="435" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Pytest suites (169)</text>
+  <text x="435" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Auth JWT gates</text>
+  <rect x="432" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="505" y="282" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">100% API PASS</text>
 
-  <!-- Node 3 -->
-  <rect x="420" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-opacity="0.4"/>
-  <circle cx="450" cy="145" r="16" fill="#D97706"/>
-  <text x="450" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">03</text>
-  <text x="435" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">API Testing</text>
-  <text x="435" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Automation</text>
-  <text x="435" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Postman runs &amp; Pytest automated suites against Swagger.</text>
+  <!-- Node 4: Functional & Regression -->
+  <rect x="610" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#E11D48" stroke-opacity="0.4"/>
+  <circle cx="695" cy="102" r="16" fill="#E11D48"/>
+  <text x="695" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">04</text>
+  <text x="695" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Functional &amp;</text>
+  <text x="695" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Regression</text>
+  <line x1="630" y1="172" x2="760" y2="172" stroke="#E2E8F0"/>
+  <text x="625" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Selenium 4 POM E2E</text>
+  <text x="625" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Cross-browser testing</text>
+  <text x="625" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Hiring Desk (93 tests)</text>
+  <rect x="622" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="695" y="282" fill="#E11D48" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">E2E VERIFIED</text>
 
-  <!-- Node 4 -->
-  <rect x="610" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#EC4899" stroke-opacity="0.4"/>
-  <circle cx="640" cy="145" r="16" fill="#DB2777"/>
-  <text x="640" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">04</text>
-  <text x="625" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Functional &amp;</text>
-  <text x="625" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Regression</text>
-  <text x="625" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">UI, forms, CMS publishing &amp; cross-browser sanity checks.</text>
+  <!-- Node 5: Defect Triage & Retesting -->
+  <rect x="800" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#7C3AED" stroke-opacity="0.4"/>
+  <circle cx="885" cy="102" r="16" fill="#7C3AED"/>
+  <text x="885" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">05</text>
+  <text x="885" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Defect Triage</text>
+  <text x="885" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">&amp; Retesting</text>
+  <line x1="820" y1="172" x2="950" y2="172" stroke="#E2E8F0"/>
+  <text x="815" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Jira bug lifecycles</text>
+  <text x="815" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Root cause isolation</text>
+  <text x="815" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Verified dev fixes</text>
+  <rect x="812" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="885" y="282" fill="#7C3AED" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">ZERO BLOCKERS</text>
 
-  <!-- Node 5 -->
-  <rect x="800" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#EAB308" stroke-opacity="0.4"/>
-  <circle cx="830" cy="145" r="16" fill="#CA8A04"/>
-  <text x="830" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">05</text>
-  <text x="815" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Defect Triage</text>
-  <text x="815" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Retesting</text>
-  <text x="815" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Reproducible bug logs, developer liaison &amp; verified fixes.</text>
+  <!-- Node 6: QA Sign-Off & Release -->
+  <rect x="990" y="70" width="170" height="235" rx="12" fill="#FFFFFF" stroke="#059669" stroke-opacity="0.4"/>
+  <circle cx="1075" cy="102" r="16" fill="#059669"/>
+  <text x="1075" y="108" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">06</text>
+  <text x="1075" y="140" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">QA Sign-Off</text>
+  <text x="1075" y="158" fill="#0F172A" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">&amp; Release</text>
+  <line x1="1010" y1="172" x2="1140" y2="172" stroke="#E2E8F0"/>
+  <text x="1005" y="196" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• 100% regression pass</text>
+  <text x="1005" y="220" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Release notes signoff</text>
+  <text x="1005" y="244" fill="#334155" font-family="system-ui, sans-serif" font-size="11.5">• Production deployment</text>
+  <rect x="1002" y="266" width="146" height="24" rx="6" fill="#F1F5F9"/>
+  <text x="1075" y="282" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PROD DEPLOYED</text>
 
-  <!-- Node 6 -->
-  <rect x="990" y="115" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-opacity="0.4"/>
-  <circle cx="1020" cy="145" r="16" fill="#059669"/>
-  <text x="1020" y="151" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">06</text>
-  <text x="1005" y="190" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">QA Sign-Off</text>
-  <text x="1005" y="210" fill="#0F172A" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Release</text>
-  <text x="1005" y="240" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Test execution sign-off matrix, release note approval.</text>
+  <!-- Lower Section: Standards & Deliverables (345px width cards) -->
+  <rect x="40" y="325" width="1120" height="245" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="65" y="358" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">QA Execution Standards &amp; Deliverables per Release Cycle</text>
+  <line x1="65" y1="373" x2="1135" y2="373" stroke="#E2E8F0"/>
 
-  <!-- Lower Section: Metrics & Protocols -->
-  <rect x="40" y="345" width="1120" height="365" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
-  <text x="65" y="380" fill="#0F172A" font-family="system-ui, sans-serif" font-size="16" font-weight="700">QA Execution Standards &amp; Deliverables per Release Cycle</text>
+  <rect x="65" y="390" width="345" height="160" rx="10" fill="#F1F5F9"/>
+  <text x="85" y="418" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">1. TEST SUITE PASS CRITERIA</text>
+  <text x="85" y="445" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Zero Severity-1 (Blocker) defects</text>
+  <text x="85" y="470" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Zero Severity-2 (Critical) defects</text>
+  <text x="85" y="495" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• 100% Core Regression Automated Test Pass</text>
+  <text x="85" y="525" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">STAGING CERTIFICATION: PASS</text>
 
-  <rect x="65" y="405" width="345" height="150" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="85" y="435" fill="#0284C7" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">1. TEST SUITE PASS CRITERIA</text>
-  <text x="85" y="465" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• Zero Severity-1 (Blocker) defects</text>
-  <text x="85" y="490" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• Zero Severity-2 (Critical) defects</text>
-  <text x="85" y="515" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• 100% Core Regression Automated Test Pass</text>
-  <text x="85" y="538" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">STAGING CERTIFICATION: PASS</text>
+  <rect x="430" y="390" width="345" height="160" rx="10" fill="#F1F5F9"/>
+  <text x="450" y="418" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">2. AUTOMATION VELOCITY</text>
+  <text x="450" y="445" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• 169 SkyVAT REST endpoints automated</text>
+  <text x="450" y="470" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• 93 Hiring Desk Selenium POM E2E tests</text>
+  <text x="450" y="495" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• HTML reports with failure screenshots</text>
+  <text x="450" y="525" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">CONTINUOUS REGRESSION: ACTIVE</text>
 
-  <rect x="430" y="405" width="345" height="150" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="450" y="435" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">2. AUTOMATION VELOCITY</text>
-  <text x="450" y="465" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• 169 SkyVAT REST endpoints automated</text>
-  <text x="450" y="490" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• 93 Hiring Desk Selenium POM E2E tests</text>
-  <text x="450" y="515" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• HTML execution reports with screenshots</text>
-  <text x="450" y="538" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">CONTINUOUS REGRESSION: ACTIVE</text>
+  <rect x="795" y="390" width="345" height="160" rx="10" fill="#F1F5F9"/>
+  <text x="815" y="418" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">3. COLLABORATION WORKFLOW</text>
+  <text x="815" y="445" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Daily standup status updates</text>
+  <text x="815" y="470" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• GitHub PR testing on preview deployments</text>
+  <text x="815" y="495" fill="#334155" font-family="system-ui, sans-serif" font-size="12">• Retesting developer hotfixes before merge</text>
+  <text x="815" y="525" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">SPRINT CYCLE: 2 WEEKS</text>
 
-  <rect x="795" y="405" width="345" height="150" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
-  <text x="815" y="435" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">3. COLLABORATION WORKFLOW</text>
-  <text x="815" y="465" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• Daily standup status updates</text>
-  <text x="815" y="490" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• GitHub PR testing on preview deployments</text>
-  <text x="815" y="515" fill="#475569" font-family="system-ui, sans-serif" font-size="12">• Retesting developer hotfixes before merge</text>
-  <text x="815" y="538" fill="#4F46E5" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">SPRINT CYCLE: 2 WEEKS</text>
-
-  <!-- Signoff Banner -->
-  <rect x="65" y="580" width="1075" height="105" rx="10" fill="#F1F5F9" stroke="#CBD5E1"/>
-  <text x="90" y="615" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">✓ OFFICIAL STLC SIGN-OFF CERTIFICATION</text>
-  <text x="90" y="640" fill="#475569" font-family="system-ui, sans-serif" font-size="12">Verified by Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer · Skytech Solutions (Codezzi). All requirements, API contracts, negative boundary conditions, and performance SLAs certified for production rollout.</text>
-  <text x="90" y="665" fill="#0F172A" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">Certification Status: READY FOR CLIENT PRODUCTION DEPLOYMENT</text>
+  <!-- Bottom Official Signoff Banner:
+       Comfortably wrapped on 3 lines inside 1120px card - ZERO cut off! -->
+  <rect x="40" y="590" width="1120" height="130" rx="12" fill="#DCFCE7" stroke="#059669" stroke-opacity="0.4"/>
+  <text x="65" y="622" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700">✓ OFFICIAL STLC SIGN-OFF CERTIFICATION</text>
+  <text x="65" y="650" fill="#0F172A" font-family="system-ui, sans-serif" font-size="12.5">Verified by Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer · Skytech Solutions (Codezzi)</text>
+  <text x="65" y="674" fill="#334155" font-family="system-ui, sans-serif" font-size="12">All functional requirements, REST API contracts, negative boundary conditions, and performance SLAs are verified.</text>
+  <text x="65" y="700" fill="#15803D" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700">Certification Status: READY FOR CLIENT PRODUCTION DEPLOYMENT · ZERO BLOCKERS</text>
 </svg>

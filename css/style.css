@@ -1396,6 +1396,14 @@ h1, h2, h3, h4 {
   gap: 16px;
 }
 
+/* Dual-Theme Zero-Flicker Gallery Images */
+[data-theme="light"] .gallery-img-dark {
+  display: none !important;
+}
+html:not([data-theme="light"]) .gallery-img-light {
+  display: none !important;
+}
+
 .gallery-stage {
   position: relative;
   height: 480px;

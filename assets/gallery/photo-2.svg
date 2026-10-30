@@ -1,109 +1,103 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <defs>
-    <linearGradient id="bgGrad2" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A"/>
-      <stop offset="1" stop-color="#1E293B"/>
+    <linearGradient id="bgP2_dark" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#080D1A"/>
+      <stop offset="1" stop-color="#050811"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="750" rx="20" fill="url(#bgGrad2)"/>
-  
-  <!-- Window Header -->
-  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#1E293B" stroke="#334155"/>
-  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
-  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
-  <circle cx="110" cy="55" r="7" fill="#10B981"/>
-  <text x="145" y="60" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">Postman &amp; Swagger API Verification Architecture — SQA Contract Testing</text>
 
-  <!-- Left Column: Swagger Specs & Schema -->
-  <rect x="40" y="110" width="340" height="590" rx="16" fill="#111827" stroke="#38BDF8" stroke-opacity="0.3"/>
-  <rect x="60" y="130" width="140" height="28" rx="6" fill="#38BDF8" fill-opacity="0.15"/>
-  <text x="130" y="149" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">SWAGGER SPEC</text>
-  <text x="60" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Contract &amp; Schema</text>
-  <text x="60" y="215" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">OpenAPI 3.0 Documentation validation</text>
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" rx="16" fill="url(#bgP2_dark)"/>
+  <rect x="1" y="1" width="1198" height="748" rx="15" stroke="#1E2D4A" stroke-width="1.5"/>
 
-  <rect x="60" y="240" width="300" height="70" rx="10" fill="#1E293B"/>
-  <text x="80" y="265" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12">✓ Request Header Contracts</text>
-  <text x="80" y="290" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">Authorization: Bearer &lt;JWT&gt;</text>
+  <!-- Top Header -->
+  <rect x="1" y="1" width="1198" height="48" rx="15" fill="#0B1220"/>
+  <line x1="1" y1="49" x2="1199" y2="49" stroke="#1E2D4A" stroke-width="1"/>
+  <circle cx="28" cy="25" r="6" fill="#EF4444"/>
+  <circle cx="48" cy="25" r="6" fill="#F59E0B"/>
+  <circle cx="68" cy="25" r="6" fill="#10B981"/>
+  <text x="95" y="30" fill="#F8FAFC" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">Postman &amp; Swagger API Verification Architecture — SQA Contract Testing</text>
+  <rect x="1035" y="14" width="140" height="24" rx="12" fill="rgba(56,189,248,0.15)" stroke="#38BDF8" stroke-width="1"/>
+  <text x="1105" y="30" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">CONTRACT VERIFIED</text>
 
-  <rect x="60" y="325" width="300" height="70" rx="10" fill="#1E293B"/>
-  <text x="80" y="350" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12">✓ JSON Payload Validation</text>
-  <text x="80" y="375" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">Types, Required Fields, Enums</text>
-
-  <rect x="60" y="410" width="300" height="70" rx="10" fill="#1E293B"/>
-  <text x="80" y="435" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12">✓ Pagination &amp; Limit Checks</text>
-  <text x="80" y="460" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">page=1&amp;size=50 (Edge offsets)</text>
-
-  <rect x="60" y="495" width="300" height="175" rx="10" fill="#0A0F1D" stroke="#334155"/>
-  <text x="80" y="525" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11"># Swagger to CSV Parser</text>
-  <text x="80" y="550" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">endpoints = parse_swagger(doc)</text>
-  <text x="80" y="575" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">for ep in endpoints:</text>
-  <text x="100" y="600" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11">assert_schema_match(ep)</text>
-  <text x="80" y="635" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ 46 Modules Mapped</text>
-
-  <!-- Middle Column: Postman Test Execution Flow -->
-  <rect x="410" y="110" width="370" height="590" rx="16" fill="#111827" stroke="#10B981" stroke-opacity="0.3"/>
-  <rect x="430" y="130" width="130" height="28" rx="6" fill="#10B981" fill-opacity="0.15"/>
-  <text x="495" y="149" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">POSTMAN SUITE</text>
-  <text x="430" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Dynamic Assertion Flow</text>
-  <text x="430" y="215" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Pre-request scripts &amp; Chai test scripts</text>
-
+  <!-- 4 Step Pipeline Flow (Cleanly spaced, 260px cards, no overflow) -->
   <!-- Step 1 -->
-  <circle cx="450" cy="265" r="14" fill="#3B82F6"/>
-  <text x="450" y="270" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">1</text>
-  <text x="480" y="260" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Auth Token Acquisition</text>
-  <text x="480" y="280" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">pm.environment.set("jwt", res.token)</text>
-  <line x1="450" y1="285" x2="450" y2="320" stroke="#334155" stroke-dasharray="3 3"/>
+  <rect x="40" y="75" width="260" height="260" rx="14" fill="#0E1726" stroke="#38BDF8" stroke-opacity="0.4"/>
+  <circle cx="75" cy="110" r="18" fill="#38BDF8"/>
+  <text x="75" y="116" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" text-anchor="middle">01</text>
+  <text x="110" y="115" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">SPEC INGESTION</text>
+  <text x="60" y="155" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Swagger &amp; OpenAPI</text>
+  <text x="60" y="190" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• OpenAPI 3.0 YAML/JSON</text>
+  <text x="60" y="215" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Schema-to-CSV endpoint sync</text>
+  <text x="60" y="240" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Request &amp; response blueprints</text>
+  <rect x="60" y="280" width="220" height="34" rx="8" fill="#16233B"/>
+  <text x="75" y="302" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">169 Endpoints Mapped</text>
 
   <!-- Step 2 -->
-  <circle cx="450" cy="340" r="14" fill="#10B981"/>
-  <text x="450" y="345" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">2</text>
-  <text x="480" y="335" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">CRUD Transaction Execution</text>
-  <text x="480" y="355" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">POST /orders -> Response ID verified</text>
-  <line x1="450" y1="360" x2="450" y2="395" stroke="#334155" stroke-dasharray="3 3"/>
+  <rect x="325" y="75" width="260" height="260" rx="14" fill="#0E1726" stroke="#F59E0B" stroke-opacity="0.4"/>
+  <circle cx="360" cy="110" r="18" fill="#F59E0B"/>
+  <text x="360" y="116" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" text-anchor="middle">02</text>
+  <text x="395" y="115" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">TEST AUTHORING</text>
+  <text x="345" y="155" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Postman Collections</text>
+  <text x="345" y="190" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Dynamic env variables</text>
+  <text x="345" y="215" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Pre-request JWT auth scripts</text>
+  <text x="345" y="240" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Negative &amp; boundary tests</text>
+  <rect x="345" y="280" width="220" height="34" rx="8" fill="#16233B"/>
+  <text x="360" y="302" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">46 Module Collections</text>
 
   <!-- Step 3 -->
-  <circle cx="450" cy="415" r="14" fill="#F59E0B"/>
-  <text x="450" y="420" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">3</text>
-  <text x="480" y="410" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Negative &amp; Edge Cases</text>
-  <text x="480" y="430" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">400 Bad Request / 401 Unauthorized</text>
-  <line x1="450" y1="435" x2="450" y2="470" stroke="#334155" stroke-dasharray="3 3"/>
+  <rect x="610" y="75" width="260" height="260" rx="14" fill="#0E1726" stroke="#818CF8" stroke-opacity="0.4"/>
+  <circle cx="645" cy="110" r="18" fill="#818CF8"/>
+  <text x="645" y="116" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" text-anchor="middle">03</text>
+  <text x="680" y="115" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUTOMATION RUNNER</text>
+  <text x="630" y="155" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Newman &amp; CLI</text>
+  <text x="630" y="190" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Headless command runner</text>
+  <text x="630" y="215" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• HTML execution reports</text>
+  <text x="630" y="240" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Status code &amp; SLA checks</text>
+  <rect x="630" y="280" width="220" height="34" rx="8" fill="#16233B"/>
+  <text x="645" y="302" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">CI Automated Runner</text>
 
   <!-- Step 4 -->
-  <circle cx="450" cy="490" r="14" fill="#8B5CF6"/>
-  <text x="450" y="495" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">4</text>
-  <text x="480" y="485" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Response Integrity Assertions</text>
-  <text x="480" y="505" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">pm.response.to.have.status(200)</text>
+  <rect x="895" y="75" width="265" height="260" rx="14" fill="#0E1726" stroke="#10B981" stroke-opacity="0.4"/>
+  <circle cx="930" cy="110" r="18" fill="#10B981"/>
+  <text x="930" y="116" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" text-anchor="middle">04</text>
+  <text x="965" y="115" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">HIGH-SPEED CI</text>
+  <text x="915" y="155" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Pytest Transition</text>
+  <text x="915" y="190" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Converted into Python scripts</text>
+  <text x="915" y="215" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• Single-session Requests client</text>
+  <text x="915" y="240" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">• 1.48s complete regression run</text>
+  <rect x="915" y="280" width="225" height="34" rx="8" fill="#16233B"/>
+  <text x="930" y="302" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">100% Pass In CI Pipeline</text>
 
-  <rect x="430" y="540" width="330" height="130" rx="10" fill="#0A0F1D" stroke="#10B981" stroke-opacity="0.3"/>
-  <text x="450" y="570" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">✓ Test Results Summary</text>
-  <text x="450" y="600" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12">Total Assertions: 480 passed</text>
-  <text x="450" y="625" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12">Environment: Production Staging</text>
-  <text x="450" y="650" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12">100% Success Rate</text>
+  <!-- Lower Section: Contract Scope & SQA Metrics (540px width cards, zero text overflow) -->
+  <rect x="40" y="355" width="545" height="275" rx="14" fill="#0E1726" stroke="#1E2D4A"/>
+  <text x="65" y="390" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Contract &amp; Schema Validation Protocol</text>
+  <line x1="65" y1="405" x2="560" y2="405" stroke="#172338"/>
 
-  <!-- Right Column: Verification Results -->
-  <rect x="810" y="110" width="350" height="590" rx="16" fill="#111827" stroke="#6366F1" stroke-opacity="0.3"/>
-  <rect x="830" y="130" width="150" height="28" rx="6" fill="#6366F1" fill-opacity="0.15"/>
-  <text x="905" y="149" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">VALIDATION MATRIX</text>
-  <text x="830" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Quality Checks</text>
-  <text x="830" y="215" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Parameters tested across all APIs</text>
+  <text x="65" y="435" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">1. JSON Schema Conformance</text>
+  <text x="65" y="455" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Validates data types, required keys, and array lengths via JSONSchema.</text>
 
-  <rect x="830" y="240" width="310" height="60" rx="10" fill="#1E293B"/>
-  <text x="850" y="265" fill="#10B981" font-family="system-ui, sans-serif" font-size="13" font-weight="700">✓ Security &amp; Authorization</text>
-  <text x="850" y="285" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Expired tokens, missing headers, cross-tenant isolation</text>
+  <text x="65" y="490" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">2. Response Status Matrix</text>
+  <text x="65" y="510" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Asserts standard 200, 201, 400, 401, 403, and 422 HTTP responses.</text>
 
-  <rect x="830" y="315" width="310" height="60" rx="10" fill="#1E293B"/>
-  <text x="850" y="340" fill="#10B981" font-family="system-ui, sans-serif" font-size="13" font-weight="700">✓ Data Type &amp; Boundary Rules</text>
-  <text x="850" y="360" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Max length, SQL injection escaping, regex formats</text>
+  <text x="65" y="545" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">3. Latency &amp; Header SLAs</text>
+  <text x="65" y="565" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Validates Content-Type, CORS, and sub-300ms SLA per endpoint.</text>
 
-  <rect x="830" y="390" width="310" height="60" rx="10" fill="#1E293B"/>
-  <text x="850" y="415" fill="#10B981" font-family="system-ui, sans-serif" font-size="13" font-weight="700">✓ Error Response Uniformity</text>
-  <text x="850" y="435" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Consistent error payload schema across 100% services</text>
+  <rect x="615" y="355" width="545" height="275" rx="14" fill="#0E1726" stroke="#1E2D4A"/>
+  <text x="640" y="390" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Business Impact &amp; Defect Prevention</text>
+  <line x1="640" y1="405" x2="1135" y2="405" stroke="#172338"/>
 
-  <rect x="830" y="465" width="310" height="60" rx="10" fill="#1E293B"/>
-  <text x="850" y="490" fill="#10B981" font-family="system-ui, sans-serif" font-size="13" font-weight="700">✓ High Concurrency Latency</text>
-  <text x="850" y="510" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">P95 latency &lt; 150ms on all core transaction APIs</text>
+  <text x="640" y="435" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">● 65% Cycle Time Reduction</text>
+  <text x="640" y="455" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Replaces manual Postman checks with automated CI regression test runs.</text>
 
-  <rect x="830" y="540" width="310" height="130" rx="10" fill="#1E293B" stroke="#6366F1" stroke-opacity="0.3"/>
-  <text x="850" y="575" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="700">QA Engineer Impact</text>
-  <text x="850" y="605" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">"Automated repeatable checks cut manual release testing cycles by over 65% while catching critical contract drifts early."</text>
+  <text x="640" y="490" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">● Zero Contract Drifts</text>
+  <text x="640" y="510" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Catches backend model changes before they break frontend UI components.</text>
+
+  <text x="640" y="545" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">● Single-Session Authorization</text>
+  <text x="640" y="565" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="12">Authenticates once and reuses bearer token across all 169 endpoints.</text>
+
+  <!-- Bottom Quote Bar (Cleanly wrapped on 2 lines, no single-line overflow) -->
+  <rect x="40" y="650" width="1120" height="65" rx="10" fill="#16233B" stroke="#1E2D4A"/>
+  <text x="65" y="680" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-style="italic">&quot;Automated repeatable checks cut manual release testing cycles by over 65% while catching critical contract drifts early.&quot;</text>
+  <text x="65" y="700" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11">— Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer</text>
 </svg>
