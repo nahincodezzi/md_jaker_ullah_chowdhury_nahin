@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================= */
   const themeToggle = $('#themeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let syncGalleryTheme = null;
   
   const getInitialTheme = () => {
     const currentAttr = document.documentElement.getAttribute('data-theme');
@@ -39,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
       themeToggle.innerHTML = theme === 'dark' 
         ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`
         : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    }
+
+    if (typeof syncGalleryTheme === 'function') {
+      syncGalleryTheme(theme);
     }
   };
 
@@ -542,13 +547,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = $('#galleryPrev');
     const nextBtn = $('#galleryNext');
 
+    const isCurrentLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+
+    const getTargetSrc = (img, lightMode = isCurrentLight()) => {
+      return lightMode ? (img.dataset.light || img.getAttribute('src')) : (img.dataset.dark || img.getAttribute('src'));
+    };
+
     const items = thumbImgs.map((img) => ({
-      src: img.getAttribute('src'),
+      darkSrc: img.dataset.dark || img.getAttribute('src'),
+      lightSrc: img.dataset.light || img.getAttribute('src'),
+      src: getTargetSrc(img),
       alt: img.getAttribute('alt') || 'QA Architecture Artifact'
     }));
 
     let activeIndex = 0;
     let autoSlideTimer = null;
+
+    syncGalleryTheme = (theme) => {
+      const light = theme === 'light';
+      items.forEach((item) => {
+        item.src = light ? item.lightSrc : item.darkSrc;
+      });
+      thumbImgs.forEach((img) => {
+        img.src = getTargetSrc(img, light);
+      });
+      if (mainImg) {
+        mainImg.src = items[activeIndex].src;
+      }
+      if (lightbox && !lightbox.hidden && lbImg) {
+        lbImg.src = items[lbIndex].src;
+      }
+    };
+
+    // Apply current theme to gallery immediately
+    syncGalleryTheme(document.documentElement.getAttribute('data-theme') || 'dark');
 
     const showArtifact = (index) => {
       activeIndex = (index + items.length) % items.length;
