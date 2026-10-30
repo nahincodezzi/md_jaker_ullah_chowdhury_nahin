@@ -1303,6 +1303,91 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================================
+   LIGHT THEME OVERRIDES FOR CODE TERMINALS & RUNNER
+   ========================================================= */
+[data-theme="light"] .featured-terminal {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #1E293B;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .featured-terminal-head {
+  border-bottom-color: #E2E8F0;
+  color: #64748B;
+}
+
+[data-theme="light"] .featured-terminal div[style*="color:#38BDF8"] {
+  color: #0284C7 !important;
+}
+
+[data-theme="light"] .code-key {
+  color: #059669;
+}
+
+[data-theme="light"] .terminal-box {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .terminal-header {
+  background: #F8FAFC;
+  border-bottom-color: #E2E8F0;
+}
+
+[data-theme="light"] .terminal-title {
+  color: #475569;
+}
+
+[data-theme="light"] .terminal-tabs {
+  background: #F1F5F9;
+  border-bottom-color: #E2E8F0;
+}
+
+[data-theme="light"] .terminal-tab {
+  color: #64748B;
+}
+
+[data-theme="light"] .terminal-tab:hover {
+  color: #0F172A;
+  background: rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .terminal-tab.is-active {
+  color: #0284C7;
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .terminal-body {
+  background: #FFFFFF;
+  color: #1E293B;
+}
+
+[data-theme="light"] .term-prompt {
+  color: #0284C7;
+}
+
+[data-theme="light"] .term-pass {
+  color: #059669;
+}
+
+[data-theme="light"] .term-info {
+  color: #64748B;
+}
+
+[data-theme="light"] .terminal-footer {
+  background: #F8FAFC;
+  border-top-color: #E2E8F0;
+}
+
+[data-theme="light"] .terminal-hint {
+  color: #64748B;
+}
+
+/* =========================================================
    QA ARTIFACTS GALLERY
    ========================================================= */
 .gallery-box {
