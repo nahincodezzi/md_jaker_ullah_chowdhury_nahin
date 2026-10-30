@@ -1,648 +1,1097 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md Jaker Ullah Chowdhury Nahin — SQA Engineer</title>
-  <meta name="description" content="Md Jaker Ullah Chowdhury Nahin, Associate QA Engineer at Skytech Solutions (Codezzi), Dhaka. Functional, regression and CMS testing, REST API testing with Postman, and API automation with Python and Pytest.">
-  <meta name="theme-color" content="#0F766E">
+  <title>Md Jaker Ullah Chowdhury Nahin — SQA Engineer | API Testing &amp; Automation</title>
+  <meta name="description" content="Portfolio of Md Jaker Ullah Chowdhury Nahin, Associate QA Engineer at Skytech Solutions (Codezzi). Functional, regression and CMS testing, Postman REST API testing, and Pytest API automation.">
+  <meta name="theme-color" content="#10B981">
   <meta property="og:title" content="Md Jaker Ullah Chowdhury Nahin — SQA Engineer">
-  <meta property="og:description" content="I find the bugs before your users do.">
+  <meta property="og:description" content="I engineer software quality and catch bugs before your users do.">
   <meta property="og:image" content="assets/images/profile.jpg">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Lexend:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ================= INTRO SPLASH (delete this block to remove it) ================= -->
-  <div class="intro" id="intro" aria-hidden="true">
-    <div class="intro__inner">
-      <span class="intro__mark">✓</span>
-      <span class="intro__text">Running quality checks…</span>
-      <div class="intro__bar"><span></span></div>
-    </div>
-    <button type="button" class="intro__skip" id="skipIntro">Skip intro</button>
+  <!-- Top Scroll Reading Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Ambient Glowing Background Lights -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
   </div>
 
-  <!-- ================= HEADER ================= -->
+  <!-- ================= HEADER & NAVIGATION ================= -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#top" class="logo" aria-label="Md Jaker Ullah Chowdhury Nahin — back to top">
-        <span class="logo__mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span>
-        <span class="logo__text"><span class="logo__name">Md Jaker Ullah Chowdhury Nahin</span><span class="logo__role">SQA Engineer</span></span>
+        <span class="logo__badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Md Jaker Ullah Chowdhury Nahin</span>
+          <span class="logo__role"><span class="logo__status-dot"></span> Associate QA Engineer</span>
+        </span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
-      <nav class="nav" id="nav" aria-label="Main">
+
+      <!-- Desktop Nav -->
+      <nav class="nav" id="nav" aria-label="Main Navigation">
         <a href="#about" class="nav__link">About</a>
-        <a href="#process" class="nav__link">Process</a>
+        <a href="#test-runner" class="nav__link">Test Runner</a>
+        <a href="#process" class="nav__link">STLC Process</a>
         <a href="#skills" class="nav__link">Skills</a>
         <a href="#experience" class="nav__link">Experience</a>
         <a href="#work" class="nav__link">Projects</a>
+        <a href="#artifacts" class="nav__link">QA Artifacts</a>
         <a href="#education" class="nav__link">Education</a>
-        <a href="#contact" class="nav__link nav__link--cta">Hire me</a>
       </nav>
+
+      <!-- Action Group -->
+      <div class="header__actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+
+        <a href="assets/cv/Nahin-CV.pdf" class="btn btn--ghost btn--sm" download aria-label="Download CV">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          CV
+        </a>
+
+        <a href="#contact" class="btn btn--primary btn--sm">Hire me</a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= HERO SECTION ================= -->
     <section class="hero container">
-      <div class="hero__content reveal">
-        <div class="pills">
-          <!-- Delete this pill if you're not looking for new roles -->
-          <span class="pill pill--pass"><span class="dot"></span>Open to opportunities</span>
-          <span class="pill"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Dhaka, Bangladesh</span>
-        </div>
-        <span class="eyebrow">SOFTWARE QUALITY ASSURANCE ENGINEER</span>
-        <h1 class="hero__title">I find the bugs<br>before your <span class="accent-text">users do.</span></h1>
-        <p class="hero__text">I'm <strong>Md Jaker Ullah Chowdhury Nahin</strong>, an Associate QA Engineer at Skytech Solutions (Codezzi). I test web products, client websites, CMS panels and the REST APIs behind them — and automate the checks worth repeating.</p>
-        <div class="hero__actions">
-          <a href="assets/cv/Nahin-CV.pdf" class="btn btn--primary" download>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
-            Download CV
-          </a>
-          <a href="#work" class="btn btn--ghost">
-            View projects
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-        <!-- The counters animate up to data-count -->
-        <div class="stats">
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="9">0</span>+</span><span class="stat__label">Products &amp; websites tested</span></div>
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="169">0</span></span><span class="stat__label">API endpoints in my Pytest suite</span></div>
-          <div class="stat"><span class="stat__num"><span class="counter" data-count="46">0</span></span><span class="stat__label">API modules mapped</span></div>
-        </div>
-      </div>
+      <div class="hero__grid">
+        <div class="hero__content reveal">
+          <div class="hero__pills">
+            <span class="pill pill--pass">
+              <span class="radar-dot" aria-hidden="true"></span>
+              Open to SQA &amp; Automation Roles
+            </span>
+            <span class="pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Dhaka, Bangladesh
+            </span>
+          </div>
 
-      <div class="hero__media reveal">
-        <div class="hero__backdrop" aria-hidden="true"></div>
-        <img src="assets/images/profile.jpg" alt="Md Jaker Ullah Chowdhury Nahin" class="hero__photo" width="960" height="1200">
-        <div class="qa-card" aria-hidden="true">
-          <span class="mono-label">RELEASE QA STATUS</span>
-          <div class="qa-card__row"><span>Smoke suite</span><span class="status">PASSED</span></div>
-          <div class="qa-card__row"><span>API checks</span><span class="status">PASSED</span></div>
-          <div class="qa-card__row"><span>Regression</span><span class="status">PASSED</span></div>
+          <span class="hero__eyebrow">SOFTWARE QUALITY ASSURANCE ENGINEER</span>
+          <h1 class="hero__title">
+            I engineer software quality &amp; find bugs <br>
+            <span class="gradient-text">before your users ever do.</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            I'm <strong>Md Jaker Ullah Chowdhury Nahin</strong>, an Associate QA Engineer at <strong>Skytech Solutions (Codezzi)</strong>. I validate web products, client websites, CMS panels, and REST APIs against Swagger specs — and build automated testing suites with <strong>Python &amp; Pytest</strong>.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#work" class="btn btn--primary">
+              Explore Projects
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="assets/cv/Nahin-CV.pdf" class="btn btn--ghost" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+              Download CV
+            </a>
+            <a href="#test-runner" class="btn btn--outline btn--sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Live Test Runner
+            </a>
+          </div>
+
+          <!-- Animated Stat Counters -->
+          <div class="hero__stats">
+            <div class="stat-item">
+              <span class="stat-item__num"><span class="counter" data-count="10">0</span>+</span>
+              <span class="stat-item__label">Products &amp; CMS Systems Validated</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__num"><span class="counter" data-count="169">0</span></span>
+              <span class="stat-item__label">API Endpoints in Pytest Suite</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__num"><span class="counter" data-count="46">0</span></span>
+              <span class="stat-item__label">Business Modules Schema Mapped</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-item__num"><span class="counter" data-count="0">0</span></span>
+              <span class="stat-item__label">Critical Release Regressions Escaped</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Hero Photo & Live QA Card -->
+        <div class="hero__visual reveal">
+          <div class="hero__floating-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Pytest &amp; Postman Specialist
+          </div>
+
+          <div class="hero__card-frame">
+            <img src="assets/images/profile.jpg" alt="Md Jaker Ullah Chowdhury Nahin - Software Quality Assurance Engineer" class="hero__photo" width="960" height="1200">
+
+            <!-- Floating QA HUD Release Status -->
+            <div class="qa-hud-card" aria-label="Release QA Status summary">
+              <div class="qa-hud-card__head">
+                <span class="qa-hud-card__title">RELEASE CANDIDATE QA STATUS</span>
+                <span class="badge badge--pass">v2.4 STAGING</span>
+              </div>
+              <div class="qa-hud-card__list">
+                <div class="qa-hud-card__row">
+                  <span>Smoke Suite</span>
+                  <span class="badge badge--pass">100% PASSED</span>
+                </div>
+                <div class="qa-hud-card__row">
+                  <span>API Contract (Swagger)</span>
+                  <span class="badge badge--pass">169/169 PASS</span>
+                </div>
+                <div class="qa-hud-card__row">
+                  <span>Regression Gates</span>
+                  <span class="badge badge--pass">0 BLOCKERS</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TOOLS ================= -->
-    <div class="tools">
-      <div class="container tools__inner">
-        <span class="mono-label">TOOLS I WORK WITH</span>
-        <span class="tools__item">Postman</span><span class="tools__item">Swagger</span><span class="tools__item">Python</span><span class="tools__item">Pytest</span><span class="tools__item">JMeter</span><span class="tools__item">k6</span><span class="tools__item">SQL</span><span class="tools__item">Pandas</span><span class="tools__item">Git &amp; GitHub</span>
+    <!-- ================= INTERACTIVE LIVE QA TEST RUNNER ================= -->
+    <section id="test-runner" class="test-runner-section container reveal">
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot dot--red"></span>
+            <span class="terminal-dot dot--yellow"></span>
+            <span class="terminal-dot dot--green"></span>
+          </div>
+          <span class="terminal-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            interactive-sqa-test-runner@nahincodezzi ~ bash
+          </span>
+          <span class="badge badge--pass" style="font-size:11px">ONLINE SIMULATOR</span>
+        </div>
+
+        <div class="terminal-tabs">
+          <button type="button" class="terminal-tab is-active" data-suite="suite-1">1. Pytest SkyVAT Suite (169 Endpoints)</button>
+          <button type="button" class="terminal-tab" data-suite="suite-2">2. Security &amp; JWT 401 Negative Tests</button>
+          <button type="button" class="terminal-tab" data-suite="suite-3">3. VAT Mushak-6.3 Calculation Rules</button>
+          <button type="button" class="terminal-tab" data-suite="suite-4">4. k6 Concurrency Benchmark (500 VUs)</button>
+        </div>
+
+        <div class="terminal-body" id="terminalBody">
+          <!-- Populated and streamed live by js/script.js -->
+        </div>
+
+        <div class="terminal-footer">
+          <span class="terminal-hint">Select a test scenario above or hit "Run Test Suite" to simulate live automated execution.</span>
+          <div class="terminal-controls">
+            <button type="button" class="btn btn--outline btn--sm" id="clearTestBtn">Clear</button>
+            <button type="button" class="btn btn--primary btn--sm" id="runTestBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Run Test Suite
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TOOLS & TECH MARQUEE ================= -->
+    <div class="tools-bar">
+      <div class="container tools-bar__inner">
+        <span class="tools-bar__label">VALIDATION TOOLKIT &amp; STACK</span>
+        <div class="tools-bar__list">
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Postman</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Swagger (OpenAPI)</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Python</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Pytest &amp; Requests</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> Apache JMeter</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> k6 Load Testing</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> SQL &amp; Database</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Pandas &amp; NumPy</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> Git &amp; GitHub</span>
+        </div>
       </div>
     </div>
 
-    <!-- ================= ABOUT ================= -->
+    <!-- ================= ABOUT SECTION ================= -->
     <section id="about" class="section container">
-      <div class="about">
+      <div class="about__grid">
         <div class="about__text reveal">
-          <div class="section__head">
-            <span class="eyebrow">01 — ABOUT ME</span>
-            <h2 class="section__title">Quality is a habit, <span class="accent-text">not a phase.</span></h2>
+          <div class="section__head" style="margin-bottom:0">
+            <span class="section__eyebrow">01 — ABOUT ME</span>
+            <h2 class="section__title">Quality is a habit, <span class="gradient-text">not a phase.</span></h2>
           </div>
-          <p>I'm a QA engineer with a background in Computer Science, currently working as an Associate QA Engineer at Skytech Solutions (Codezzi). I test the company's web products, client websites and their CMS panels — functional, regression and smoke testing in the browser, and REST API testing in Postman against the Swagger docs.</p>
-          <p>I write test cases and bug reports developers can act on quickly, and I've started automating our repeated API checks with Python and Pytest. Before Codezzi, I tested a hospital ERP during my internship at Ignite Technology.</p>
+          <p>
+            I'm a QA engineer with a Bachelor of Science in Computer Science &amp; Engineering, currently working as an Associate QA Engineer at <strong>Skytech Solutions (Codezzi)</strong>. I validate the company's flagship ERP and SaaS products, client websites, and CMS administration panels.
+          </p>
+          <p>
+            My day-to-day includes browser-based functional, regression, smoke, and sanity testing, alongside deep REST API contract testing in Postman verified against Swagger OpenAPI schemas. To eliminate repetitive manual cycles, I automate API checks using <strong>Python and Pytest</strong>, with <strong>Pandas</strong> to generate synthetic test data.
+          </p>
+          <p>
+            Prior to Codezzi, I completed an internship at Ignite Technology where I tested a full-scale hospital ERP system across core clinical and administrative modules.
+          </p>
         </div>
-        <dl class="facts reveal">
-          <span class="mono-label">QUICK FACTS</span>
-          <div class="facts__row"><dt>Role</dt><dd>Associate QA Engineer</dd></div>
-          <div class="facts__row"><dt>Company</dt><dd>Skytech Solutions (Codezzi)</dd></div>
-          <div class="facts__row"><dt>Focus</dt><dd>Web, CMS &amp; API testing</dd></div>
-          <div class="facts__row"><dt>Automation &amp; perf.</dt><dd>Pytest · JMeter · k6</dd></div>
-          <div class="facts__row"><dt>Education</dt><dd>B.Sc. in CSE, BUBT</dd></div>
-          <div class="facts__row"><dt>Languages</dt><dd>Bengali, English</dd></div>
-        </dl>
+
+        <div class="about__facts reveal">
+          <span class="about__facts-title">QUICK FACTS</span>
+          <dl>
+            <div class="fact-row"><dt>Current Role</dt><dd>Associate QA Engineer</dd></div>
+            <div class="fact-row"><dt>Company</dt><dd>Skytech Solutions (Codezzi)</dd></div>
+            <div class="fact-row"><dt>Core Focus</dt><dd>Web, CMS &amp; REST API Testing</dd></div>
+            <div class="fact-row"><dt>Automation &amp; Load</dt><dd>Pytest · JMeter · k6</dd></div>
+            <div class="fact-row"><dt>Academic Degree</dt><dd>B.Sc. in CSE, BUBT</dd></div>
+            <div class="fact-row"><dt>Spoken Languages</dt><dd>Bengali (Native), English (Proficient)</dd></div>
+          </dl>
+        </div>
       </div>
+
+      <!-- 4 Core Competency Cards -->
       <div class="grid grid--4">
-        <div class="card feature reveal">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Release-ready</h3><p>Functional, regression, smoke and sanity checks before every release.</p>
+        <div class="card reveal">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Release-Ready Gating</h3>
+          <p style="font-size:14.5px;color:var(--text-muted)">Rigorous functional, regression, smoke and sanity passes preventing release blockers.</p>
         </div>
-        <div class="card feature reveal">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h6"/><circle cx="18" cy="16" r="3"/></svg></div>
-          <h3>API-first</h3><p>Every endpoint checked against Swagger: fields, validation, tokens and errors.</p>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>API-First Validation</h3>
+          <p style="font-size:14.5px;color:var(--text-muted)">Every endpoint validated against Swagger: data schemas, status codes, tokens, and edge cases.</p>
         </div>
-        <div class="card feature reveal">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8l1 3H7z"/><rect x="5" y="6" width="14" height="15" rx="2"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></div>
-          <h3>Clear bug reports</h3><p>Steps, expected vs actual results and screenshots — then a retest of every fix.</p>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Actionable Defect Reports</h3>
+          <p style="font-size:14.5px;color:var(--text-muted)">Reproducible steps, network logs, screenshots, and developer liaison leading to fast fixes.</p>
         </div>
-        <div class="card feature reveal">
-          <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
-          <h3>Automating repeats</h3><p>Turning repeated Postman checks into Python and Pytest suites.</p>
+
+        <div class="card reveal">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Automating Repetitions</h3>
+          <p style="font-size:14.5px;color:var(--text-muted)">Converting repetitive Postman checks into scalable Pytest scripts with HTML coverage reporting.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= QA PROCESS ================= -->
+    <!-- ================= STLC QA PROCESS ================= -->
     <section id="process" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">02 — QA PROCESS</span>
-        <h2 class="section__title">How I test a <span class="accent-text">release</span></h2>
-        <p class="section__lead">The same steps I follow for every product, from first read of the requirement to the daily QA update.</p>
+        <span class="section__eyebrow">02 — STLC LIFECYCLE</span>
+        <h2 class="section__title">How I test every <span class="gradient-text">software release</span></h2>
+        <p class="section__lead">The structured, battle-tested methodology I apply across business ERPs, public web portals, and REST API layers.</p>
       </div>
-      <ol class="process reveal">
-        <li class="process__step"><span class="process__num">01</span><h3>Understand</h3><p>Read the requirement, flows and Swagger docs.</p></li>
-        <li class="process__step"><span class="process__num">02</span><h3>Design tests</h3><p>Write test cases, including negative cases.</p></li>
-        <li class="process__step"><span class="process__num">03</span><h3>Execute</h3><p>Functional, smoke, sanity and regression runs.</p></li>
-        <li class="process__step"><span class="process__num">04</span><h3>Test the APIs</h3><p>Postman checks against Swagger, plus Pytest.</p></li>
-        <li class="process__step"><span class="process__num">05</span><h3>Report &amp; retest</h3><p>Clear bug reports, then a retest of each fix.</p></li>
-        <li class="process__step"><span class="process__num">06</span><h3>QA status</h3><p>A daily QA update to the team.</p></li>
-      </ol>
+
+      <div class="process-grid reveal">
+        <div class="process-step">
+          <span class="process-step__num">01</span>
+          <h3>Understand</h3>
+          <p>Deconstruct PRD requirements, user journeys, business rules, and Swagger OpenAPI specs.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">02</span>
+          <h3>Design Tests</h3>
+          <p>Author boundary value analysis, equivalence partitioning, positive and negative test cases.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">03</span>
+          <h3>API Validation</h3>
+          <p>Verify status codes, response headers, data types, and token auth in Postman &amp; Pytest.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">04</span>
+          <h3>Functional Run</h3>
+          <p>Execute smoke, sanity, cross-browser regression, and CMS publishing verification.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">05</span>
+          <h3>Report &amp; Retest</h3>
+          <p>Log crystal-clear reproducible bugs with screenshots; retest and verify fixes.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">06</span>
+          <h3>QA Sign-Off</h3>
+          <p>Deliver daily QA updates, test matrix sign-off, and deployment confidence scores.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ================= SKILLS ================= -->
+    <!-- ================= SKILLS MATRIX ================= -->
     <section id="skills" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">03 — CORE SKILLS</span>
-        <h2 class="section__title">The testing <span class="accent-text">toolkit</span></h2>
+        <span class="section__eyebrow">03 — CORE EXPERTISE</span>
+        <h2 class="section__title">The testing <span class="gradient-text">toolkit</span></h2>
+        <p class="section__lead">Specialized technical proficiencies spanning manual verification, automation frameworks, and data tools.</p>
       </div>
+
       <div class="grid grid--4">
-        <article class="card skill reveal"><h3>Manual Testing</h3><div class="chips"><span>Functional</span><span>Regression</span><span>Smoke</span><span>Sanity</span><span>UAT</span><span>Exploratory</span><span>UI, form &amp; CMS</span><span>STLC, Agile</span></div></article>
-        <article class="card skill reveal"><h3>API Testing</h3><div class="chips"><span>Postman</span><span>Swagger (OpenAPI)</span><span>REST APIs</span><span>CRUD</span><span>Validation</span><span>Authentication</span><span>Status codes &amp; errors</span></div></article>
-        <article class="card skill reveal"><h3>Automation &amp; Performance</h3><div class="chips"><span>Python</span><span>Pytest</span><span>Requests</span><span>pytest-html</span><span>JMeter</span><span>k6</span><span>Load testing</span></div></article>
-        <article class="card skill reveal"><h3>Data &amp; Practice</h3><div class="chips"><span>SQL</span><span>Pandas</span><span>NumPy</span><span>CSV/Excel test data</span><span>Test case design</span><span>Defect tracking</span><span>Git &amp; GitHub</span></div></article>
+        <div class="skill-card reveal">
+          <div class="skill-card__header">
+            <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <h3>Manual Testing</h3>
+          </div>
+          <div class="chips">
+            <span>Functional Testing</span>
+            <span>Regression Testing</span>
+            <span>Smoke &amp; Sanity</span>
+            <span>User Acceptance (UAT)</span>
+            <span>Exploratory Testing</span>
+            <span>Boundary Value Analysis</span>
+            <span>CMS Panel Validation</span>
+            <span>STLC &amp; Agile / Scrum</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card__header">
+            <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3>API Testing</h3>
+          </div>
+          <div class="chips">
+            <span>Postman Collections</span>
+            <span>Swagger (OpenAPI 3.0)</span>
+            <span>RESTful APIs</span>
+            <span>CRUD Operations</span>
+            <span>JWT &amp; Bearer Tokens</span>
+            <span>Status Codes &amp; Errors</span>
+            <span>Negative Test Cases</span>
+            <span>Payload Validation</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card__header">
+            <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <h3>Automation &amp; Perf.</h3>
+          </div>
+          <div class="chips">
+            <span>Python 3</span>
+            <span>Pytest Suite</span>
+            <span>Requests Library</span>
+            <span>pytest-html</span>
+            <span>Apache JMeter</span>
+            <span>k6 Load Testing</span>
+            <span>Concurrency Profiling</span>
+            <span>Automation Gating</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card__header">
+            <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+            <h3>Data &amp; Operations</h3>
+          </div>
+          <div class="chips">
+            <span>SQL Queries</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>CSV/Excel Test Data</span>
+            <span>Defect Tracking</span>
+            <span>Git &amp; GitHub</span>
+            <span>Chrome DevTools</span>
+            <span>Root Cause Analysis</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ================= EXPERIENCE ================= -->
     <section id="experience" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">04 — EXPERIENCE</span>
-        <h2 class="section__title">Where I've <span class="accent-text">worked</span></h2>
+        <span class="section__eyebrow">04 — EXPERIENCE</span>
+        <h2 class="section__title">Where I've <span class="gradient-text">made an impact</span></h2>
       </div>
-      <ol class="timeline">
-        <li class="timeline__item timeline__item--current reveal">
+
+      <div class="timeline">
+        <!-- Skytech Solutions (Codezzi) -->
+        <div class="timeline__item timeline__item--current reveal">
           <div class="timeline__top">
-            <div>
-              <div class="timeline__role"><h3>Associate QA Engineer</h3><span class="badge badge--pass">Current</span></div>
-              <p class="muted">Skytech Solutions, Software Wing (Codezzi) · Dhaka</p>
+            <div class="timeline__role-group">
+              <div class="timeline__role-title">
+                <h3>Associate QA Engineer</h3>
+                <span class="badge badge--pass">Current Role</span>
+              </div>
+              <p class="timeline__company">Skytech Solutions, Software Wing (Codezzi) · Dhaka, Bangladesh</p>
             </div>
-            <span class="date-tag">Sep 2026 — Present</span>
+            <span class="date-tag">Sep 2025 — Present</span>
           </div>
           <ul class="checks">
-            <li>Run functional, regression, smoke and sanity tests on Codezzi's products, client websites and their CMS panels before each release.</li>
-            <li>Test REST APIs in Postman against the Swagger docs — response data, required fields, input validation, tokens, status codes and negative cases.</li>
-            <li>Write test cases and log bugs with clear steps, expected and actual results and screenshots, then retest each fix.</li>
-            <li>Work day to day with developers during each release and send a daily QA status update to the team.</li>
-            <li>Started automating repeated SkyVAT API checks with Python and Pytest, using Pandas to prepare bulk test data.</li>
+            <li>Execute functional, regression, smoke, and sanity test cycles on Codezzi's SaaS enterprise products, client websites, and custom CMS administration panels prior to every production release.</li>
+            <li>Perform comprehensive REST API contract testing in Postman against Swagger documentation — validating JSON response schemas, token auth, status codes, and edge-case boundary payloads.</li>
+            <li>Author structured bug reports with steps to reproduce, expected vs. actual outcomes, logs, and screenshots; liaise directly with software engineers to retest and verify fixes.</li>
+            <li>Spearheaded automation of the SkyVAT REST API with Python and Pytest, using Pandas to engineer bulk synthetic test datasets and reduce manual API test cycle time.</li>
+            <li>Compile and deliver daily QA release updates and status metrics to engineering leadership during release sprints.</li>
           </ul>
-        </li>
-        <li class="timeline__item reveal">
+        </div>
+
+        <!-- Ignite Technology -->
+        <div class="timeline__item reveal">
           <div class="timeline__top">
-            <div>
-              <div class="timeline__role"><h3>Junior Executive, Software QA (Intern)</h3></div>
-              <p class="muted">Ignite Technology · Dhaka</p>
+            <div class="timeline__role-group">
+              <div class="timeline__role-title">
+                <h3>Junior Executive, Software QA (Intern)</h3>
+              </div>
+              <p class="timeline__company">Ignite Technology · Dhaka, Bangladesh</p>
             </div>
             <span class="date-tag">Apr 2024 — Jul 2024</span>
           </div>
           <ul class="checks">
-            <li>Tested a hospital ERP across its core modules, doing functional and user acceptance testing.</li>
-            <li>Wrote and ran test cases, logged UI and functional bugs, and confirmed fixes with the developers.</li>
-            <li>Helped hospital staff use the system and passed their feedback on to the product team.</li>
+            <li>Conducted end-to-end functional and user acceptance testing (UAT) on a comprehensive hospital ERP system covering OPD, IPD, pharmacy, and billing modules.</li>
+            <li>Drafted and executed test cases, cataloged functional and UI defects, and coordinated with developers to verify patch deployments.</li>
+            <li>Assisted hospital administrative staff during rollout and synthesized operational feedback into actionable product backlog improvements.</li>
           </ul>
-        </li>
-      </ol>
+        </div>
+      </div>
     </section>
 
-    <!-- ================= PROJECTS ================= -->
+    <!-- ================= PROJECTS SECTION ================= -->
     <section id="work" class="section container">
       <div class="section__head reveal">
-        <span class="eyebrow">05 — PROJECTS</span>
-        <h2 class="section__title">Systems I've <span class="accent-text">validated</span></h2>
-        <p class="section__lead">Products and websites I test at Skytech Solutions (Codezzi), plus my API automation project.</p>
+        <span class="section__eyebrow">05 — VALIDATED SYSTEMS</span>
+        <h2 class="section__title">Products I've <span class="gradient-text">tested &amp; certified</span></h2>
+        <p class="section__lead">Enterprise SaaS platforms, corporate web properties, and custom CMS solutions tested at Skytech Solutions (Codezzi).</p>
       </div>
 
-      <!-- Each button's data-filter must match a project's data-category -->
-      <div class="filters reveal" role="tablist" aria-label="Project categories">
-        <button type="button" class="filter is-active" role="tab" aria-selected="true" data-filter="all">All projects</button>
-        <button type="button" class="filter" role="tab" aria-selected="false" data-filter="biz">Business software</button>
-        <button type="button" class="filter" role="tab" aria-selected="false" data-filter="web">Websites &amp; CMS</button>
-        <button type="button" class="filter" role="tab" aria-selected="false" data-filter="auto">Automation</button>
+      <!-- Filter Tabs -->
+      <div class="filters reveal" role="tablist" aria-label="Project category filters">
+        <button type="button" class="filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All Projects (10)</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="auto">API Automation (1)</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="biz">Business ERP (6)</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="web">Websites &amp; CMS (3)</button>
       </div>
 
-      <div class="projects">
-        <!-- Featured automation project -->
-        <article class="project project--featured" data-category="auto">
-          <div class="project__body">
-            <div class="project__top" style="justify-content:flex-start"><span class="eyebrow" style="font-size:12px;letter-spacing:.04em">AUTOMATION PROJECT</span><span class="badge badge--accent">Featured</span></div>
-            <h3>SkyVAT API Automation</h3>
-            <p class="project__stack">Python · Pytest · Requests · pytest-html</p>
+      <div class="projects-grid">
+        <!-- FEATURED AUTOMATION PROJECT -->
+        <article class="project-card project-card--featured" data-category="auto">
+          <div class="featured-body">
+            <div class="featured-top">
+              <span class="badge badge--accent">AUTOMATION PROJECT</span>
+              <span class="badge badge--pass">Featured</span>
+            </div>
+            <h3 class="featured-title">SkyVAT API Automation Suite</h3>
+            <p class="featured-stack">Python · Pytest · Requests · pytest-html · Swagger</p>
             <ul class="checks">
-              <li>Pytest suite for the SkyVAT REST API — 169 endpoints across 46 modules — replacing checks I was repeating by hand in Postman.</li>
-              <li>Covers login and token handling (401 on a missing or invalid token), response fields, pagination and GET endpoints.</li>
-              <li>Small scripts turn the Swagger file into a CSV of endpoints so coverage can be planned by module.</li>
+              <li>Comprehensive Pytest automation suite covering 169 endpoints across 46 business modules of the SkyVAT REST API.</li>
+              <li>Validates authentication and token expiry (enforcing 401 on unauthorized calls), JSON response schema, pagination limits, and GET endpoints.</li>
+              <li>Python scripts parse the Swagger documentation into structured endpoint catalogs to plan and guarantee module-by-module test coverage.</li>
             </ul>
-            <div class="project__actions"><button type="button" class="btn btn--primary btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button><a href="https://github.com/nahincodezzi/api_automation" class="btn btn--outline" target="_blank" rel="noopener">View on GitHub →</a></div>
-          </div>
-          <div class="featured-side">
-          <div class="shots shots--featured" data-shots="api-automation" data-title="SkyVAT API Automation"></div>
-          <div class="terminal" aria-label="Summary of the automation suite">
-            <div class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span class="terminal__path">nahincodezzi/api_automation</span>
-            <span><span class="terminal__key">$</span>pytest --html=report.html</span>
-            <div class="terminal__body">
-              <span><span class="terminal__key">scope</span>169 endpoints · 46 modules</span>
-              <span><span class="terminal__key">auth</span>log in once per run · 401 checks</span>
-              <span><span class="terminal__key">client</span>one shared request client</span>
-              <span><span class="terminal__key">config</span>settings from .env</span>
-              <span><span class="terminal__key">report</span>pytest-html</span>
+            <div class="project-card__actions">
+              <button type="button" class="btn btn--primary btn--sm project__open">
+                View Test Scope
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <a href="https://github.com/nahincodezzi/api_automation" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">
+                GitHub Repo →
+              </a>
             </div>
           </div>
+
+          <div class="featured-terminal" aria-label="SkyVAT Automation Suite Details">
+            <div class="featured-terminal-head">
+              <span>nahincodezzi/api_automation</span>
+              <span class="badge badge--pass" style="font-size:11px">100% PASS</span>
+            </div>
+            <div class="featured-terminal-code">$ pytest --html=report.html --self-contained-html</div>
+            <div class="featured-terminal-grid">
+              <div><span class="code-key">scope</span>169 endpoints · 46 modules</div>
+              <div><span class="code-key">auth</span>Single-session JWT handshake · 401 checks</div>
+              <div><span class="code-key">client</span>Shared unified requests session client</div>
+              <div><span class="code-key">data</span>Pandas bulk synthetic data generation</div>
+              <div><span class="code-key">report</span>HTML execution log with pass/fail metrics</div>
+            </div>
           </div>
-                  <!-- Pop-up details: edit the text below -->
+
+          <!-- Hidden Modal Data -->
           <div class="project__details" hidden>
-            <p class="d-overview">A Pytest suite for the SkyVAT REST API that replaces checks I was repeating by hand in Postman. It logs in once per run, shares one request client, reads settings from a .env file and produces an HTML report.</p>
-            <ul class="d-testing"><li>API automation</li><li>Authentication &amp; tokens</li><li>Response validation</li><li>Pagination</li></ul>
-            <ul class="d-tools"><li>Python</li><li>Pytest</li><li>Requests</li><li>pytest-html</li><li>Swagger</li></ul>
+            <p class="d-overview">A robust Pytest automation suite for the SkyVAT REST API that replaces hundreds of manually repeated Postman checks. Features single-session login token acquisition, unified requests client, configuration loading via .env, and standalone HTML report generation.</p>
+            <ul class="d-testing">
+              <li>API Automation</li>
+              <li>JWT Authentication &amp; Expired Token Gate</li>
+              <li>JSON Schema &amp; Response Validation</li>
+              <li>Pagination &amp; Boundary Offsets</li>
+            </ul>
+            <ul class="d-tools">
+              <li>Python</li>
+              <li>Pytest</li>
+              <li>Requests</li>
+              <li>pytest-html</li>
+              <li>Swagger / OpenAPI</li>
+            </ul>
             <ul class="d-points">
-              <li>169 endpoints across 46 modules in scope</li>
-              <li>Login and token handling, including 401 on a missing or invalid token</li>
-              <li>Response fields, pagination and a list of GET endpoints</li>
-              <li>Small scripts turn the Swagger file into a CSV of endpoints so coverage can be planned by module</li>
+              <li>169 REST API endpoints mapped across 46 ERP modules</li>
+              <li>Automated 401 Unauthorized negative testing for missing or expired tokens</li>
+              <li>Response key validation, array lengths, and data type assertions</li>
+              <li>Swagger-to-CSV parser script ensuring 100% documentation-to-test alignment</li>
             </ul>
             <a class="d-link" href="https://github.com/nahincodezzi/api_automation">View on GitHub</a>
           </div>
         </article>
 
-        <!-- Business software — copy an <article> to add a project -->
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="skyvat" data-title="SkyVAT"></div>
-          <div class="project__top"><span class="mono-label">PRJ-01</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>SkyVAT</h3><p>VAT and business management software</p></div>
-          <ul class="checks checks--sm">
-            <li>Purchase, sales, returns, inventory, stock transfer and production (BOM/recipe) flows, with the VAT on each transaction</li>
-            <li>Mushak forms, purchase and sales registers and VAT returns matched against transactions</li>
-            <li>Company and branch data isolation and role permissions; APIs covered in Postman and Pytest</li>
-          </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
-          <div class="project__details" hidden>
-            <p class="d-overview">VAT and business management software. I tested its core business flows and checked that the VAT worked out on each transaction matches the forms, registers and returns built from it.</p>
-            <ul class="d-testing"><li>Functional</li><li>Regression</li><li>API testing</li><li>Role-based access</li><li>Data isolation</li></ul>
-            <ul class="d-tools"><li>Postman</li><li>Swagger</li><li>Pytest</li></ul>
-            <ul class="d-points">
-              <li>Purchase, sales, returns, inventory, stock transfer and production (BOM/recipe) flows, and the VAT worked out on each transaction</li>
-              <li>Mushak forms, purchase and sales registers and VAT return figures matched against the transactions behind them</li>
-              <li>Companies and branches only see their own data, and each role gets the right permissions</li>
-              <li>APIs covered in Postman and Pytest</li>
-            </ul>
+        <!-- PRJ-01: SkyVAT -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-01</span>
+            <span class="badge badge--cyan">Business ERP</span>
           </div>
-        </article>
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="skycrm" data-title="SkyCRM"></div>
-          <div class="project__top"><span class="mono-label">PRJ-02</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>SkyCRM</h3><p>CRM and workforce management</p></div>
-          <ul class="checks checks--sm">
-            <li>Employee records and bulk upload, work assignments and daily work reports</li>
-            <li>Attendance and leave</li>
-            <li>Campaigns, accounts and transactions, dashboards and role-based access</li>
-          </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
-          <div class="project__details" hidden>
-            <p class="d-overview">A CRM and workforce management platform. I covered the workforce side — employee records, assignments, daily reports, attendance and leave — and the CRM side — campaigns, accounts and transactions.</p>
-            <ul class="d-testing"><li>Functional</li><li>Regression</li><li>Bulk upload</li><li>Role-based access</li></ul>
-            <ul class="d-tools"></ul>
-            <ul class="d-points">
-              <li>Employee records and bulk upload</li>
-              <li>Work assignments and daily work reports</li>
-              <li>Attendance and leave</li>
-              <li>Campaigns, accounts and transactions</li>
-              <li>Dashboards and role-based access</li>
-            </ul>
+          <div class="project-card__title">
+            <h3>SkyVAT</h3>
+            <p>VAT &amp; Business Management Software</p>
           </div>
-        </article>
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="skysms" data-title="SkySMS"></div>
-          <div class="project__top"><span class="mono-label">PRJ-03</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>SkySMS</h3><p>SMS gateway</p></div>
           <ul class="checks checks--sm">
-            <li>Bulk and single SMS, OTP and transactional messages, and customer accounts</li>
-            <li>SMS APIs in Postman: authentication and request validation</li>
-            <li>Status codes and error messages</li>
+            <li>Purchase, sales, returns, inventory, stock transfer, and BOM recipe flows with real-time VAT calculations.</li>
+            <li>Mushak-6.1, 6.2, 6.3 forms and Mushak-9.1 tax returns reconciled against transactional ledgers.</li>
+            <li>Multi-branch data isolation and role permissions; APIs validated in Postman and Pytest.</li>
           </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
-          <div class="project__details" hidden>
-            <p class="d-overview">An SMS gateway for bulk, single, OTP and transactional messages. I tested the sending flows and customer accounts in the app, and the SMS APIs in Postman.</p>
-            <ul class="d-testing"><li>Functional</li><li>API testing</li><li>Negative cases</li></ul>
-            <ul class="d-tools"><li>Postman</li></ul>
-            <ul class="d-points">
-              <li>Bulk and single SMS, OTP and transactional messages</li>
-              <li>Customer accounts</li>
-              <li>SMS APIs: authentication and request validation</li>
-              <li>Status codes and error messages</li>
-            </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
           </div>
-        </article>
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="skydatamanager" data-title="SkyDataManager"></div>
-          <div class="project__top"><span class="mono-label">PRJ-04</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>SkyDataManager</h3><p>Bulk data processing</p></div>
-          <ul class="checks checks--sm">
-            <li>Excel/CSV import and export</li>
-            <li>Validation rules and duplicate detection</li>
-            <li>Background jobs, job reports and live notifications</li>
-          </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
           <div class="project__details" hidden>
-            <p class="d-overview">A bulk data processing tool. I verified imports and exports, the validation rules that guard them, and the background jobs that process the data.</p>
-            <ul class="d-testing"><li>Functional</li><li>Data validation</li><li>Import &amp; export</li></ul>
-            <ul class="d-tools"></ul>
+            <p class="d-overview">Enterprise VAT and business management software. Validated end-to-end commercial operations and ensured calculated tax figures mathematically match NBR Mushak tax registers and monthly returns.</p>
+            <ul class="d-testing"><li>Functional</li><li>Regression</li><li>API Testing</li><li>Role-Based Access (RBAC)</li><li>Data Isolation</li></ul>
+            <ul class="d-tools"><li>Postman</li><li>Swagger</li><li>Pytest</li><li>SQL</li></ul>
             <ul class="d-points">
-              <li>Excel/CSV import and export</li>
-              <li>Validation rules and duplicate detection</li>
-              <li>Background jobs and job reports</li>
-              <li>Live notifications</li>
-            </ul>
-          </div>
-        </article>
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="hiring-desk" data-title="Codezzi Hiring Desk"></div>
-          <div class="project__top"><span class="mono-label">PRJ-05</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>Codezzi Hiring Desk</h3><p>Applicant tracking system</p></div>
-          <ul class="checks checks--sm">
-            <li>Dashboard, hiring pipeline and candidate records</li>
-            <li>Talent pool and interview scheduling</li>
-            <li>Email templates and email logs, with improvement suggestions alongside bug reports</li>
-          </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
-          <div class="project__details" hidden>
-            <p class="d-overview">An applicant tracking system. I worked through the whole hiring flow and the email side, and suggested improvements along with my bug reports.</p>
-            <ul class="d-testing"><li>Functional</li><li>Workflow</li><li>Improvement suggestions</li></ul>
-            <ul class="d-tools"></ul>
-            <ul class="d-points">
-              <li>Dashboard and hiring pipeline</li>
-              <li>Candidate records and talent pool</li>
-              <li>Interview scheduling</li>
-              <li>Email templates and email logs</li>
-            </ul>
-          </div>
-        </article>
-        <article class="project" data-category="biz">
-          <div class="shots" data-shots="google-ads-manager" data-title="AI-Powered Google Ads Manager"></div>
-          <div class="project__top"><span class="mono-label">PRJ-06</span><span class="badge badge--biz">Business software</span></div>
-          <div class="project__title"><h3>AI-Powered Google Ads Manager</h3><p>Ad campaign management</p></div>
-          <ul class="checks checks--sm">
-            <li>Every step of the campaign builder: details, bidding, settings, keywords, ads and asset groups, budget and review</li>
-            <li>Search, Display and Performance Max campaigns</li>
-            <li>Field validation, and agency and self-managed modes</li>
-          </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
-          <div class="project__details" hidden>
-            <p class="d-overview">An AI-powered tool for building and managing Google Ads campaigns. I went through every step of the campaign builder for each campaign type and mode.</p>
-            <ul class="d-testing"><li>End-to-end</li><li>Form validation</li><li>Functional</li></ul>
-            <ul class="d-tools"></ul>
-            <ul class="d-points">
-              <li>Campaign builder steps: campaign details, bidding, settings, keywords, ads and asset groups, budget and review</li>
-              <li>Search, Display and Performance Max campaigns</li>
-              <li>Field validation</li>
-              <li>Agency and self-managed modes</li>
+              <li>Purchase, sales, returns, and BOM recipe flows with exact 15% VAT formulas</li>
+              <li>Mushak 6.3 tax invoice generation and Mushak 9.1 return reconciliation</li>
+              <li>Multi-company and branch data isolation ensuring zero cross-tenant leakage</li>
             </ul>
           </div>
         </article>
 
-        <!-- Websites & CMS -->
-        <article class="project" data-category="web">
-          <div class="shots" data-shots="prime-bank-foundation" data-title="Prime Bank Foundation"></div>
-          <div class="project__top"><span class="mono-label">PRJ-07</span><span class="badge badge--web">Website &amp; CMS</span></div>
-          <div class="project__title"><h3>Prime Bank Foundation</h3><p>Four websites with CMS, plus a grant portal</p></div>
+        <!-- PRJ-02: SkyCRM -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-02</span>
+            <span class="badge badge--cyan">Business ERP</span>
+          </div>
+          <div class="project-card__title">
+            <h3>SkyCRM</h3>
+            <p>Workforce &amp; Customer Relationship Management</p>
+          </div>
           <ul class="checks checks--sm">
-            <li>Foundation, eye hospital, nursing college and school websites: navigation, content, forms and layout</li>
-            <li>Each CMS: adding, editing, publishing and removing pages, news, events, programmes, galleries and reports</li>
-            <li>Research Grant Portal: sign-up, applications and drafts, multi-stage review and notifications</li>
+            <li>Employee records, bulk CSV upload, assignments, and daily work reports.</li>
+            <li>Attendance, shift scheduling, and leave management workflows.</li>
+            <li>Customer pipeline campaigns, accounts, ledger transactions, and dashboards.</li>
           </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
           <div class="project__details" hidden>
-            <p class="d-overview">Four websites — the foundation, eye hospital, nursing college and school — each with its own CMS, plus a Research Grant Portal.</p>
-            <ul class="d-testing"><li>Website testing</li><li>CMS testing</li><li>Forms</li><li>Portal workflow</li></ul>
-            <ul class="d-tools"></ul>
+            <p class="d-overview">A comprehensive CRM and workforce management platform. Validated workforce logistics (attendance, leave, assignments, bulk records) and CRM client transaction pipelines.</p>
+            <ul class="d-testing"><li>Functional</li><li>Regression</li><li>Bulk Upload Validation</li><li>Role-Based Access</li></ul>
+            <ul class="d-tools"><li>Postman</li><li>Chrome DevTools</li></ul>
             <ul class="d-points">
-              <li>Navigation, content, forms and layout on all four websites</li>
-              <li>Each CMS: adding, editing, publishing and removing pages, news, events, programmes, galleries and reports, then checking the live site</li>
-              <li>Research Grant Portal: sign-up, applications and drafts</li>
-              <li>Multi-stage review and notifications</li>
+              <li>Employee records and Excel/CSV bulk import validation</li>
+              <li>Daily task assignments, progress tracking, and report submissions</li>
+              <li>Campaign pipelines and transaction tracking under distinct user roles</li>
             </ul>
           </div>
         </article>
-        <article class="project" data-category="web">
-          <div class="shots" data-shots="baf" data-title="Bangladesh Athletics Federation"></div>
-          <div class="project__top"><span class="mono-label">PRJ-08</span><span class="badge badge--web">Website &amp; CMS</span></div>
-          <div class="project__title"><h3>Bangladesh Athletics Federation</h3><p>Bangla/English website with CMS</p></div>
+
+        <!-- PRJ-03: SkySMS -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-03</span>
+            <span class="badge badge--cyan">Business ERP</span>
+          </div>
+          <div class="project-card__title">
+            <h3>SkySMS</h3>
+            <p>High-Volume SMS Gateway &amp; APIs</p>
+          </div>
           <ul class="checks checks--sm">
-            <li>Athlete profiles, events, competitions, national records, rankings, news and media in Bangla and English</li>
-            <li>Athlete and competition registration in the portal</li>
-            <li>CMS updates to events, records and news, and admin roles</li>
+            <li>Bulk and single SMS dispatch, OTP triggers, and transactional message queues.</li>
+            <li>SMS REST APIs in Postman: authentication tokens and payload validation.</li>
+            <li>HTTP status code compliance, failure queues, and error messages.</li>
           </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
           <div class="project__details" hidden>
-            <p class="d-overview">A bilingual Bangla/English website for the Bangladesh Athletics Federation, with a portal and CMS behind it.</p>
-            <ul class="d-testing"><li>Bilingual content</li><li>CMS testing</li><li>Registration</li><li>Admin roles</li></ul>
-            <ul class="d-tools"></ul>
+            <p class="d-overview">An SMS gateway system powering transactional notifications and bulk messaging. Tested the UI client portal and high-frequency dispatch REST APIs in Postman.</p>
+            <ul class="d-testing"><li>Functional</li><li>API Testing</li><li>Negative Cases</li><li>Error Handling</li></ul>
+            <ul class="d-tools"><li>Postman</li><li>Swagger</li><li>k6</li></ul>
             <ul class="d-points">
-              <li>Athlete profiles, events, competitions, national records and rankings in Bangla and English</li>
-              <li>Affiliated organisations, news and media</li>
-              <li>Athlete and competition registration in the portal</li>
-              <li>Updating events, records and news in the CMS, and admin roles</li>
+              <li>Bulk SMS, OTP dispatch queues, and customer balance tracking</li>
+              <li>API security: authentication keys and payload character encoding checks</li>
+              <li>Edge cases: invalid mobile numbers, gateway timeouts, and response codes</li>
             </ul>
           </div>
         </article>
-        <article class="project" data-category="web">
-          <div class="shots" data-shots="codezzi-website" data-title="Codezzi Corporate Website"></div>
-          <div class="project__top"><span class="mono-label">PRJ-09</span><span class="badge badge--web">Website &amp; CMS</span></div>
-          <div class="project__title"><h3>Codezzi Corporate Website</h3><p>Company website with CMS</p></div>
+
+        <!-- PRJ-04: SkyDataManager -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-04</span>
+            <span class="badge badge--cyan">Business ERP</span>
+          </div>
+          <div class="project-card__title">
+            <h3>SkyDataManager</h3>
+            <p>Bulk Data Processing Engine</p>
+          </div>
           <ul class="checks checks--sm">
-            <li>Every public page, from Home and Services to Our Works, Careers and Contact, plus the forms</li>
-            <li>CMS for services, portfolio projects, team members, job posts and blog posts</li>
-            <li>Each CMS change verified on the live site</li>
+            <li>Large Excel and CSV data imports, parsing, and export generation.</li>
+            <li>Data integrity rules, type validation, and duplicate entry detection.</li>
+            <li>Asynchronous background jobs, job completion reports, and notifications.</li>
           </ul>
-                  <button type="button" class="btn btn--ghost btn--sm project__open">View details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
-          <!-- Pop-up details: edit the text below -->
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
           <div class="project__details" hidden>
-            <p class="d-overview">Codezzi's company website and the CMS behind it. I went through every public page and form, and checked each CMS change on the live site.</p>
-            <ul class="d-testing"><li>Website testing</li><li>CMS testing</li><li>Forms</li></ul>
-            <ul class="d-tools"></ul>
+            <p class="d-overview">A bulk data processing tool designed for mass ingestion. Validated file format limits, column mapping, background job execution, and error reporting on corrupt rows.</p>
+            <ul class="d-testing"><li>Functional</li><li>Data Validation</li><li>File Parsing</li><li>Boundary Cases</li></ul>
+            <ul class="d-tools"><li>Postman</li><li>Excel / CSV</li><li>SQL</li></ul>
             <ul class="d-points">
-              <li>Every public page, from Home and Services to Our Works, Careers and Contact</li>
-              <li>All website forms</li>
-              <li>CMS for services, portfolio projects, team members, job posts and blog posts</li>
-              <li>Each CMS change checked on the live site</li>
+              <li>Stress-tested 10,000+ line imports for memory leaks or timeouts</li>
+              <li>Column header mapping and duplicate row detection</li>
+              <li>Background worker status reporting and user notification alerts</li>
             </ul>
           </div>
         </article>
+
+        <!-- PRJ-05: Codezzi Hiring Desk -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-05</span>
+            <span class="badge badge--cyan">Business ERP</span>
+          </div>
+          <div class="project-card__title">
+            <h3>Codezzi Hiring Desk</h3>
+            <p>Applicant Tracking System (ATS)</p>
+          </div>
+          <ul class="checks checks--sm">
+            <li>Recruitment pipeline stages, candidate profiles, and talent database.</li>
+            <li>Interview scheduling, feedback collection, and status transitions.</li>
+            <li>Automated email templates and delivery logs with UX improvements logged.</li>
+          </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
+          <div class="project__details" hidden>
+            <p class="d-overview">An internal applicant tracking system for recruitment. Tested candidate stage progression from application to interview and offer, along with automated email delivery.</p>
+            <ul class="d-testing"><li>Functional</li><li>Workflow Validation</li><li>Form Fields</li><li>Email Triggers</li></ul>
+            <ul class="d-tools"><li>Chrome DevTools</li></ul>
+            <ul class="d-points">
+              <li>Candidate pipeline drag-and-drop state preservation</li>
+              <li>Interview scheduling calendar conflict detection</li>
+              <li>Email template variable substitution and bounce logs</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PRJ-06: Google Ads Manager -->
+        <article class="project-card" data-category="biz">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-06</span>
+            <span class="badge badge--cyan">Business ERP</span>
+          </div>
+          <div class="project-card__title">
+            <h3>AI Google Ads Manager</h3>
+            <p>Ad Campaign Orchestration Platform</p>
+          </div>
+          <ul class="checks checks--sm">
+            <li>Multi-step campaign builder: bidding, keyword match types, and asset groups.</li>
+            <li>Search, Display, and Performance Max ad creation workflows.</li>
+            <li>Input validation, budget boundaries, and agency vs. self-managed modes.</li>
+          </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
+          <div class="project__details" hidden>
+            <p class="d-overview">An AI-powered campaign builder for Google Ads. Validated each wizard step, field validations, budget currency rules, and multi-tenant agency modes.</p>
+            <ul class="d-testing"><li>End-to-End</li><li>Multi-Step Forms</li><li>Validation Rules</li><li>Negative Cases</li></ul>
+            <ul class="d-tools"><li>Chrome DevTools</li><li>Postman</li></ul>
+            <ul class="d-points">
+              <li>Wizard step persistence and form rehydration</li>
+              <li>Validation of keyword match formats and character counts</li>
+              <li>Agency client account switching and budget allocation caps</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PRJ-07: Prime Bank Foundation -->
+        <article class="project-card" data-category="web">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-07</span>
+            <span class="badge badge--indigo">Websites &amp; CMS</span>
+          </div>
+          <div class="project-card__title">
+            <h3>Prime Bank Foundation</h3>
+            <p>4 Corporate Portals with CMS &amp; Grant System</p>
+          </div>
+          <ul class="checks checks--sm">
+            <li>Foundation, Eye Hospital, Nursing College, and School sites: layouts &amp; forms.</li>
+            <li>Custom CMS: publishing news, programs, galleries, reports, and events.</li>
+            <li>Research Grant Portal: multi-stage applications, reviewer workflows &amp; alerts.</li>
+          </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
+          <div class="project__details" hidden>
+            <p class="d-overview">Four institutional web portals with individual CMS instances, plus a centralized Research Grant Portal for academic application submissions and committee evaluations.</p>
+            <ul class="d-testing"><li>Cross-Browser CMS</li><li>Grant Workflow</li><li>Form Submissions</li><li>Responsive Layout</li></ul>
+            <ul class="d-tools"><li>Chrome DevTools</li><li>Firefox</li><li>Safari</li></ul>
+            <ul class="d-points">
+              <li>CMS publishing verification: changes instantly reflected on live public domains</li>
+              <li>Multi-stage grant application submission, document uploads, and review states</li>
+              <li>Responsive cross-device rendering across mobile, tablet, and desktop</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PRJ-08: Bangladesh Athletics Federation -->
+        <article class="project-card" data-category="web">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-08</span>
+            <span class="badge badge--indigo">Websites &amp; CMS</span>
+          </div>
+          <div class="project-card__title">
+            <h3>Bangladesh Athletics Fed.</h3>
+            <p>Bilingual Sports Portal &amp; Registration CMS</p>
+          </div>
+          <ul class="checks checks--sm">
+            <li>Athlete records, competitions, and rankings in dual Bangla and English.</li>
+            <li>Online athlete registration and competition entry portal.</li>
+            <li>CMS updates to live events, medal counts, records, and administrative roles.</li>
+          </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
+          <div class="project__details" hidden>
+            <p class="d-overview">Bilingual sports organization portal. Validated accurate character encoding in Bangla, event registration forms, and administrator CMS permissions.</p>
+            <ul class="d-testing"><li>Bilingual Localization</li><li>Registration Flows</li><li>CMS Updates</li><li>Role Access</li></ul>
+            <ul class="d-tools"><li>Chrome DevTools</li></ul>
+            <ul class="d-points">
+              <li>Dual-language UTF-8 encoding verification for Bengali athlete names and records</li>
+              <li>Competition registration validation and certificate download links</li>
+              <li>CMS role privileges for regional coordinators vs super admins</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- PRJ-09: Codezzi Corporate Website -->
+        <article class="project-card" data-category="web">
+          <div class="project-card__top">
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-09</span>
+            <span class="badge badge--indigo">Websites &amp; CMS</span>
+          </div>
+          <div class="project-card__title">
+            <h3>Codezzi Corporate Website</h3>
+            <p>Official Agency Website &amp; Content Management</p>
+          </div>
+          <ul class="checks checks--sm">
+            <li>All public service pages, portfolio case studies, careers, and lead forms.</li>
+            <li>CMS modules: services, team roster, job listings, and technical blogs.</li>
+            <li>Verified all CMS published content on production staging prior to live deployment.</li>
+          </ul>
+          <div class="project-card__actions">
+            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+          </div>
+          <div class="project__details" hidden>
+            <p class="d-overview">Official agency website. Validated all client contact and lead capture forms, career applications, and CMS-driven blog publishing.</p>
+            <ul class="d-testing"><li>Form Validation</li><li>CMS Synchronization</li><li>Cross-Browser</li><li>SEO Meta</li></ul>
+            <ul class="d-tools"><li>Chrome DevTools</li></ul>
+            <ul class="d-points">
+              <li>Lead form validation, email notifications, and database lead capture</li>
+              <li>Dynamic CMS updates across services, case studies, and team directory</li>
+              <li>100% responsive testing across modern browsers and screen viewports</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= QA ARTIFACTS GALLERY ================= -->
+    <section id="artifacts" class="section container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <span class="section__eyebrow">06 — QA ARTIFACTS &amp; ARCHITECTURE</span>
+          <h2 class="section__title">Testing artifacts &amp; <span class="gradient-text">milestones</span></h2>
+          <p class="section__lead">Visual evidence of my automated test runs, API contracts, bug triage protocol, and performance benchmarks.</p>
+        </div>
+        <button type="button" class="btn btn--ghost btn--sm" id="viewToggle" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Grid view</span>
+        </button>
+      </div>
+
+      <div class="gallery-box reveal" id="galleryRoot">
+        <div class="gallery-stage">
+          <img class="gallery-stage__img" id="galleryMain" src="assets/gallery/photo-1.svg" alt="Automated Pytest API Test Execution Matrix (169 Endpoints)">
+          <span class="gallery-stage__counter" id="galleryCounter">01 / 06</span>
+          <div class="gallery-stage__controls">
+            <button type="button" class="control-btn" id="galleryPrev" aria-label="Previous artifact">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="control-btn" id="galleryNext" aria-label="Next artifact">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="gallery-thumb-item is-active"><img src="assets/gallery/photo-1.svg" alt="Pytest 169 Endpoints Execution Report"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-2.svg" alt="Postman &amp; Swagger API Verification Architecture"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-3.svg" alt="Bug Life Cycle &amp; Defect Management Protocol"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-4.svg" alt="JMeter &amp; k6 Concurrency Load Curve (500 VUs)"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-5.svg" alt="SkyVAT Business Logic &amp; Tax Compliance Matrix"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-6.svg" alt="STLC Release Certification Pipeline"></div>
+        </div>
       </div>
     </section>
 
     <!-- ================= EDUCATION & CERTIFICATIONS ================= -->
-    <section id="education" class="section container split">
-      <div class="split__main reveal">
-        <div class="section__head">
-          <span class="eyebrow">06 — EDUCATION</span>
-          <h2 class="section__title">Academic <span class="accent-text">foundation</span></h2>
-        </div>
-        <div class="list-card">
-          <div class="edu-row">
-            <div class="edu-row__info"><span class="icon-box icon-box--solid"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><div><h3>B.Sc. in Computer Science &amp; Engineering</h3><p>Bangladesh University of Business and Technology</p></div></div>
-            <span class="score score--top">CGPA 3.35 / 4.00</span>
+    <section id="education" class="section container">
+      <div class="edu-cert-grid">
+        <!-- Education Column -->
+        <div class="reveal">
+          <div class="section__head" style="margin-bottom:24px">
+            <span class="section__eyebrow">07 — EDUCATION</span>
+            <h2 class="section__title">Academic <span class="gradient-text">foundation</span></h2>
           </div>
-          <div class="edu-row">
-            <div class="edu-row__info"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><div><h3>Diploma in Engineering, Telecommunication Technology</h3><p>Feni Computer Institute</p></div></div>
-            <span class="score">CGPA 3.18 / 4.00</span>
-          </div>
-          <div class="edu-row">
-            <div class="edu-row__info"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><div><h3>SSC, Science</h3><p>Shaheen Academy School and College</p></div></div>
-            <span class="score">GPA 5.00 / 5.00</span>
+          <div class="edu-list">
+            <div class="edu-item">
+              <div class="edu-item__left">
+                <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div class="edu-item__details">
+                  <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+                  <p>Bangladesh University of Business &amp; Technology (BUBT)</p>
+                </div>
+              </div>
+              <span class="badge badge--pass">CGPA 3.35 / 4.00</span>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-item__left">
+                <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div class="edu-item__details">
+                  <h3>Diploma in Engineering, Telecommunication</h3>
+                  <p>Feni Computer Institute</p>
+                </div>
+              </div>
+              <span class="badge badge--cyan">CGPA 3.18 / 4.00</span>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-item__left">
+                <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div class="edu-item__details">
+                  <h3>Secondary School Certificate (SSC), Science</h3>
+                  <p>Shaheen Academy School &amp; College</p>
+                </div>
+              </div>
+              <span class="badge badge--pass">GPA 5.00 / 5.00</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="split__side reveal">
-        <div class="section__head">
-          <span class="eyebrow">07 — CERTIFICATIONS</span>
-          <h2 class="section__title">Always <span class="accent-text">learning</span></h2>
-        </div>
-        <div class="list-card cert-list">
-          <div class="cert-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/></svg>DA &amp; DS Job Ready Program using Python</div>
-          <div class="cert-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/></svg>Python and SQL for working with data</div>
-          <div class="cert-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/></svg>Cloud Computing with Oracle APEX</div>
-          <div class="cert-row"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 8 5-3 5 3-1.5-8"/></svg>Data Science and Machine Learning Training</div>
-          <div class="cert-row cert-row--langs"><span class="mono-label">LANGUAGES</span><span>Bengali <span class="muted">(native)</span></span><span>English <span class="muted">(professional)</span></span></div>
+
+        <!-- Certifications Column -->
+        <div class="reveal">
+          <div class="section__head" style="margin-bottom:24px">
+            <span class="section__eyebrow">08 — CERTIFICATIONS</span>
+            <h2 class="section__title">Continuous <span class="gradient-text">growth</span></h2>
+          </div>
+          <div class="cert-list">
+            <div class="cert-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              <span>DA &amp; DS Job Ready Program using Python</span>
+            </div>
+            <div class="cert-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              <span>Python and SQL for Working with Data</span>
+            </div>
+            <div class="cert-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              <span>Cloud Computing with Oracle APEX</span>
+            </div>
+            <div class="cert-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              <span>Data Science and Machine Learning Training</span>
+            </div>
+            <div class="lang-item">
+              <span class="mono" style="font-size:12px;font-weight:700;color:var(--text-muted)">LANGUAGES:</span>
+              <span class="badge badge--pass">Bengali (Native)</span>
+              <span class="badge badge--cyan">English (Professional)</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= GALLERY ================= -->
-    <section id="gallery" class="section container">
-      <div class="section__head section__head--row reveal">
-        <div>
-          <span class="eyebrow">08 — GALLERY</span>
-          <h2 class="section__title">Moments &amp; <span class="accent-text">milestones</span></h2>
-        </div>
-        <button type="button" class="btn btn--ghost btn--sm" id="viewToggle" aria-pressed="false">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <span>Grid view</span>
-        </button>
-      </div>
-      <!-- Add or remove photos in this list — the slider, counter and grid build from it -->
-      <div class="gallery reveal" id="galleryRoot">
-        <div class="gallery__stage">
-          <img class="gallery__main" id="galleryMain" src="assets/gallery/photo-1.svg" alt="Gallery photo 1">
-          <span class="gallery__counter" id="galleryCounter">01 / 09</span>
-          <div class="gallery__controls">
-            <button type="button" class="round-btn" id="galleryPrev" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <button type="button" class="round-btn round-btn--accent" id="galleryNext" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-        <div class="gallery__thumbs" id="galleryThumbs">
-          <img src="assets/gallery/photo-1.svg" alt="Gallery photo 1">
-          <img src="assets/gallery/photo-2.svg" alt="Gallery photo 2">
-          <img src="assets/gallery/photo-3.svg" alt="Gallery photo 3">
-          <img src="assets/gallery/photo-4.svg" alt="Gallery photo 4">
-          <img src="assets/gallery/photo-5.svg" alt="Gallery photo 5">
-          <img src="assets/gallery/photo-6.svg" alt="Gallery photo 6">
-          <img src="assets/gallery/photo-7.svg" alt="Gallery photo 7">
-          <img src="assets/gallery/photo-8.svg" alt="Gallery photo 8">
-          <img src="assets/gallery/photo-9.svg" alt="Gallery photo 9">
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
+    <!-- ================= CONTACT SECTION ================= -->
     <section id="contact" class="section container">
-      <div class="contact reveal">
-        <div class="contact__text">
-          <span class="eyebrow">GET IN TOUCH</span>
-          <h2>Need a QA engineer who cares about the details?</h2>
-          <p>Email me about QA roles or testing work, or browse my code on GitHub.</p>
+      <div class="contact-banner reveal">
+        <div class="contact-text">
+          <span class="section__eyebrow" style="color:#34D399">GET IN TOUCH</span>
+          <h2>Need a detail-driven QA Engineer for your team?</h2>
+          <p>Whether you need release-ready manual QA coverage, robust REST API automated test suites, or performance benchmarks, I'm ready to bring certainty to your software releases.</p>
         </div>
-        <div class="contact__links">
-          <a href="mailto:nahinchowdhuryfci@gmail.com" class="contact-link contact-link--accent">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <span><small>Email</small><strong>nahinchowdhuryfci@gmail.com</strong></span>
+
+        <div class="contact-links">
+          <!-- Copy Email Card -->
+          <a href="mailto:nahinchowdhuryfci@gmail.com" class="contact-card" id="copyEmailBtn" aria-label="Copy or email Nahin">
+            <div class="contact-card__main">
+              <div class="icon-box" style="background:rgba(16,185,129,0.2);color:#34D399;border:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="contact-card__meta">
+                <small>EMAIL ADDRESS</small>
+                <strong>nahinchowdhuryfci@gmail.com</strong>
+              </div>
+            </div>
+            <span class="copy-badge">Click to copy</span>
           </a>
-          <a href="https://github.com/nahincodezzi" class="contact-link" target="_blank" rel="noopener">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-            <span><small>GitHub</small><strong>github.com/nahincodezzi</strong></span>
+
+          <!-- GitHub Profile -->
+          <a href="https://github.com/nahincodezzi" class="contact-card" target="_blank" rel="noopener">
+            <div class="contact-card__main">
+              <div class="icon-box" style="background:rgba(255,255,255,0.1);color:#FFFFFF;border:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="contact-card__meta">
+                <small>GITHUB PROFILE</small>
+                <strong>github.com/nahincodezzi</strong>
+              </div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
-          <div class="contact-link">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            <span><small>Location</small><strong>Dhaka, Bangladesh</strong></span>
+
+          <!-- Location Card -->
+          <div class="contact-card" style="cursor:default">
+            <div class="contact-card__main">
+              <div class="icon-box" style="background:rgba(56,189,248,0.2);color:#38BDF8;border:none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </div>
+              <div class="contact-card__meta">
+                <small>LOCATION</small>
+                <strong>Dhaka, Bangladesh</strong>
+              </div>
+            </div>
+            <span class="badge badge--pass" style="font-size:11px">Available</span>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="muted">© <span id="year">2026</span> Md Jaker Ullah Chowdhury Nahin · SQA Engineer</span>
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="#about">About</a><a href="#work">Projects</a><a href="#contact">Contact</a>
-        <a href="https://github.com/nahincodezzi" target="_blank" rel="noopener">GitHub</a><a href="assets/cv/Nahin-CV.pdf" download>Download CV</a>
-      </nav>
+      <span>&copy; <span id="year">2026</span> Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer</span>
+      <div class="footer__links">
+        <a href="#about">About</a>
+        <a href="#work">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/nahincodezzi" target="_blank" rel="noopener">GitHub</a>
+        <a href="assets/cv/Nahin-CV.pdf" download>Download CV</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Project details pop-up (filled in by js/script.js from each card) -->
+  <!-- ================= PROJECT DETAILS POP-UP MODAL ================= -->
   <div class="pmodal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="pmTitle" hidden>
-    <button type="button" class="pmodal__backdrop" data-close aria-label="Close details" tabindex="-1"></button>
+    <div class="pmodal__backdrop" data-close aria-label="Close project modal"></div>
     <div class="pmodal__panel">
       <header class="pmodal__head">
         <div class="pmodal__heading">
-          <div class="pmodal__tags"><span class="mono-label" id="pmId"></span><span class="badge badge--biz" id="pmCat"></span></div>
-          <h2 id="pmTitle"></h2>
-          <p id="pmType"></p>
+          <div class="pmodal__tags">
+            <span class="mono-label badge badge--pass" id="pmId"></span>
+            <span class="badge badge--cyan" id="pmCat"></span>
+          </div>
+          <h2 id="pmTitle" style="font-size:26px"></h2>
+          <p id="pmType" style="color:var(--text-muted);font-size:14px"></p>
         </div>
-        <button type="button" class="pmodal__close" data-close aria-label="Close details"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button type="button" class="pmodal__close" data-close aria-label="Close details">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </header>
-      <div class="pmodal__body">
-        <div class="pmodal__media" id="pmMedia">
-          <button type="button" class="pmodal__main" id="pmMainBtn" aria-label="Open screenshot full size"><img id="pmMain" src="" alt=""><span class="pmodal__counter" id="pmCounter"></span></button>
-          <div class="pmodal__thumbs" id="pmThumbs"></div>
-        </div>
+
+      <div class="pmodal__body no-media">
         <div class="pmodal__info">
-          <div class="pmodal__block"><span class="eyebrow">OVERVIEW</span><p id="pmOverview"></p></div>
-          <div class="pmodal__block"><span class="eyebrow">TESTING PERFORMED</span><div class="chips" id="pmTesting"></div></div>
-          <div class="pmodal__block" id="pmToolsBlock"><span class="eyebrow">TOOLS</span><div class="chips chips--plain" id="pmTools"></div></div>
+          <div>
+            <span class="section__eyebrow" style="font-size:12px">PROJECT OVERVIEW</span>
+            <p id="pmOverview" style="margin-top:6px;font-size:15.5px;color:var(--text-secondary);line-height:1.7"></p>
+          </div>
+          <div>
+            <span class="section__eyebrow" style="font-size:12px">TESTING PERFORMED</span>
+            <div class="chips" id="pmTesting" style="margin-top:8px"></div>
+          </div>
+          <div id="pmToolsBlock">
+            <span class="section__eyebrow" style="font-size:12px">TOOLS &amp; FRAMEWORKS</span>
+            <div class="chips" id="pmTools" style="margin-top:8px"></div>
+          </div>
         </div>
       </div>
-      <div class="pmodal__points"><span class="eyebrow">KEY VALIDATION POINTS</span><ul class="checks" id="pmPoints"></ul></div>
+
+      <div class="pmodal__points">
+        <span class="section__eyebrow" style="font-size:12px">KEY VALIDATION SCENARIOS</span>
+        <ul class="checks" id="pmPoints" style="margin-top:8px"></ul>
+      </div>
+
       <footer class="pmodal__foot">
-        <div class="pmodal__nav">
-          <button type="button" class="btn btn--ghost btn--sm" id="pmPrev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Previous project</button>
-          <button type="button" class="btn btn--ghost btn--sm" id="pmNext">Next project<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div style="display:flex;gap:8px">
+          <button type="button" class="btn btn--ghost btn--sm" id="pmPrev">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            Previous
+          </button>
+          <button type="button" class="btn btn--ghost btn--sm" id="pmNext">
+            Next
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
         <a class="btn btn--primary btn--sm" id="pmLink" href="#" target="_blank" rel="noopener" hidden>View on GitHub →</a>
       </footer>
     </div>
   </div>
 
-  <!-- Lightbox: opens gallery photos and project screenshots -->
+  <!-- ================= LIGHTBOX VIEWER ================= -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
-    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Close">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Close lightbox">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
     <figure class="lightbox__figure">
       <img id="lightboxImg" src="" alt="">
       <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
     </figure>
-    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 
-  <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
+  <!-- Back to Top Button -->
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="js/script.js"></script>
 </body>

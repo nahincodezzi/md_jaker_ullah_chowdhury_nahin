@@ -1,1 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000"><rect width="100%" height="100%" fill="#E6F2F1"/><text x="50%" y="50%" fill="#64748B" font-family="monospace" font-size="44" text-anchor="middle" dominant-baseline="middle">[ Add photo 06 ]</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="bgGrad6" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0F1D"/>
+      <stop offset="1" stop-color="#162035"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" rx="20" fill="url(#bgGrad6)"/>
+  
+  <!-- Header -->
+  <rect x="30" y="30" width="1140" height="50" rx="12" fill="#162035" stroke="#253550"/>
+  <circle cx="60" cy="55" r="7" fill="#EF4444"/>
+  <circle cx="85" cy="55" r="7" fill="#F59E0B"/>
+  <circle cx="110" cy="55" r="7" fill="#10B981"/>
+  <text x="145" y="60" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="600">STLC End-to-End Release Certification Pipeline — Codezzi / Skytech Solutions</text>
+  <rect x="990" y="42" width="160" height="26" rx="6" fill="#10B981" fill-opacity="0.15"/>
+  <text x="1070" y="59" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">RELEASE CERTIFIED</text>
+
+  <!-- 6 Pipeline Nodes -->
+  <!-- Node 1 -->
+  <rect x="40" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#38BDF8" stroke-opacity="0.4"/>
+  <circle cx="70" cy="145" r="16" fill="#38BDF8" fill-opacity="0.2"/>
+  <text x="70" y="151" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">01</text>
+  <text x="55" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Requirement</text>
+  <text x="55" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Analysis</text>
+  <text x="55" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Deconstruct specs, Swagger schemas &amp; edge business rules.</text>
+
+  <!-- Node 2 -->
+  <rect x="230" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#818CF8" stroke-opacity="0.4"/>
+  <circle cx="260" cy="145" r="16" fill="#818CF8" fill-opacity="0.2"/>
+  <text x="260" y="151" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">02</text>
+  <text x="245" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Test Design</text>
+  <text x="245" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Scenarios</text>
+  <text x="245" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">BVA, equivalence classes, negative matrix &amp; test data.</text>
+
+  <!-- Node 3 -->
+  <rect x="420" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#F59E0B" stroke-opacity="0.4"/>
+  <circle cx="450" cy="145" r="16" fill="#F59E0B" fill-opacity="0.2"/>
+  <text x="450" y="151" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">03</text>
+  <text x="435" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">API Testing</text>
+  <text x="435" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Automation</text>
+  <text x="435" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Postman runs &amp; Pytest automated suites against Swagger.</text>
+
+  <!-- Node 4 -->
+  <rect x="610" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#EC4899" stroke-opacity="0.4"/>
+  <circle cx="640" cy="145" r="16" fill="#EC4899" fill-opacity="0.2"/>
+  <text x="640" y="151" fill="#EC4899" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">04</text>
+  <text x="625" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Functional &amp;</text>
+  <text x="625" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Regression</text>
+  <text x="625" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">UI, forms, CMS publishing &amp; cross-browser sanity checks.</text>
+
+  <!-- Node 5 -->
+  <rect x="800" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#EAB308" stroke-opacity="0.4"/>
+  <circle cx="830" cy="145" r="16" fill="#EAB308" fill-opacity="0.2"/>
+  <text x="830" y="151" fill="#EAB308" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">05</text>
+  <text x="815" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Defect Triage</text>
+  <text x="815" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Retesting</text>
+  <text x="815" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Reproducible bug logs, developer liaison &amp; verified fixes.</text>
+
+  <!-- Node 6 -->
+  <rect x="990" y="115" width="170" height="200" rx="12" fill="#111A2E" stroke="#10B981" stroke-opacity="0.4"/>
+  <circle cx="1020" cy="145" r="16" fill="#10B981" fill-opacity="0.2"/>
+  <text x="1020" y="151" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" text-anchor="middle">06</text>
+  <text x="1005" y="190" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Daily QA Update</text>
+  <text x="1005" y="210" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">&amp; Sign-off</text>
+  <text x="1005" y="240" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Daily metrics report to engineering lead &amp; green release.</text>
+
+  <!-- Bottom: Daily QA Status Summary View -->
+  <rect x="40" y="345" width="1120" height="365" rx="16" fill="#0D1424" stroke="#1F2E47"/>
+  <rect x="40" y="345" width="1120" height="42" rx="16" fill="#17243B"/>
+  <text x="70" y="371" fill="#E2E8F0" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">EXECUTIVE DAILY QA STATUS REPORT (SAMPLE DASHBOARD)</text>
+  
+  <rect x="65" y="410" width="330" height="130" rx="12" fill="#121C30"/>
+  <text x="85" y="440" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="13" font-weight="700">CODEZZI RELEASE PIPELINE</text>
+  <text x="85" y="465" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="14">Sprint 24 · Production RC-2</text>
+  <text x="85" y="490" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Products Tested: SkyVAT, SkyCRM, Prime Bank</text>
+  <text x="85" y="515" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12">● Ready for Production Deployment</text>
+
+  <rect x="420" y="410" width="330" height="130" rx="12" fill="#121C30"/>
+  <text x="440" y="440" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="13" font-weight="700">DEFECT RESOLUTION METRICS</text>
+  <text x="440" y="465" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="14">Critical Bugs: 0 | Major: 0</text>
+  <text x="440" y="490" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Minor UI Improvements: 2 Verified</text>
+  <text x="440" y="515" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12">● 100% Fix Verification Completed</text>
+
+  <rect x="775" y="410" width="360" height="130" rx="12" fill="#121C30"/>
+  <text x="795" y="440" fill="#10B981" font-family="system-ui, sans-serif" font-size="13" font-weight="700">AUTOMATION CONFIDENCE SCORE</text>
+  <text x="795" y="465" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="14">169 Pytest API Checks · 0 Regressions</text>
+  <text x="795" y="490" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Execution Duration: 1.48 seconds</text>
+  <text x="795" y="515" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12">● Test Coverage: 94.6% of Endpoints</text>
+
+  <rect x="65" y="565" width="1070" height="120" rx="12" fill="#15223A" stroke="#253A5E"/>
+  <text x="95" y="605" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">&gt; QA SIGN-OFF CERTIFICATION:</text>
+  <text x="95" y="635" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="13">"All functional smoke gates, REST API contracts, and critical business workflows have been thoroughly verified across staging. Release approved for production deployment without blockers."</text>
+  <text x="95" y="665" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">SIGNED: Md Jaker Ullah Chowdhury Nahin · Associate QA Engineer (Skytech Solutions / Codezzi)</text>
+</svg>
