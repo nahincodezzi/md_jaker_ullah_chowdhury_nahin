@@ -10,20 +10,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const hasIO = 'IntersectionObserver' in window;
 
   /* =========================================================
-     1. THEME TOGGLE (DARK / LIGHT)
+     1. THEME TOGGLE (DARK / LIGHT) - ZERO FLICKER
      ========================================================= */
   const themeToggle = $('#themeToggle');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   
   const getInitialTheme = () => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return prefersDark.matches ? 'dark' : 'dark'; // High-tech dark default
+    const currentAttr = document.documentElement.getAttribute('data-theme');
+    if (currentAttr) return currentAttr;
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+    } catch (e) {}
+    return 'dark';
   };
 
   const applyTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+
+    const metaTheme = $('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'dark' ? '#0A0E17' : '#F8FAFC');
+    }
+
     if (themeToggle) {
       themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
       themeToggle.innerHTML = theme === 'dark' 
@@ -599,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================================
-     11. INSTANT EMAIL COPY TO CLIPBOARD
+     11. INSTANT EMAIL & PHONE COPY TO CLIPBOARD
      ========================================================= */
   const copyBtn = $('#copyEmailBtn');
   if (copyBtn) {
@@ -622,6 +632,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (err) {
         window.location.href = `mailto:${email}`;
+      }
+    });
+  }
+
+  const copyPhoneBtn = $('#copyPhoneBtn');
+  if (copyPhoneBtn) {
+    copyPhoneBtn.addEventListener('click', async (e) => {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (!isMobile) {
+        e.preventDefault();
+      }
+      const phone = '01633518042';
+      try {
+        await navigator.clipboard.writeText(phone);
+        const badge = $('#phoneBadge');
+        if (badge) {
+          const original = badge.textContent;
+          badge.textContent = 'Copied!';
+          badge.style.background = '#10B981';
+          badge.style.color = '#FFFFFF';
+          setTimeout(() => {
+            badge.textContent = original;
+            badge.style.background = '';
+            badge.style.color = '';
+          }, 2000);
+        }
+      } catch (err) {
+        if (!isMobile) window.location.href = 'tel:+8801633518042';
       }
     });
   }

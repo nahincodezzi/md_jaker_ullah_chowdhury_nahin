@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Jaker Ullah Chowdhury Nahin — SQA &amp; Automation Engineer (1.7+ Years Experience)</title>
   <meta name="description" content="Portfolio of Md Jaker Ullah Chowdhury Nahin, SQA Engineer with 1.7+ years of experience at Skytech Solutions (Codezzi). Functional, regression, Postman REST API testing, and Pytest/Selenium E2E automation.">
-  <meta name="theme-color" content="#10B981">
+  <meta name="theme-color" content="#0A0E17">
   <meta property="og:title" content="Md Jaker Ullah Chowdhury Nahin — SQA &amp; Automation Engineer">
   <meta property="og:description" content="1.7+ years of QA experience: manual testing, REST API validation, and Pytest/Selenium automation.">
   <meta property="og:image" content="assets/images/profile.jpg">
@@ -185,6 +196,7 @@
             <div class="fact-row"><dt>Total Experience</dt><dd class="accent-text">1.7+ Years</dd></div>
             <div class="fact-row"><dt>Current Role</dt><dd>Associate QA Engineer</dd></div>
             <div class="fact-row"><dt>Company</dt><dd>Skytech Solutions (Codezzi)</dd></div>
+            <div class="fact-row"><dt>Phone / WhatsApp</dt><dd><a href="tel:+8801633518042" class="accent-text" style="font-weight:600">+880 1633-518042</a></dd></div>
             <div class="fact-row"><dt>Testing Focus</dt><dd>Web, CMS, REST API &amp; Automation</dd></div>
             <div class="fact-row"><dt>Automation Stack</dt><dd>Pytest · Selenium 4 · Requests</dd></div>
             <div class="fact-row"><dt>Education</dt><dd>B.Sc. in CSE, BUBT</dd></div>
@@ -965,6 +977,20 @@
         </div>
 
         <div class="contact-links">
+          <!-- Direct Phone & WhatsApp Card -->
+          <a href="tel:+8801633518042" class="contact-card" id="copyPhoneBtn" aria-label="Call or copy Nahin's phone: 01633518042">
+            <div class="contact-card__main">
+              <div class="icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-card__meta">
+                <small>PHONE / WHATSAPP</small>
+                <strong>+880 1633-518042</strong>
+              </div>
+            </div>
+            <span class="copy-badge" id="phoneBadge">Click to copy</span>
+          </a>
+
           <!-- Copy Email Card -->
           <a href="mailto:nahinchowdhuryfci@gmail.com" class="contact-card" id="copyEmailBtn" aria-label="Copy or email Nahin">
             <div class="contact-card__main">
@@ -1019,6 +1045,7 @@
       <div class="footer__links">
         <a href="#about">About</a>
         <a href="#work">Projects</a>
+        <a href="tel:+8801633518042">+880 1633-518042</a>
         <a href="#contact">Contact</a>
         <a href="https://github.com/nahincodezzi" target="_blank" rel="noopener">GitHub</a>
         <a href="assets/cv/Nahin-CV.pdf" download>Download CV</a>
