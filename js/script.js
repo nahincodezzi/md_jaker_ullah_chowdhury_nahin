@@ -549,13 +549,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = $('#galleryNext');
 
     const items = [
-      { darkSrc: 'assets/gallery/photo-1.svg', lightSrc: 'assets/gallery/photo-1-light.svg', alt: 'Automated Pytest API Test Execution Matrix (169 Endpoints)' },
-      { darkSrc: 'assets/gallery/photo-7.svg', lightSrc: 'assets/gallery/photo-7-light.svg', alt: 'Codezzi Hiring Desk Selenium 4 E2E Architecture & 93 Tests Pipeline' },
-      { darkSrc: 'assets/gallery/photo-2.svg', lightSrc: 'assets/gallery/photo-2-light.svg', alt: 'Postman & Swagger API Verification Architecture' },
-      { darkSrc: 'assets/gallery/photo-3.svg', lightSrc: 'assets/gallery/photo-3-light.svg', alt: 'Bug Life Cycle & Defect Management Protocol' },
-      { darkSrc: 'assets/gallery/photo-4.svg', lightSrc: 'assets/gallery/photo-4-light.svg', alt: 'JMeter & k6 Concurrency Load Curve (500 VUs)' },
-      { darkSrc: 'assets/gallery/photo-5.svg', lightSrc: 'assets/gallery/photo-5-light.svg', alt: 'SkyVAT Business Logic & Tax Compliance Matrix' },
-      { darkSrc: 'assets/gallery/photo-6.svg', lightSrc: 'assets/gallery/photo-6-light.svg', alt: 'STLC Release Certification Pipeline' }
+      { darkSrc: 'assets/gallery/photo-1.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-1-light.svg?v=20261031_v5', alt: 'Automated Pytest API Test Execution Matrix (169 Endpoints)' },
+      { darkSrc: 'assets/gallery/photo-7.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-7-light.svg?v=20261031_v5', alt: 'Codezzi Hiring Desk Selenium 4 E2E Architecture & 93 Tests Pipeline' },
+      { darkSrc: 'assets/gallery/photo-2.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-2-light.svg?v=20261031_v5', alt: 'Postman & Swagger API Verification Architecture' },
+      { darkSrc: 'assets/gallery/photo-3.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-3-light.svg?v=20261031_v5', alt: 'Bug Life Cycle & Defect Management Protocol' },
+      { darkSrc: 'assets/gallery/photo-4.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-4-light.svg?v=20261031_v5', alt: 'JMeter & k6 Concurrency Load Curve (500 VUs)' },
+      { darkSrc: 'assets/gallery/photo-5.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-5-light.svg?v=20261031_v5', alt: 'SkyVAT Business Logic & Tax Compliance Matrix' },
+      { darkSrc: 'assets/gallery/photo-6.svg?v=20261031_v5', lightSrc: 'assets/gallery/photo-6-light.svg?v=20261031_v5', alt: 'STLC Release Certification Pipeline' }
     ];
 
     let activeIndex = 0;
