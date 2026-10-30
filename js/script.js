@@ -1,411 +1,618 @@
 /* =========================================================
-   SQA Portfolio — interactions
+   SQA Portfolio — Interactive Features & Micro-Interactions
+   Md Jaker Ullah Chowdhury Nahin
    ========================================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const pad = (n) => String(n).padStart(2, '0');
-  const io = 'IntersectionObserver' in window;
+  const hasIO = 'IntersectionObserver' in window;
 
-  /* ---------- Intro splash (shows once per browser session) ---------- */
-  const intro = $('#intro');
-  if (intro) {
-    const finishIntro = () => {
-      intro.classList.add('is-done');
-      setTimeout(() => intro.remove(), 700);
-      try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
-    };
-    let seen = false;
-    try { seen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
-    if (seen) intro.remove();
-    else {
-      setTimeout(finishIntro, 1900);
-      $('#skipIntro').addEventListener('click', finishIntro);
+  /* =========================================================
+     1. THEME TOGGLE (DARK / LIGHT)
+     ========================================================= */
+  const themeToggle = $('#themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  
+  const getInitialTheme = () => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return prefersDark.matches ? 'dark' : 'dark'; // High-tech dark default
+  };
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+      themeToggle.innerHTML = theme === 'dark' 
+        ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`
+        : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
     }
+  };
+
+  let currentTheme = getInitialTheme();
+  applyTheme(currentTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(currentTheme);
+    });
   }
 
-  /* ---------- Mobile menu ---------- */
-  const nav = $('#nav');
-  const navToggle = $('#navToggle');
-  const closeMenu = () => {
-    nav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open menu');
-  };
-  navToggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-  $$('a', nav).forEach((a) => a.addEventListener('click', closeMenu));
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
+  prefersDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
   });
 
-  /* ---------- Header shadow + back to top ---------- */
+  /* =========================================================
+     2. SCROLL PROGRESS BAR & HEADER SHADOW & BACK TO TOP
+     ========================================================= */
   const header = $('#header');
+  const scrollProgress = $('#scrollProgress');
   const toTop = $('#toTop');
+
   const onScroll = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 10);
-    toTop.classList.toggle('is-visible', window.scrollY > 600);
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    
+    if (scrollProgress) scrollProgress.style.width = `${progress}%`;
+    if (header) header.classList.toggle('is-scrolled', scrollY > 15);
+    if (toTop) toTop.classList.toggle('is-visible', scrollY > 500);
   };
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  /* ---------- Reveal on scroll ---------- */
-  if (io) {
-    const ro = new IntersectionObserver((entries) => {
+  if (toTop) {
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  /* =========================================================
+     3. MOBILE NAVIGATION MENU
+     ========================================================= */
+  const nav = $('#nav');
+  const navToggle = $('#navToggle');
+
+  const closeMenu = () => {
+    if (!nav) return;
+    nav.classList.remove('is-open');
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+  };
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    $$('a', nav).forEach((link) => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
+    });
+  }
+
+  /* =========================================================
+     4. ACTIVE NAVIGATION SCROLLSPY
+     ========================================================= */
+  const navLinks = $$('.nav__link:not(.btn)');
+  if (hasIO && navLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
-        if (en.isIntersecting) { en.target.classList.add('is-visible'); ro.unobserve(en.target); }
+        if (en.isIntersecting) {
+          navLinks.forEach((l) => {
+            const matches = l.getAttribute('href') === `#${en.target.id}`;
+            l.classList.toggle('is-active', matches);
+          });
+        }
       });
-    }, { threshold: 0.12 });
-    $$('.reveal').forEach((el) => ro.observe(el));
+    }, { rootMargin: '-35% 0px -55% 0px' });
+
+    navLinks.forEach((l) => {
+      const href = l.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const target = $(href);
+        if (target) spy.observe(target);
+      }
+    });
+  }
+
+  /* =========================================================
+     5. SCROLL REVEAL ANIMATIONS
+     ========================================================= */
+  if (hasIO) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add('is-visible');
+          revealObserver.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    $$('.reveal').forEach((el) => revealObserver.observe(el));
   } else {
     $$('.reveal').forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ---------- Animated stat counters ---------- */
-  const runCounter = (el) => {
+  /* =========================================================
+     6. ANIMATED STAT COUNTERS
+     ========================================================= */
+  const animateCounter = (el) => {
     const target = parseInt(el.dataset.count, 10) || 0;
+    const duration = 1600;
     const start = performance.now();
-    const step = (now) => {
-      const p = Math.min((now - start) / 1400, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
+
+    const update = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic
+      const current = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+      el.textContent = current;
+      if (progress < 1) requestAnimationFrame(update);
     };
-    requestAnimationFrame(step);
+
+    requestAnimationFrame(update);
   };
+
   const counters = $$('.counter');
-  if (io) {
-    const co = new IntersectionObserver((entries) => {
+  if (hasIO && counters.length) {
+    const countObserver = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
-        if (en.isIntersecting) { runCounter(en.target); co.unobserve(en.target); }
+        if (en.isIntersecting) {
+          animateCounter(en.target);
+          countObserver.unobserve(en.target);
+        }
       });
-    }, { threshold: 0.6 });
-    counters.forEach((c) => co.observe(c));
+    }, { threshold: 0.5 });
+
+    counters.forEach((c) => countObserver.observe(c));
   } else {
     counters.forEach((c) => { c.textContent = c.dataset.count; });
   }
 
-  /* ---------- Active menu link ---------- */
-  const links = $$('.nav__link:not(.nav__link--cta)');
-  if (io) {
-    const spy = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + en.target.id));
+  /* =========================================================
+     7. INTERACTIVE "LIVE QA TEST RUNNER" CONSOLE
+     ========================================================= */
+  const termBody = $('#terminalBody');
+  const runBtn = $('#runTestBtn');
+  const clearBtn = $('#clearTestBtn');
+  const termTabs = $$('.terminal-tab');
+
+  const testSuites = {
+    'suite-1': {
+      cmd: 'pytest tests/api/test_skyvat_endpoints.py -v --html=report.html',
+      logs: [
+        { type: 'info', text: 'Platform: Windows | Python 3.11.4 | Pytest 8.2.1 | Requests 2.31' },
+        { type: 'info', text: 'Collected 169 endpoints across 46 business modules...' },
+        { type: 'pass', text: '[12%] PASSED tests/api/test_auth.py::test_obtain_valid_jwt_token [200 OK - 18ms]' },
+        { type: 'pass', text: '[24%] PASSED tests/api/test_auth.py::test_reject_expired_bearer_token [401 UNAUTHORIZED - 11ms]' },
+        { type: 'pass', text: '[38%] PASSED tests/api/test_vat.py::test_mushak_6_3_calculation_rules [200 OK - 24ms]' },
+        { type: 'pass', text: '[55%] PASSED tests/api/test_inventory.py::test_stock_transfer_isolation [201 CREATED - 31ms]' },
+        { type: 'pass', text: '[72%] PASSED tests/api/test_security.py::test_cross_branch_data_isolation [403 FORBIDDEN - 9ms]' },
+        { type: 'pass', text: '[89%] PASSED tests/api/test_bulk.py::test_bulk_excel_import_schema [200 OK - 42ms]' },
+        { type: 'pass', text: '[100%] PASSED tests/api/test_tax.py::test_vat_rebate_9_1_reconciliation [200 OK - 26ms]' },
+        { type: 'highlight', text: '==================== 169 PASSED in 1.48s (100% SUCCESS) ====================' }
+      ]
+    },
+    'suite-2': {
+      cmd: 'pytest tests/security/test_jwt_and_rbac.py -v',
+      logs: [
+        { type: 'info', text: 'Executing Security & Role-Based Access Control Checks...' },
+        { type: 'pass', text: '✓ [AuthGate] 401 Unauthorized returned when Authorization header missing' },
+        { type: 'pass', text: '✓ [TokenExpiry] 401 Unauthorized on expired JWT signature' },
+        { type: 'pass', text: '✓ [RoleElevation] 403 Forbidden when standard user hits /api/admin/roles' },
+        { type: 'pass', text: '✓ [DataLeakage] Branch A tenant cannot query Branch B invoice ledgers' },
+        { type: 'pass', text: '✓ [SQLSanitization] Escapes illegal SQL query strings in search parameter' },
+        { type: 'highlight', text: '==================== 5/5 SECURITY GATES PASSED ====================' }
+      ]
+    },
+    'suite-3': {
+      cmd: 'python scripts/verify_vat_mushak_formulas.py --precision=4',
+      logs: [
+        { type: 'info', text: 'Validating NBR Tax Calculations against Transaction Ledgers...' },
+        { type: 'info', text: 'Testing Sales Line Items with fractional quantities (BOM batch #408)...' },
+        { type: 'pass', text: '✓ Raw Material Procurement tax accurately tracked in Mushak 6.1 Register' },
+        { type: 'pass', text: '✓ 15% Standard VAT equation verified: (Price × 0.15) with zero rounding drift' },
+        { type: 'pass', text: '✓ VDS (Tax Deducted at Source) challan calculation matches NBR deduction table' },
+        { type: 'pass', text: '✓ Monthly net payable in Mushak 9.1 matches sum of daily sales records' },
+        { type: 'highlight', text: '==================== ZERO FINANCIAL DISCREPANCIES FOUND ====================' }
+      ]
+    },
+    'suite-4': {
+      cmd: 'k6 run --vus 500 --duration 1m load_test_skysms_apis.js',
+      logs: [
+        { type: 'info', text: 'Ramping up 500 Virtual Users against SkySMS Gateway API...' },
+        { type: 'info', text: 'Dispatched 54,200 HTTP POST /api/v1/sms/dispatch requests' },
+        { type: 'pass', text: '✓ http_req_duration..............: avg=142ms  min=45ms  med=120ms  p(95)=210ms' },
+        { type: 'pass', text: '✓ http_req_failed................: 0.00% (0 errors out of 54,200 requests)' },
+        { type: 'pass', text: '✓ http_reqs......................: 1,840/s peak throughput' },
+        { type: 'highlight', text: '==================== LOAD BENCHMARK PASSED (SLA MET) ====================' }
+      ]
+    }
+  };
+
+  let activeSuiteKey = 'suite-1';
+  let isRunning = false;
+
+  const runTestSuite = (suiteKey) => {
+    if (isRunning || !termBody) return;
+    isRunning = true;
+    if (runBtn) runBtn.disabled = true;
+
+    termBody.innerHTML = '';
+    const suite = testSuites[suiteKey];
+
+    // Initial command line
+    const promptLine = document.createElement('div');
+    promptLine.className = 'term-line';
+    promptLine.innerHTML = `<span class="term-prompt">$</span><span>${suite.cmd}</span>`;
+    termBody.appendChild(promptLine);
+
+    suite.logs.forEach((log, index) => {
+      setTimeout(() => {
+        const line = document.createElement('div');
+        line.className = 'term-line';
+        
+        if (log.type === 'pass') {
+          line.innerHTML = `<span class="term-pass">${log.text}</span>`;
+        } else if (log.type === 'highlight') {
+          line.innerHTML = `<span class="term-pass" style="font-weight:700">${log.text}</span>`;
+        } else {
+          line.innerHTML = `<span class="term-info">${log.text}</span>`;
         }
+
+        termBody.appendChild(line);
+        termBody.scrollTop = termBody.scrollHeight;
+
+        if (index === suite.logs.length - 1) {
+          isRunning = false;
+          if (runBtn) runBtn.disabled = false;
+        }
+      }, (index + 1) * 220);
+    });
+  };
+
+  if (termTabs.length) {
+    termTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        if (isRunning) return;
+        termTabs.forEach((t) => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        activeSuiteKey = tab.dataset.suite;
+        runTestSuite(activeSuiteKey);
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    links.map((l) => $(l.getAttribute('href'))).filter(Boolean).forEach((s) => spy.observe(s));
+    });
   }
 
-  /* ---------- Project filter ---------- */
-  const filters = $$('.filter');
-  const projects = $$('.project');
-  filters.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const f = btn.dataset.filter;
-      filters.forEach((b) => {
-        const on = b === btn;
-        b.classList.toggle('is-active', on);
-        b.setAttribute('aria-selected', String(on));
+  if (runBtn) {
+    runBtn.addEventListener('click', () => runTestSuite(activeSuiteKey));
+  }
+
+  if (clearBtn && termBody) {
+    clearBtn.addEventListener('click', () => {
+      if (isRunning) return;
+      termBody.innerHTML = `<div class="term-line"><span class="term-prompt">$</span><span class="term-info">Console cleared. Click "Run Test Suite" to simulate live test execution.</span></div>`;
+    });
+  }
+
+  // Auto-run first suite once visible
+  if (hasIO && termBody) {
+    const termObserver = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          runTestSuite('suite-1');
+          termObserver.unobserve(en.target);
+        }
       });
-      projects.forEach((p) => {
-        const show = f === 'all' || p.dataset.category === f;
-        p.classList.toggle('is-hidden', !show);
-        if (show) {
-          p.classList.remove('is-entering');
-          void p.offsetWidth; // restart animation
-          p.classList.add('is-entering');
+    }, { threshold: 0.4 });
+    termObserver.observe(termBody);
+  }
+
+  /* =========================================================
+     8. PROJECTS FILTERING
+     ========================================================= */
+  const filterBtns = $$('.filter-btn');
+  const projectCards = $$('.project-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterBtns.forEach((b) => {
+        const isActive = b === btn;
+        b.classList.toggle('is-active', isActive);
+        b.setAttribute('aria-selected', String(isActive));
+      });
+
+      projectCards.forEach((card) => {
+        const matches = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !matches);
+        if (matches) {
+          card.classList.remove('is-entering');
+          void card.offsetWidth; // trigger reflow
+          card.classList.add('is-entering');
         }
       });
     });
   });
 
-  /* ---------- Lightbox (shared by gallery and project screenshots) ---------- */
-  const pm = $('#projectModal');
+  /* =========================================================
+     9. PROJECT DETAILS MODAL & LIGHTBOX
+     ========================================================= */
+  const pmodal = $('#projectModal');
   const lightbox = $('#lightbox');
   const lbImg = $('#lightboxImg');
   const lbCaption = $('#lightboxCaption');
   const lbPrev = $('#lightboxPrev');
   const lbNext = $('#lightboxNext');
-  let lbItems = [];   // [{ src, alt }]
+
+  let activeProject = null;
+  let modalReturnFocus = null;
+
+  const openProjectModal = (card) => {
+    if (!card || !pmodal) return;
+    activeProject = card;
+    modalReturnFocus = document.activeElement;
+
+    const details = $('.project__details', card);
+    const title = $('h3', card)?.textContent || '';
+    const category = $('.badge', card)?.textContent || '';
+    const id = $('.mono-label', card)?.textContent || 'PRJ';
+    const subtitle = $('.project-card__title p', card)?.textContent || $('.featured-stack', card)?.textContent || '';
+
+    $('#pmId').textContent = id;
+    $('#pmCat').textContent = category;
+    $('#pmTitle').textContent = title;
+    $('#pmType').textContent = `${subtitle} · Codezzi / Skytech Solutions`;
+
+    if (details) {
+      $('#pmOverview').textContent = $('.d-overview', details)?.textContent || '';
+
+      const testItems = $$('.d-testing li', details).map((li) => li.textContent.trim());
+      const testContainer = $('#pmTesting');
+      testContainer.innerHTML = '';
+      testItems.forEach((t) => {
+        const sp = document.createElement('span');
+        sp.textContent = t;
+        testContainer.appendChild(sp);
+      });
+
+      const toolItems = $$('.d-tools li', details).map((li) => li.textContent.trim());
+      const toolContainer = $('#pmTools');
+      toolContainer.innerHTML = '';
+      toolItems.forEach((t) => {
+        const sp = document.createElement('span');
+        sp.textContent = t;
+        toolContainer.appendChild(sp);
+      });
+      $('#pmToolsBlock').hidden = toolItems.length === 0;
+
+      const points = $$('.d-points li', details).map((li) => li.textContent.trim());
+      const pointsList = $('#pmPoints');
+      pointsList.innerHTML = '';
+      points.forEach((p) => {
+        const li = document.createElement('li');
+        li.textContent = p;
+        pointsList.appendChild(li);
+      });
+
+      const gitLink = $('.d-link', details)?.getAttribute('href');
+      const pmLink = $('#pmLink');
+      if (pmLink) {
+        pmLink.hidden = !gitLink;
+        if (gitLink) pmLink.href = gitLink;
+      }
+    }
+
+    pmodal.hidden = false;
+    document.body.classList.add('is-locked');
+    pmodal.scrollTop = 0;
+    $('.pmodal__close', pmodal)?.focus();
+  };
+
+  const closeProjectModal = () => {
+    if (!pmodal || pmodal.hidden) return;
+    pmodal.hidden = true;
+    if (lightbox.hidden) document.body.classList.remove('is-locked');
+    if (modalReturnFocus) modalReturnFocus.focus();
+  };
+
+  const stepProject = (direction) => {
+    const visibleCards = projectCards.filter((c) => !c.classList.contains('is-hidden'));
+    const list = visibleCards.length ? visibleCards : projectCards;
+    const index = list.indexOf(activeProject);
+    const nextIndex = (index + direction + list.length) % list.length;
+    openProjectModal(list[nextIndex]);
+  };
+
+  $$('.project__open').forEach((btn) => {
+    btn.addEventListener('click', () => openProjectModal(btn.closest('.project-card, .project-card--featured')));
+  });
+
+  $$('[data-close]', pmodal).forEach((btn) => btn.addEventListener('click', closeProjectModal));
+  $('#pmPrev')?.addEventListener('click', () => stepProject(-1));
+  $('#pmNext')?.addEventListener('click', () => stepProject(1));
+
+  /* Lightbox Controls */
+  let lbItems = [];
   let lbIndex = 0;
-  let lbTitle = '';
-  let lbReturnFocus = null;
 
   const renderLightbox = () => {
+    if (!lbItems.length) return;
     const item = lbItems[lbIndex];
     lbImg.src = item.src;
     lbImg.alt = item.alt;
-    lbCaption.textContent = lbItems.length > 1
-      ? `${lbTitle ? lbTitle + ' · ' : ''}${pad(lbIndex + 1)} / ${pad(lbItems.length)}`
-      : lbTitle;
-    lbPrev.hidden = lbNext.hidden = lbItems.length < 2;
+    lbCaption.textContent = `${item.alt} (${pad(lbIndex + 1)} / ${pad(lbItems.length)})`;
+    lbPrev.hidden = lbNext.hidden = lbItems.length <= 1;
   };
-  const openLightbox = (items, index = 0, title = '') => {
-    lbItems = items; lbIndex = index; lbTitle = title;
-    lbReturnFocus = document.activeElement;
+
+  const openLightbox = (items, index = 0) => {
+    lbItems = items;
+    lbIndex = index;
     renderLightbox();
     lightbox.hidden = false;
     document.body.classList.add('is-locked');
-    $('#lightboxClose').focus();
   };
+
   const closeLightbox = () => {
     if (lightbox.hidden) return;
     lightbox.hidden = true;
-    if (!pm || pm.hidden) document.body.classList.remove('is-locked');
-    if (lbReturnFocus) lbReturnFocus.focus();
+    if (pmodal.hidden) document.body.classList.remove('is-locked');
   };
-  const stepLightbox = (d) => {
-    lbIndex = (lbIndex + d + lbItems.length) % lbItems.length;
+
+  $('#lightboxClose')?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  lbPrev?.addEventListener('click', () => {
+    lbIndex = (lbIndex - 1 + lbItems.length) % lbItems.length;
     renderLightbox();
-  };
-  lbPrev.addEventListener('click', () => stepLightbox(-1));
-  lbNext.addEventListener('click', () => stepLightbox(1));
-  $('#lightboxClose').addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-  /* ---------- Project screenshots ----------
-     Each card has <div class="shots" data-shots="skyvat">. The script looks for
-     assets/screenshots/skyvat-1.png, skyvat-2.png … (also .jpg, .jpeg, .webp)
-     and shows whatever it finds. No files → the area stays hidden. */
-  const SHOT_DIR = 'assets/screenshots/';
-  const SHOT_EXTS = ['png', 'jpg', 'jpeg', 'webp'];
-  const MAX_SHOTS = 12;
-  const shotMap = new WeakMap();
-
-  const findImage = (base) => new Promise((resolve) => {
-    let i = 0;
-    const tryNext = () => {
-      if (i >= SHOT_EXTS.length) return resolve(null);
-      const src = `${base}.${SHOT_EXTS[i++]}`;
-      const img = new Image();
-      img.onload = () => resolve(src);
-      img.onerror = tryNext;
-      img.src = src;
-    };
-    tryNext();
   });
 
-  const loadShots = async (box) => {
-    const slug = box.dataset.shots;
-    const title = box.dataset.title || '';
-    const found = [];
-    for (let n = 1; n <= MAX_SHOTS; n++) {
-      const src = await findImage(`${SHOT_DIR}${slug}-${n}`);
-      if (!src) break; // stop at the first missing number
-      found.push({ src, alt: `${title} screenshot ${n}` });
-    }
-    shotMap.set(box, found);
-    if (!found.length) return;
+  lbNext?.addEventListener('click', () => {
+    lbIndex = (lbIndex + 1) % lbItems.length;
+    renderLightbox();
+  });
 
-    const visible = found.slice(0, 3);
-    box.classList.add('has-shots', `has-${visible.length}`);
-    visible.forEach((item, k) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'shot';
-      btn.setAttribute('aria-label', `Open ${item.alt}`);
-      const img = document.createElement('img');
-      img.src = item.src;
-      img.alt = item.alt;
-      img.loading = 'lazy';
-      btn.appendChild(img);
-      const extra = found.length - visible.length;
-      if (k === visible.length - 1 && extra > 0) {
-        const more = document.createElement('span');
-        more.className = 'shot__more';
-        more.textContent = `+${extra}`;
-        btn.appendChild(more);
+  /* Keyboard Listeners */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!lightbox.hidden) closeLightbox();
+      else if (!pmodal.hidden) closeProjectModal();
+      else closeMenu();
+    }
+    if (!lightbox.hidden && lbItems.length > 1) {
+      if (e.key === 'ArrowRight') {
+        lbIndex = (lbIndex + 1) % lbItems.length;
+        renderLightbox();
       }
-      btn.addEventListener('click', () => openProject(box.closest('.project'), k));
-      box.appendChild(btn);
-    });
-  };
-
-  /* ---------- Project details pop-up ----------
-     Opens from "View details" or a card screenshot. Text comes from the
-     card's hidden .project__details block; screenshots from assets/screenshots/. */
-  let pmProject = null;
-  let pmShots = [];
-  let pmShot = 0;
-  let pmReturnFocus = null;
-
-  const fillChips = (el, items) => {
-    el.innerHTML = '';
-    items.forEach((t) => { const sp = document.createElement('span'); sp.textContent = t; el.appendChild(sp); });
-  };
-  const listText = (root, sel) => $$(sel + ' li', root).map((li) => li.textContent.trim()).filter(Boolean);
-
-  const renderShot = () => {
-    const item = pmShots[pmShot];
-    $('#pmMain').src = item.src;
-    $('#pmMain').alt = item.alt;
-    $('#pmCounter').textContent = `${pad(pmShot + 1)} / ${pad(pmShots.length)}`;
-    $$('#pmThumbs button').forEach((b, k) => b.classList.toggle('is-active', k === pmShot));
-  };
-
-  const openProject = (article, shotIndex = 0) => {
-    if (!article) return;
-    pmProject = article;
-    const details = $('.project__details', article);
-    const typeEl = $('.project__title p', article) || $('.project__stack', article);
-    const idEl = $('.project__top .mono-label', article);
-    const catEl = $('.project__top .badge', article) || $('.project__top .eyebrow', article);
-    $('#pmId').textContent = idEl ? idEl.textContent : 'FEATURED';
-    $('#pmCat').textContent = catEl ? catEl.textContent : '';
-    $('#pmTitle').textContent = $('h3', article).textContent;
-    $('#pmType').textContent = (typeEl ? typeEl.textContent : '') + ' · Skytech Solutions (Codezzi)';
-    $('#pmOverview').textContent = details ? $('.d-overview', details).textContent : '';
-    fillChips($('#pmTesting'), details ? listText(details, '.d-testing') : []);
-    const tools = details ? listText(details, '.d-tools') : [];
-    fillChips($('#pmTools'), tools);
-    $('#pmToolsBlock').hidden = tools.length === 0;
-    const pts = $('#pmPoints');
-    pts.innerHTML = '';
-    (details ? listText(details, '.d-points') : []).forEach((t) => { const li = document.createElement('li'); li.textContent = t; pts.appendChild(li); });
-    const link = details && $('.d-link', details);
-    $('#pmLink').hidden = !link;
-    if (link) $('#pmLink').href = link.getAttribute('href');
-
-    const box = $('.shots', article);
-    pmShots = (box && shotMap.get(box)) || [];
-    pmShot = Math.min(shotIndex, Math.max(pmShots.length - 1, 0));
-    $('.pmodal__body', pm).classList.toggle('no-media', pmShots.length === 0);
-    $('#pmMedia').hidden = pmShots.length === 0;
-    const thumbs = $('#pmThumbs');
-    thumbs.innerHTML = '';
-    thumbs.hidden = pmShots.length < 2;
-    pmShots.forEach((item, k) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', `Show screenshot ${k + 1}`);
-      const im = document.createElement('img'); im.src = item.src; im.alt = '';
-      b.appendChild(im);
-      b.addEventListener('click', () => { pmShot = k; renderShot(); });
-      thumbs.appendChild(b);
-    });
-    if (pmShots.length) renderShot();
-
-    if (pm.hidden) {
-      pmReturnFocus = document.activeElement;
-      pm.hidden = false;
-      document.body.classList.add('is-locked');
+      if (e.key === 'ArrowLeft') {
+        lbIndex = (lbIndex - 1 + lbItems.length) % lbItems.length;
+        renderLightbox();
+      }
     }
-    pm.scrollTop = 0;
-    $('.pmodal__close', pm).focus();
-  };
-
-  const closeProject = () => {
-    if (pm.hidden) return;
-    pm.hidden = true;
-    if (lightbox.hidden) document.body.classList.remove('is-locked');
-    if (pmReturnFocus) pmReturnFocus.focus();
-  };
-
-  const stepProject = (d) => {
-    const visible = projects.filter((p) => !p.classList.contains('is-hidden'));
-    const list = visible.length ? visible : projects;
-    const i = list.indexOf(pmProject);
-    openProject(list[(i + d + list.length) % list.length], 0);
-  };
-
-  $$('.project__open').forEach((b) => b.addEventListener('click', () => openProject(b.closest('.project'))));
-  $$('[data-close]', pm).forEach((b) => b.addEventListener('click', closeProject));
-  $('#pmPrev').addEventListener('click', () => stepProject(-1));
-  $('#pmNext').addEventListener('click', () => stepProject(1));
-  $('#pmMainBtn').addEventListener('click', () => {
-    if (pmShots.length) openLightbox(pmShots, pmShot, $('#pmTitle').textContent);
-  });
-  // Keep keyboard focus inside the pop-up
-  pm.addEventListener('keydown', (e) => {
-    if (e.key !== 'Tab') return;
-    const f = $$('button:not([tabindex="-1"]), a[href]', pm).filter((el) => !el.closest('[hidden]') && el.offsetParent !== null);
-    if (!f.length) return;
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
-  $$('.shots[data-shots]').forEach(loadShots);
-
-  /* ---------- Gallery: slider, thumbnails, grid, autoplay ---------- */
-  const galleryRoot = $('#galleryRoot');
-  if (galleryRoot) {
-    const main = $('#galleryMain');
+  /* =========================================================
+     10. QA ARTIFACTS GALLERY (SLIDER / GRID / AUTOPLAY)
+     ========================================================= */
+  const galleryBox = $('#galleryRoot');
+  if (galleryBox) {
+    const mainImg = $('#galleryMain');
     const counter = $('#galleryCounter');
-    const thumbs = $$('#galleryThumbs img');
-    const toggle = $('#viewToggle');
-    const items = thumbs.map((t) => ({ src: t.getAttribute('src'), alt: t.alt }));
-    let index = 0;
-    let timer = null;
+    const thumbImgs = $$('.gallery-thumb-item img', galleryBox);
+    const viewToggle = $('#viewToggle');
+    const prevBtn = $('#galleryPrev');
+    const nextBtn = $('#galleryNext');
 
-    const show = (i) => {
-      index = (i + thumbs.length) % thumbs.length;
-      main.classList.add('is-fading');
+    const items = thumbImgs.map((img) => ({
+      src: img.getAttribute('src'),
+      alt: img.getAttribute('alt') || 'QA Architecture Artifact'
+    }));
+
+    let activeIndex = 0;
+    let autoSlideTimer = null;
+
+    const showArtifact = (index) => {
+      activeIndex = (index + items.length) % items.length;
+      mainImg.classList.add('is-fading');
+
       setTimeout(() => {
-        main.src = items[index].src;
-        main.alt = items[index].alt;
-        main.classList.remove('is-fading');
-      }, 200);
-      counter.textContent = `${pad(index + 1)} / ${pad(thumbs.length)}`;
-      thumbs.forEach((th, k) => th.classList.toggle('is-active', k === index));
+        mainImg.src = items[activeIndex].src;
+        mainImg.alt = items[activeIndex].alt;
+        mainImg.classList.remove('is-fading');
+      }, 150);
+
+      if (counter) counter.textContent = `${pad(activeIndex + 1)} / ${pad(items.length)}`;
+      $$('.gallery-thumb-item', galleryBox).forEach((item, k) => {
+        item.classList.toggle('is-active', k === activeIndex);
+      });
     };
 
-    const isGrid = () => galleryRoot.classList.contains('is-grid');
-    const stopAuto = () => { if (timer) clearInterval(timer); };
-    const startAuto = () => { stopAuto(); timer = setInterval(() => { if (!isGrid() && lightbox.hidden) show(index + 1); }, 5000); };
+    const isGrid = () => galleryBox.classList.contains('is-grid');
+    const stopAutoSlide = () => { if (autoSlideTimer) clearInterval(autoSlideTimer); };
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(() => {
+        if (!isGrid() && lightbox.hidden) showArtifact(activeIndex + 1);
+      }, 6000);
+    };
 
-    $('#galleryNext').addEventListener('click', () => { show(index + 1); startAuto(); });
-    $('#galleryPrev').addEventListener('click', () => { show(index - 1); startAuto(); });
-    main.addEventListener('click', () => openLightbox(items, index, 'Gallery'));
+    if (prevBtn) prevBtn.addEventListener('click', () => { showArtifact(activeIndex - 1); startAutoSlide(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { showArtifact(activeIndex + 1); startAutoSlide(); });
 
-    thumbs.forEach((th, k) => {
-      th.addEventListener('click', () => {
-        if (isGrid()) openLightbox(items, k, 'Gallery');
-        else { show(k); startAuto(); }
+    mainImg?.addEventListener('click', () => openLightbox(items, activeIndex));
+
+    $$('.gallery-thumb-item', galleryBox).forEach((thumb, k) => {
+      thumb.addEventListener('click', () => {
+        if (isGrid()) openLightbox(items, k);
+        else {
+          showArtifact(k);
+          startAutoSlide();
+        }
       });
     });
 
-    toggle.addEventListener('click', () => {
-      const grid = galleryRoot.classList.toggle('is-grid');
-      toggle.setAttribute('aria-pressed', String(grid));
-      $('span', toggle).textContent = grid ? 'Slider view' : 'Grid view';
-    });
+    if (viewToggle) {
+      viewToggle.addEventListener('click', () => {
+        const gridState = galleryBox.classList.toggle('is-grid');
+        viewToggle.setAttribute('aria-pressed', String(gridState));
+        const textSpan = $('span', viewToggle);
+        if (textSpan) textSpan.textContent = gridState ? 'Slider view' : 'Grid view';
+      });
+    }
 
-    galleryRoot.addEventListener('mouseenter', stopAuto);
-    galleryRoot.addEventListener('mouseleave', startAuto);
+    galleryBox.addEventListener('mouseenter', stopAutoSlide);
+    galleryBox.addEventListener('mouseleave', startAutoSlide);
 
-    show(0);
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) startAuto();
+    showArtifact(0);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      startAutoSlide();
+    }
+  }
 
-    // Arrow keys move the slider when it is on screen
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.hidden || isGrid()) return;
-      const r = galleryRoot.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) {
-        if (e.key === 'ArrowRight') show(index + 1);
-        if (e.key === 'ArrowLeft') show(index - 1);
+  /* =========================================================
+     11. INSTANT EMAIL COPY TO CLIPBOARD
+     ========================================================= */
+  const copyBtn = $('#copyEmailBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = 'nahinchowdhuryfci@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        const badge = $('.copy-badge', copyBtn);
+        if (badge) {
+          const original = badge.textContent;
+          badge.textContent = 'Copied!';
+          badge.style.background = '#10B981';
+          badge.style.color = '#FFFFFF';
+          setTimeout(() => {
+            badge.textContent = original;
+            badge.style.background = '';
+            badge.style.color = '';
+          }, 2000);
+        }
+      } catch (err) {
+        window.location.href = `mailto:${email}`;
       }
     });
   }
 
-  /* ---------- Keyboard: Escape and lightbox arrows ---------- */
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (!lightbox.hidden) closeLightbox();
-      else { closeProject(); closeMenu(); }
-    }
-    if (!lightbox.hidden && lbItems.length > 1) {
-      if (e.key === 'ArrowRight') stepLightbox(1);
-      if (e.key === 'ArrowLeft') stepLightbox(-1);
-    }
-  });
-
-  /* ---------- Current year ---------- */
-  const year = $('#year');
-  if (year) year.textContent = new Date().getFullYear();
+  /* =========================================================
+     12. DYNAMIC FOOTER YEAR
+     ========================================================= */
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
