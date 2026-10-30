@@ -238,6 +238,22 @@ document.addEventListener('DOMContentLoaded', () => {
         { type: 'pass', text: '✓ http_reqs......................: 1,840/s peak throughput' },
         { type: 'highlight', text: '==================== LOAD BENCHMARK PASSED (SLA MET) ====================' }
       ]
+    },
+    'suite-5': {
+      cmd: 'pytest tests/test_e2e_hiring_flow.py -v --html=reports/report.html',
+      logs: [
+        { type: 'info', text: 'Initializing Selenium 4 (Chrome WebDriver) & Page Object Model (POM)...' },
+        { type: 'info', text: 'Executing 93 Automated Test Scenarios across 13 Admin Modules...' },
+        { type: 'pass', text: '[12%] PASSED tests/test_categories.py::test_create_auto_category [CREATED]' },
+        { type: 'pass', text: '[25%] PASSED tests/test_positions.py::test_create_position_with_skills [OPEN]' },
+        { type: 'pass', text: '[40%] PASSED tests/test_cv_upload.py::test_generate_and_parse_ats_cv [PARSED OK]' },
+        { type: 'pass', text: '[58%] PASSED tests/test_screening.py::test_skill_score_matching_evaluation' },
+        { type: 'pass', text: '[74%] PASSED tests/test_e2e_hiring_flow.py::test_advance_5_pipeline_stages' },
+        { type: 'pass', text: '[86%] PASSED tests/test_emails.py::test_smtp_stage_notification_delivery' },
+        { type: 'pass', text: '[95%] PASSED tests/test_crosscheck.py::test_dashboard_vs_pipeline_numbers' },
+        { type: 'pass', text: '[100%] PASSED tests/test_public_api.py::test_api_key_auth_and_slugs [200 OK]' },
+        { type: 'highlight', text: '==================== 93 PASSED in 42.6s (Page Object Model) ====================' }
+      ]
     }
   };
 

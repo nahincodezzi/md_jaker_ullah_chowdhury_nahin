@@ -101,7 +101,7 @@
           </h1>
 
           <p class="hero__subtitle">
-            I'm <strong>Md Jaker Ullah Chowdhury Nahin</strong>, an Associate QA Engineer at <strong>Skytech Solutions (Codezzi)</strong>. I validate web products, client websites, CMS panels, and REST APIs against Swagger specs — and build automated testing suites with <strong>Python &amp; Pytest</strong>.
+            I'm <strong>Md Jaker Ullah Chowdhury Nahin</strong>, an Associate QA Engineer at <strong>Skytech Solutions (Codezzi)</strong>. I validate web products, client websites, CMS panels, and REST APIs against Swagger specs — and build automated testing suites with <strong>Python, Pytest &amp; Selenium 4 (Page Object Model)</strong>.
           </p>
 
           <div class="hero__actions">
@@ -126,12 +126,12 @@
               <span class="stat-item__label">Products &amp; CMS Systems Validated</span>
             </div>
             <div class="stat-item">
-              <span class="stat-item__num"><span class="counter" data-count="169">0</span></span>
-              <span class="stat-item__label">API Endpoints in Pytest Suite</span>
+              <span class="stat-item__num"><span class="counter" data-count="262">0</span>+</span>
+              <span class="stat-item__label">Automated Tests (Pytest &amp; Selenium)</span>
             </div>
             <div class="stat-item">
-              <span class="stat-item__num"><span class="counter" data-count="46">0</span></span>
-              <span class="stat-item__label">Business Modules Schema Mapped</span>
+              <span class="stat-item__num"><span class="counter" data-count="93">0</span></span>
+              <span class="stat-item__label">E2E Selenium Tests (Hiring Desk)</span>
             </div>
             <div class="stat-item">
               <span class="stat-item__num"><span class="counter" data-count="0">0</span></span>
@@ -194,9 +194,10 @@
 
         <div class="terminal-tabs">
           <button type="button" class="terminal-tab is-active" data-suite="suite-1">1. Pytest SkyVAT Suite (169 Endpoints)</button>
-          <button type="button" class="terminal-tab" data-suite="suite-2">2. Security &amp; JWT 401 Negative Tests</button>
-          <button type="button" class="terminal-tab" data-suite="suite-3">3. VAT Mushak-6.3 Calculation Rules</button>
-          <button type="button" class="terminal-tab" data-suite="suite-4">4. k6 Concurrency Benchmark (500 VUs)</button>
+          <button type="button" class="terminal-tab" data-suite="suite-5">2. Hiring Desk Selenium E2E (93 Tests / POM)</button>
+          <button type="button" class="terminal-tab" data-suite="suite-2">3. Security &amp; JWT 401 Negative Tests</button>
+          <button type="button" class="terminal-tab" data-suite="suite-3">4. VAT Mushak-6.3 Calculation Rules</button>
+          <button type="button" class="terminal-tab" data-suite="suite-4">5. k6 Concurrency Benchmark (500 VUs)</button>
         </div>
 
         <div class="terminal-body" id="terminalBody">
@@ -221,10 +222,11 @@
       <div class="container tools-bar__inner">
         <span class="tools-bar__label">VALIDATION TOOLKIT &amp; STACK</span>
         <div class="tools-bar__list">
-          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Postman</span>
-          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Swagger (OpenAPI)</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Selenium 4 (WebDriver)</span>
           <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Python</span>
           <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Pytest &amp; Requests</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Postman</span>
+          <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Swagger (OpenAPI)</span>
           <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> Apache JMeter</span>
           <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> k6 Load Testing</span>
           <span class="tool-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg> SQL &amp; Database</span>
@@ -393,14 +395,16 @@
             <h3>Automation &amp; Perf.</h3>
           </div>
           <div class="chips">
+            <span>Selenium 4 (WebDriver)</span>
+            <span>Page Object Model (POM)</span>
             <span>Python 3</span>
             <span>Pytest Suite</span>
             <span>Requests Library</span>
             <span>pytest-html</span>
+            <span>ReportLab CV Factory</span>
             <span>Apache JMeter</span>
             <span>k6 Load Testing</span>
-            <span>Concurrency Profiling</span>
-            <span>Automation Gating</span>
+            <span>E2E Regression Suites</span>
           </div>
         </div>
 
@@ -445,9 +449,10 @@
           </div>
           <ul class="checks">
             <li>Execute functional, regression, smoke, and sanity test cycles on Codezzi's SaaS enterprise products, client websites, and custom CMS administration panels prior to every production release.</li>
+            <li>Architected an End-to-End browser test automation framework for Codezzi Hiring Desk (ATS) using Python, Selenium 4, and Pytest with the Page Object Model (POM) — automating 93 test scenarios across 13 admin pages, synthetic ATS CV generation (PDF/DOCX via ReportLab), candidate pipeline transitions, and automated failure reporting with screenshots.</li>
             <li>Perform comprehensive REST API contract testing in Postman against Swagger documentation — validating JSON response schemas, token auth, status codes, and edge-case boundary payloads.</li>
+            <li>Spearheaded automation of the SkyVAT REST API with Python and Pytest (169 endpoints across 46 modules), using Pandas to engineer bulk synthetic test datasets and reduce manual API test cycle time.</li>
             <li>Author structured bug reports with steps to reproduce, expected vs. actual outcomes, logs, and screenshots; liaise directly with software engineers to retest and verify fixes.</li>
-            <li>Spearheaded automation of the SkyVAT REST API with Python and Pytest, using Pandas to engineer bulk synthetic test datasets and reduce manual API test cycle time.</li>
             <li>Compile and deliver daily QA release updates and status metrics to engineering leadership during release sprints.</li>
           </ul>
         </div>
@@ -483,8 +488,8 @@
       <!-- Filter Tabs -->
       <div class="filters reveal" role="tablist" aria-label="Project category filters">
         <button type="button" class="filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All Projects (10)</button>
-        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="auto">API Automation (1)</button>
-        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="biz">Business ERP (6)</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="auto">Automation Projects (2)</button>
+        <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="biz">Business ERP (5)</button>
         <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="web">Websites &amp; CMS (3)</button>
       </div>
 
@@ -675,32 +680,50 @@
           </div>
         </article>
 
-        <!-- PRJ-05: Codezzi Hiring Desk -->
-        <article class="project-card" data-category="biz">
+        <!-- AUTO-02: Codezzi Hiring Desk Automation -->
+        <article class="project-card" data-category="auto">
           <div class="project-card__top">
-            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">PRJ-05</span>
-            <span class="badge badge--cyan">Business ERP</span>
+            <span class="mono mono-label" style="font-size:12px;color:var(--text-muted)">AUTO-02</span>
+            <span class="badge badge--pass">E2E Automation</span>
           </div>
           <div class="project-card__title">
-            <h3>Codezzi Hiring Desk</h3>
-            <p>Applicant Tracking System (ATS)</p>
+            <h3>Codezzi Hiring Desk Automation</h3>
+            <p>Selenium 4 + Pytest E2E Suite (93 Tests)</p>
           </div>
           <ul class="checks checks--sm">
-            <li>Recruitment pipeline stages, candidate profiles, and talent database.</li>
-            <li>Interview scheduling, feedback collection, and status transitions.</li>
-            <li>Automated email templates and delivery logs with UX improvements logged.</li>
+            <li>Complete E2E hiring lifecycle: Category &amp; position creation, candidate stage progression, and automated stage email verification.</li>
+            <li>Page Object Model (POM) architecture covering 13 admin modules with clean locators and reusable action abstractions.</li>
+            <li>Synthetic ATS-friendly test CV generator (PDF/DOCX via ReportLab), parser validation, and 9 production defects tracked with strict xfail.</li>
           </ul>
           <div class="project-card__actions">
-            <button type="button" class="btn btn--ghost btn--sm project__open">View Test Details</button>
+            <button type="button" class="btn btn--primary btn--sm project__open">View Test Scope</button>
           </div>
           <div class="project__details" hidden>
-            <p class="d-overview">An internal applicant tracking system for recruitment. Tested candidate stage progression from application to interview and offer, along with automated email delivery.</p>
-            <ul class="d-testing"><li>Functional</li><li>Workflow Validation</li><li>Form Fields</li><li>Email Triggers</li></ul>
-            <ul class="d-tools"><li>Chrome DevTools</li></ul>
+            <p class="d-overview">A full-scale Selenium 4 + Pytest automated testing suite for Codezzi Hiring Desk, an applicant tracking system (ATS). Built using the Page Object Model (POM), it covers 93 automated tests across 13 admin pages, generates dynamic ATS-friendly CVs to validate parser accuracy, advances candidates across multi-stage recruitment pipelines, verifies automated notification emails in SMTP status, and cross-checks metrics across dashboard and pipeline views.</p>
+            <ul class="d-testing">
+              <li>End-to-End (E2E) Automation</li>
+              <li>Page Object Model (POM)</li>
+              <li>ATS CV Parser &amp; Data Extraction</li>
+              <li>Multi-Stage Pipeline Gating</li>
+              <li>Cross-Page Metric Reconciliation</li>
+              <li>Public REST API Testing</li>
+              <li>Automated Failure Screenshots</li>
+            </ul>
+            <ul class="d-tools">
+              <li>Python 3.14</li>
+              <li>Selenium 4</li>
+              <li>Pytest</li>
+              <li>pytest-html</li>
+              <li>ReportLab</li>
+              <li>python-docx</li>
+              <li>Requests</li>
+            </ul>
             <ul class="d-points">
-              <li>Candidate pipeline drag-and-drop state preservation</li>
-              <li>Interview scheduling calendar conflict detection</li>
-              <li>Email template variable substitution and bounce logs</li>
+              <li>93 automated test cases covering 13 admin pages and public REST API endpoints</li>
+              <li>Full recruitment lifecycle: Category -> Position -> Test CV Generation -> Parser Validation -> 5 Pipeline Stages -> Stage Email Verification</li>
+              <li>Dynamic ATS CV generator (PDF &amp; DOCX) tailored on-the-fly to position requirements</li>
+              <li>Discovered and tracked 9 genuine production defects using strict xfail markers</li>
+              <li>Dual HTML reporting: developer-ready bug report with failure screenshots + full pytest HTML log</li>
             </ul>
           </div>
         </article>
@@ -844,7 +867,7 @@
       <div class="gallery-box reveal" id="galleryRoot">
         <div class="gallery-stage">
           <img class="gallery-stage__img" id="galleryMain" src="assets/gallery/photo-1.svg" alt="Automated Pytest API Test Execution Matrix (169 Endpoints)">
-          <span class="gallery-stage__counter" id="galleryCounter">01 / 06</span>
+          <span class="gallery-stage__counter" id="galleryCounter">01 / 07</span>
           <div class="gallery-stage__controls">
             <button type="button" class="control-btn" id="galleryPrev" aria-label="Previous artifact">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -857,6 +880,7 @@
 
         <div class="gallery-thumbs" id="galleryThumbs">
           <div class="gallery-thumb-item is-active"><img src="assets/gallery/photo-1.svg" alt="Pytest 169 Endpoints Execution Report"></div>
+          <div class="gallery-thumb-item"><img src="assets/gallery/photo-7.svg" alt="Codezzi Hiring Desk Selenium 4 E2E Architecture &amp; 93 Tests Pipeline"></div>
           <div class="gallery-thumb-item"><img src="assets/gallery/photo-2.svg" alt="Postman &amp; Swagger API Verification Architecture"></div>
           <div class="gallery-thumb-item"><img src="assets/gallery/photo-3.svg" alt="Bug Life Cycle &amp; Defect Management Protocol"></div>
           <div class="gallery-thumb-item"><img src="assets/gallery/photo-4.svg" alt="JMeter &amp; k6 Concurrency Load Curve (500 VUs)"></div>
