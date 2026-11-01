@@ -94,6 +94,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -1641,6 +1643,8 @@ html:not([data-theme="light"]) .gallery-img-light {
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   transition: border-color var(--transition-fast);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .contact-card:hover {
@@ -1651,11 +1655,13 @@ html:not([data-theme="light"]) .gallery-img-light {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .contact-card__meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .contact-card__meta small {
@@ -1667,6 +1673,8 @@ html:not([data-theme="light"]) .gallery-img-light {
 .contact-card__meta strong {
   font-size: 14px;
   font-weight: 600;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .copy-badge {
@@ -1676,6 +1684,8 @@ html:not([data-theme="light"]) .gallery-img-light {
   border-radius: var(--radius-sm);
   background: var(--accent-soft);
   color: var(--accent-text);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* =========================================================
@@ -1700,7 +1710,9 @@ html:not([data-theme="light"]) .gallery-img-light {
 
 .footer__links {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
 }
 
 .footer__links a:hover {
@@ -2032,6 +2044,29 @@ html:not([data-theme="light"]) .gallery-img-light {
   .stat-item + .stat-item {
     border-left: none;
   }
+
+  /* Contact & Footer Responsive on Tablet & Mobile */
+  .contact-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding: clamp(24px, 4vw, 36px) clamp(16px, 3.5vw, 28px);
+  }
+  .contact-text,
+  .contact-links {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__links {
+    width: 100%;
+    gap: 10px 16px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2061,5 +2096,122 @@ html:not([data-theme="light"]) .gallery-img-light {
   }
   .hero__actions .btn {
     width: 100%;
+  }
+
+  /* Header Compact on Mobile */
+  .header__inner {
+    gap: 8px;
+    padding-block: 10px;
+  }
+  .logo {
+    min-width: 0;
+    flex-shrink: 1;
+    gap: 8px;
+  }
+  .logo__name {
+    font-size: 14px;
+    max-width: 135px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header__actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .header__actions .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* Contact Section Full Mobile Polish */
+  .contact-banner {
+    padding: 22px 14px;
+    border-radius: var(--radius-md);
+    gap: 20px;
+  }
+  .contact-text h2 {
+    font-size: clamp(20px, 5.5vw, 26px);
+    line-height: 1.25;
+  }
+  .contact-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .contact-links {
+    gap: 8px;
+  }
+  .contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 12px 14px;
+  }
+  .contact-card__main {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .contact-card .icon-box {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .contact-card__meta {
+    min-width: 0;
+    flex: 1;
+  }
+  .contact-card__meta small {
+    font-size: 10.5px;
+  }
+  .contact-card__meta strong {
+    font-size: 13.5px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .contact-card .copy-badge,
+  .contact-card > svg,
+  .contact-card .badge {
+    margin-left: 46px;
+    align-self: flex-start;
+    font-size: 10.5px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo__name {
+    max-width: 115px;
+  }
+  .header__actions .btn--primary {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding-inline: 12px;
+  }
+  .contact-banner {
+    padding: 18px 12px;
+  }
+  .contact-card {
+    padding: 10px 12px;
+  }
+  .contact-card .copy-badge,
+  .contact-card > svg,
+  .contact-card .badge {
+    margin-left: 0;
+  }
+  .logo__name {
+    max-width: 105px;
+  }
+  .footer__links {
+    gap: 8px 12px;
+    font-size: 12.5px;
   }
 }
